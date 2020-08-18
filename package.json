@@ -1,0 +1,21 @@
+{
+  "name": "manticore_search_client",
+  "version": "1.0.0",
+  "description": "Please_note_that_this_client_is_experimental_For_full_documentation_of_the_API_methods_consult_https__manual_manticoresearch_com__",
+  "license": "Apache 2.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "superagent": "5.1.0"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.0"
+  }
+}
