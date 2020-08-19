@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/PercolateRequest'), require('../model/SearchRequest'), require('../model/SearchResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.ManticoreSearchClient) {
-      root.ManticoreSearchClient = {};
+    if (!root.Manticoresearch) {
+      root.Manticoresearch = {};
     }
-    root.ManticoreSearchClient.SearchApi = factory(root.ManticoreSearchClient.ApiClient, root.ManticoreSearchClient.ErrorResponse, root.ManticoreSearchClient.PercolateRequest, root.ManticoreSearchClient.SearchRequest, root.ManticoreSearchClient.SearchResponse);
+    root.Manticoresearch.SearchApi = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.ErrorResponse, root.Manticoresearch.PercolateRequest, root.Manticoresearch.SearchRequest, root.Manticoresearch.SearchResponse);
   }
 }(this, function(ApiClient, ErrorResponse, PercolateRequest, SearchRequest, SearchResponse) {
   'use strict';

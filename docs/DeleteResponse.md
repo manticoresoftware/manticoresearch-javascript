@@ -1,4 +1,4 @@
-# ManticoreSearchClient.DeleteResponse
+# Manticoresearch.DeleteResponse
 
 ## Properties
 

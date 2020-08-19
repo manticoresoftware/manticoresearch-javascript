@@ -1,4 +1,4 @@
-# ManticoreSearchClient.SuccessResponse
+# Manticoresearch.SuccessResponse
 
 ## Properties
 

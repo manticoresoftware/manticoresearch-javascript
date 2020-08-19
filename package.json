@@ -1,5 +1,5 @@
 {
-  "name": "manticore_search_client",
+  "name": "manticoresearch",
   "version": "1.0.0",
   "description": "Please_note_that_this_client_is_experimental_For_full_documentation_of_the_API_methods_consult_https__manual_manticoresearch_com__",
   "license": "Apache 2.0",

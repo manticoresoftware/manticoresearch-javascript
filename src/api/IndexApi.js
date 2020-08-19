@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/BulkResponse'), require('../model/DeleteDocumentRequest'), require('../model/DeleteResponse'), require('../model/ErrorResponse'), require('../model/InsertDocumentRequest'), require('../model/SuccessResponse'), require('../model/UpdateDocumentRequest'), require('../model/UpdateResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.ManticoreSearchClient) {
-      root.ManticoreSearchClient = {};
+    if (!root.Manticoresearch) {
+      root.Manticoresearch = {};
     }
-    root.ManticoreSearchClient.IndexApi = factory(root.ManticoreSearchClient.ApiClient, root.ManticoreSearchClient.BulkResponse, root.ManticoreSearchClient.DeleteDocumentRequest, root.ManticoreSearchClient.DeleteResponse, root.ManticoreSearchClient.ErrorResponse, root.ManticoreSearchClient.InsertDocumentRequest, root.ManticoreSearchClient.SuccessResponse, root.ManticoreSearchClient.UpdateDocumentRequest, root.ManticoreSearchClient.UpdateResponse);
+    root.Manticoresearch.IndexApi = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.BulkResponse, root.Manticoresearch.DeleteDocumentRequest, root.Manticoresearch.DeleteResponse, root.Manticoresearch.ErrorResponse, root.Manticoresearch.InsertDocumentRequest, root.Manticoresearch.SuccessResponse, root.Manticoresearch.UpdateDocumentRequest, root.Manticoresearch.UpdateResponse);
   }
 }(this, function(ApiClient, BulkResponse, DeleteDocumentRequest, DeleteResponse, ErrorResponse, InsertDocumentRequest, SuccessResponse, UpdateDocumentRequest, UpdateResponse) {
   'use strict';

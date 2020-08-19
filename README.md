@@ -1,6 +1,6 @@
-# manticore_search_client
+# manticoresearch
 
-ManticoreSearchClient - JavaScript client for manticore_search_client
+Manticoresearch - JavaScript client for manticoresearch
 Please note that this client is experimental.
 For full documentation of the API methods consult https://manual.manticoresearch.com/.
 
@@ -22,7 +22,7 @@ To publish the library as a [npm](https://www.npmjs.com/), please follow the pro
 Then install it via:
 
 ```shell
-npm install manticore_search_client --save
+npm install manticoresearch --save
 ```
 
 ##### Local development
@@ -39,13 +39,13 @@ Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the follow
 npm link
 ```
 
-Finally, switch to the directory you want to use your manticore_search_client from, and run:
+Finally, switch to the directory you want to use your manticoresearch from, and run:
 
 ```shell
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 ```
 
-You should now be able to `require('manticore_search_client')` in javascript files from the directory you ran the last command above from.
+You should now be able to `require('manticoresearch')` in javascript files from the directory you ran the last command above from.
 
 ### git
 
@@ -89,10 +89,10 @@ module: {
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
 
-var api = new ManticoreSearchClient.IndexApi()
+var api = new Manticoresearch.IndexApi()
 var body = "body_example"; // {String} 
 
 var callback = function(error, data, response) {
@@ -112,30 +112,30 @@ All URIs are relative to *http://127.0.0.1:9308*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ManticoreSearchClient.IndexApi* | [**bulk**](docs/IndexApi.md#bulk) | **POST** /json/bulk | Bulk index operations
-*ManticoreSearchClient.IndexApi* | [**callDelete**](docs/IndexApi.md#callDelete) | **POST** /json/delete | Delete a document in an index
-*ManticoreSearchClient.IndexApi* | [**insert**](docs/IndexApi.md#insert) | **POST** /json/insert | Create a new document in an index
-*ManticoreSearchClient.IndexApi* | [**replace**](docs/IndexApi.md#replace) | **POST** /json/replace | Replace new document in an index
-*ManticoreSearchClient.IndexApi* | [**update**](docs/IndexApi.md#update) | **POST** /json/update | Update a document in an index
-*ManticoreSearchClient.SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /json/pq/{index}/search | Perform reverse search on a percolate index
-*ManticoreSearchClient.SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /json/search | Performs a search
-*ManticoreSearchClient.UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
+*Manticoresearch.IndexApi* | [**bulk**](docs/IndexApi.md#bulk) | **POST** /json/bulk | Bulk index operations
+*Manticoresearch.IndexApi* | [**callDelete**](docs/IndexApi.md#callDelete) | **POST** /json/delete | Delete a document in an index
+*Manticoresearch.IndexApi* | [**insert**](docs/IndexApi.md#insert) | **POST** /json/insert | Create a new document in an index
+*Manticoresearch.IndexApi* | [**replace**](docs/IndexApi.md#replace) | **POST** /json/replace | Replace new document in an index
+*Manticoresearch.IndexApi* | [**update**](docs/IndexApi.md#update) | **POST** /json/update | Update a document in an index
+*Manticoresearch.SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /json/pq/{index}/search | Perform reverse search on a percolate index
+*Manticoresearch.SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /json/search | Performs a search
+*Manticoresearch.UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
 
 
 ## Documentation for Models
 
- - [ManticoreSearchClient.BulkResponse](docs/BulkResponse.md)
- - [ManticoreSearchClient.DeleteDocumentRequest](docs/DeleteDocumentRequest.md)
- - [ManticoreSearchClient.DeleteResponse](docs/DeleteResponse.md)
- - [ManticoreSearchClient.ErrorResponse](docs/ErrorResponse.md)
- - [ManticoreSearchClient.InsertDocumentRequest](docs/InsertDocumentRequest.md)
- - [ManticoreSearchClient.PercolateRequest](docs/PercolateRequest.md)
- - [ManticoreSearchClient.SearchRequest](docs/SearchRequest.md)
- - [ManticoreSearchClient.SearchResponse](docs/SearchResponse.md)
- - [ManticoreSearchClient.SearchResponseHits](docs/SearchResponseHits.md)
- - [ManticoreSearchClient.SuccessResponse](docs/SuccessResponse.md)
- - [ManticoreSearchClient.UpdateDocumentRequest](docs/UpdateDocumentRequest.md)
- - [ManticoreSearchClient.UpdateResponse](docs/UpdateResponse.md)
+ - [Manticoresearch.BulkResponse](docs/BulkResponse.md)
+ - [Manticoresearch.DeleteDocumentRequest](docs/DeleteDocumentRequest.md)
+ - [Manticoresearch.DeleteResponse](docs/DeleteResponse.md)
+ - [Manticoresearch.ErrorResponse](docs/ErrorResponse.md)
+ - [Manticoresearch.InsertDocumentRequest](docs/InsertDocumentRequest.md)
+ - [Manticoresearch.PercolateRequest](docs/PercolateRequest.md)
+ - [Manticoresearch.SearchRequest](docs/SearchRequest.md)
+ - [Manticoresearch.SearchResponse](docs/SearchResponse.md)
+ - [Manticoresearch.SearchResponseHits](docs/SearchResponseHits.md)
+ - [Manticoresearch.SuccessResponse](docs/SuccessResponse.md)
+ - [Manticoresearch.UpdateDocumentRequest](docs/UpdateDocumentRequest.md)
+ - [Manticoresearch.UpdateResponse](docs/UpdateResponse.md)
 
 
 ## Documentation for Authorization

@@ -1,4 +1,4 @@
-# ManticoreSearchClient.InsertDocumentRequest
+# Manticoresearch.InsertDocumentRequest
 
 ## Properties
 

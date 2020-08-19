@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.ManticoreSearchClient) {
-      root.ManticoreSearchClient = {};
+    if (!root.Manticoresearch) {
+      root.Manticoresearch = {};
     }
-    root.ManticoreSearchClient.UtilsApi = factory(root.ManticoreSearchClient.ApiClient, root.ManticoreSearchClient.ErrorResponse);
+    root.Manticoresearch.UtilsApi = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.ErrorResponse);
   }
 }(this, function(ApiClient, ErrorResponse) {
   'use strict';

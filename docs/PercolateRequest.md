@@ -1,4 +1,4 @@
-# ManticoreSearchClient.PercolateRequest
+# Manticoresearch.PercolateRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# ManticoreSearchClient.IndexApi
+# Manticoresearch.IndexApi
 
 All URIs are relative to *http://127.0.0.1:9308*
 
@@ -43,9 +43,9 @@ The method expects a raw string as the batch in NDJSON.
 ### Example
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new ManticoreSearchClient.IndexApi();
+var apiInstance = new Manticoresearch.IndexApi();
 var body = "body_example"; // String | 
 var callback = function(error, data, response) {
   if (error) {
@@ -110,9 +110,9 @@ Responds with an object telling how many documents got deleted:
 ### Example
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new ManticoreSearchClient.IndexApi();
+var apiInstance = new Manticoresearch.IndexApi();
 var deleteDocumentRequest = {"index":"test","query":{"match":{"title":"apple"}}}; // DeleteDocumentRequest | 
 var callback = function(error, data, response) {
   if (error) {
@@ -175,9 +175,9 @@ It responds with an object in format:
 ### Example
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new ManticoreSearchClient.IndexApi();
+var apiInstance = new Manticoresearch.IndexApi();
 var insertDocumentRequest = {"index":"test","id":1,"doc":{"title":"sample title","gid":10}}; // InsertDocumentRequest | 
 var callback = function(error, data, response) {
   if (error) {
@@ -228,9 +228,9 @@ Responds with an object in format: <br/>
 ### Example
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new ManticoreSearchClient.IndexApi();
+var apiInstance = new Manticoresearch.IndexApi();
 var insertDocumentRequest = {"index":"test","id":1,"doc":{"title":"updated title","gid":15}}; // InsertDocumentRequest | 
 var callback = function(error, data, response) {
   if (error) {
@@ -294,9 +294,9 @@ Responds with an object that tells how many documents where updated in format:
 ### Example
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new ManticoreSearchClient.IndexApi();
+var apiInstance = new Manticoresearch.IndexApi();
 var updateDocumentRequest = {"index":"test","doc":{"gid":20},"query":{"equals":{"cat_id":2}}}; // UpdateDocumentRequest | 
 var callback = function(error, data, response) {
   if (error) {

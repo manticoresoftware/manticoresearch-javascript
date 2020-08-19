@@ -1,4 +1,4 @@
-# ManticoreSearchClient.SearchRequest
+# Manticoresearch.SearchRequest
 
 ## Properties
 

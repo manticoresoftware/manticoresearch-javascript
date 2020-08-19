@@ -1,4 +1,4 @@
-# ManticoreSearchClient.SearchApi
+# Manticoresearch.SearchApi
 
 All URIs are relative to *http://127.0.0.1:9308*
 
@@ -35,9 +35,9 @@ Responds with an object with matched stored queries:
 ### Example
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new ManticoreSearchClient.SearchApi();
+var apiInstance = new Manticoresearch.SearchApi();
 var index = "index_example"; // String | Name of the percolate index
 var percolateRequest = {"query":{"percolate":{"document":{"title":"some text to match"}}}}; // PercolateRequest | 
 var callback = function(error, data, response) {
@@ -106,10 +106,10 @@ For more information about the match query syntax, additional paramaters that ca
 ### Example
 
 ```javascript
-var ManticoreSearchClient = require('manticore_search_client');
+var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new ManticoreSearchClient.SearchApi();
-var searchRequest = new ManticoreSearchClient.SearchRequest(); // SearchRequest | 
+var apiInstance = new Manticoresearch.SearchApi();
+var searchRequest = new Manticoresearch.SearchRequest(); // SearchRequest | 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);

@@ -1,4 +1,4 @@
-# ManticoreSearchClient.SearchResponseHits
+# Manticoresearch.SearchResponseHits
 
 ## Properties
 

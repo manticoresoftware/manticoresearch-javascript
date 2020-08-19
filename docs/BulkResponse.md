@@ -1,4 +1,4 @@
-# ManticoreSearchClient.BulkResponse
+# Manticoresearch.BulkResponse
 
 ## Properties
 
