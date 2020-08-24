@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -23,17 +23,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.ManticoreSearchClient);
+    factory(root.expect, root.Manticoresearch);
   }
-}(this, function(expect, ManticoreSearchClient) {
+}(this, function(expect, Manticoresearch) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    var client= new ManticoreSearchClient.ApiClient()
-    client.basePath="http://manticoresearch-manticore:9308"
-    instance = new ManticoreSearchClient.IndexApi(client);
+    instance = new Manticoresearch.IndexApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -55,39 +53,31 @@
   describe('IndexApi', function() {
     describe('bulk', function() {
       it('should call bulk successfully', function(done) {
-        
-        let bulk = [{"insert": {"index": "test", "doc": {"content":"some test","name":"another test",'cat':21}}},
-{"delete": {"index": "test","id":1}}];
-        let bulk_nd = "";
-        for (const item of bulk) {
-            bulk_nd += JSON.stringify(item) + "\n";
-        }	
-        instance.bulk(bulk_nd, function(error) {
-            if(error) throw error;
-            expect().to.be();
-        }
-        );	
+        //uncomment below and update the code to test bulk
+        //instance.bulk(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
         done();
       });
     });
     describe('callDelete', function() {
       it('should call callDelete successfully', function(done) {
-        instance.callDelete({
-                'index': 'test',
-                'id':1400
-        }, function(error) {
-            if(error) throw error;
-            expect().to.be();
-        });
+        //uncomment below and update the code to test callDelete
+        //instance.callDelete(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
         done();
       });
     });
     describe('insert', function() {
       it('should call insert successfully', function(done) {
-        instance.insert({"index": "test", "doc": {"content":"some test","name":"another test",'cat':21}},function(error) {
-            if (error) throw error;
-            expect().to.be();
-        });
+        //uncomment below and update the code to test insert
+        //instance.insert(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
         done();
       });
     });

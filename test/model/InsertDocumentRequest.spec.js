@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -23,16 +23,16 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.ManticoreSearchClient);
+    factory(root.expect, root.Manticoresearch);
   }
-}(this, function(expect, ManticoreSearchClient) {
+}(this, function(expect, Manticoresearch) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
     // create a new instance
-    //instance = new ManticoreSearchClient.InsertDocumentRequest();
+    //instance = new Manticoresearch.InsertDocumentRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -54,25 +54,25 @@
   describe('InsertDocumentRequest', function() {
     it('should create an instance of InsertDocumentRequest', function() {
       // uncomment below and update the code to test InsertDocumentRequest
-      //var instance = new ManticoreSearchClient.InsertDocumentRequest();
-      //expect(instance).to.be.a(ManticoreSearchClient.InsertDocumentRequest);
+      //var instance = new Manticoresearch.InsertDocumentRequest();
+      //expect(instance).to.be.a(Manticoresearch.InsertDocumentRequest);
     });
 
     it('should have the property index (base name: "index")', function() {
       // uncomment below and update the code to test the property index
-      //var instance = new ManticoreSearchClient.InsertDocumentRequest();
+      //var instance = new Manticoresearch.InsertDocumentRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new ManticoreSearchClient.InsertDocumentRequest();
+      //var instance = new Manticoresearch.InsertDocumentRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property doc (base name: "doc")', function() {
       // uncomment below and update the code to test the property doc
-      //var instance = new ManticoreSearchClient.InsertDocumentRequest();
+      //var instance = new Manticoresearch.InsertDocumentRequest();
       //expect(instance).to.be();
     });
 

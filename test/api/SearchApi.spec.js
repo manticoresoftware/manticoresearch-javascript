@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -23,15 +23,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.ManticoreSearchClient);
+    factory(root.expect, root.Manticoresearch);
   }
-}(this, function(expect, ManticoreSearchClient) {
+}(this, function(expect, Manticoresearch) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new ManticoreSearchClient.SearchApi();
+    instance = new Manticoresearch.SearchApi();
   });
 
   var getProperty = function(object, getter, property) {

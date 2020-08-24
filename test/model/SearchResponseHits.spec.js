@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -23,16 +23,16 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.ManticoreSearchClient);
+    factory(root.expect, root.Manticoresearch);
   }
-}(this, function(expect, ManticoreSearchClient) {
+}(this, function(expect, Manticoresearch) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
     // create a new instance
-    //instance = new ManticoreSearchClient.SearchResponseHits();
+    //instance = new Manticoresearch.SearchResponseHits();
   });
 
   var getProperty = function(object, getter, property) {
@@ -54,19 +54,19 @@
   describe('SearchResponseHits', function() {
     it('should create an instance of SearchResponseHits', function() {
       // uncomment below and update the code to test SearchResponseHits
-      //var instance = new ManticoreSearchClient.SearchResponseHits();
-      //expect(instance).to.be.a(ManticoreSearchClient.SearchResponseHits);
+      //var instance = new Manticoresearch.SearchResponseHits();
+      //expect(instance).to.be.a(Manticoresearch.SearchResponseHits);
     });
 
     it('should have the property total (base name: "total")', function() {
       // uncomment below and update the code to test the property total
-      //var instance = new ManticoreSearchClient.SearchResponseHits();
+      //var instance = new Manticoresearch.SearchResponseHits();
       //expect(instance).to.be();
     });
 
     it('should have the property hits (base name: "hits")', function() {
       // uncomment below and update the code to test the property hits
-      //var instance = new ManticoreSearchClient.SearchResponseHits();
+      //var instance = new Manticoresearch.SearchResponseHits();
       //expect(instance).to.be();
     });
 

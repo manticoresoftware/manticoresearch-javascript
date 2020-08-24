@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -23,16 +23,16 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.ManticoreSearchClient);
+    factory(root.expect, root.Manticoresearch);
   }
-}(this, function(expect, ManticoreSearchClient) {
+}(this, function(expect, Manticoresearch) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
     // create a new instance
-    //instance = new ManticoreSearchClient.BulkResponse();
+    //instance = new Manticoresearch.BulkResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -54,19 +54,19 @@
   describe('BulkResponse', function() {
     it('should create an instance of BulkResponse', function() {
       // uncomment below and update the code to test BulkResponse
-      //var instance = new ManticoreSearchClient.BulkResponse();
-      //expect(instance).to.be.a(ManticoreSearchClient.BulkResponse);
+      //var instance = new Manticoresearch.BulkResponse();
+      //expect(instance).to.be.a(Manticoresearch.BulkResponse);
     });
 
     it('should have the property items (base name: "items")', function() {
       // uncomment below and update the code to test the property items
-      //var instance = new ManticoreSearchClient.BulkResponse();
+      //var instance = new Manticoresearch.BulkResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property error (base name: "error")', function() {
       // uncomment below and update the code to test the property error
-      //var instance = new ManticoreSearchClient.BulkResponse();
+      //var instance = new Manticoresearch.BulkResponse();
       //expect(instance).to.be();
     });
 

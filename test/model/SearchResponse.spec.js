@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -23,16 +23,16 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.ManticoreSearchClient);
+    factory(root.expect, root.Manticoresearch);
   }
-}(this, function(expect, ManticoreSearchClient) {
+}(this, function(expect, Manticoresearch) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
     // create a new instance
-    //instance = new ManticoreSearchClient.SearchResponse();
+    //instance = new Manticoresearch.SearchResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -54,31 +54,31 @@
   describe('SearchResponse', function() {
     it('should create an instance of SearchResponse', function() {
       // uncomment below and update the code to test SearchResponse
-      //var instance = new ManticoreSearchClient.SearchResponse();
-      //expect(instance).to.be.a(ManticoreSearchClient.SearchResponse);
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be.a(Manticoresearch.SearchResponse);
     });
 
     it('should have the property took (base name: "took")', function() {
       // uncomment below and update the code to test the property took
-      //var instance = new ManticoreSearchClient.SearchResponse();
+      //var instance = new Manticoresearch.SearchResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property timedOut (base name: "timed_out")', function() {
       // uncomment below and update the code to test the property timedOut
-      //var instance = new ManticoreSearchClient.SearchResponse();
+      //var instance = new Manticoresearch.SearchResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property hits (base name: "hits")', function() {
       // uncomment below and update the code to test the property hits
-      //var instance = new ManticoreSearchClient.SearchResponse();
+      //var instance = new Manticoresearch.SearchResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property profile (base name: "profile")', function() {
       // uncomment below and update the code to test the property profile
-      //var instance = new ManticoreSearchClient.SearchResponse();
+      //var instance = new Manticoresearch.SearchResponse();
       //expect(instance).to.be();
     });
 

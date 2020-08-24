@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -23,16 +23,16 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.ManticoreSearchClient);
+    factory(root.expect, root.Manticoresearch);
   }
-}(this, function(expect, ManticoreSearchClient) {
+}(this, function(expect, Manticoresearch) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
     // create a new instance
-    //instance = new ManticoreSearchClient.PercolateRequest();
+    //instance = new Manticoresearch.PercolateRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -54,13 +54,13 @@
   describe('PercolateRequest', function() {
     it('should create an instance of PercolateRequest', function() {
       // uncomment below and update the code to test PercolateRequest
-      //var instance = new ManticoreSearchClient.PercolateRequest();
-      //expect(instance).to.be.a(ManticoreSearchClient.PercolateRequest);
+      //var instance = new Manticoresearch.PercolateRequest();
+      //expect(instance).to.be.a(Manticoresearch.PercolateRequest);
     });
 
     it('should have the property query (base name: "query")', function() {
       // uncomment below and update the code to test the property query
-      //var instance = new ManticoreSearchClient.PercolateRequest();
+      //var instance = new Manticoresearch.PercolateRequest();
       //expect(instance).to.be();
     });
 
