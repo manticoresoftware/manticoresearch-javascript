@@ -1,6 +1,6 @@
 /**
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@manticoresearch.com
@@ -26,7 +26,7 @@
   'use strict';
 
   /**
-   * Please_note_that_this_client_is_experimental_For_full_documentation_of_the_API_methods_consult_https__manual_manticoresearch_com__.<br>
+   * Experimental_low_level_client_for_Manticore_Search_.<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:

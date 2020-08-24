@@ -1,7 +1,7 @@
 {
   "name": "manticoresearch",
   "version": "1.0.0",
-  "description": "Please_note_that_this_client_is_experimental_For_full_documentation_of_the_API_methods_consult_https__manual_manticoresearch_com__",
+  "description": "Javascript client for Manticore Search",
   "license": "Apache 2.0",
   "main": "src/index.js",
   "scripts": {
@@ -10,6 +10,13 @@
   "browser": {
     "fs": false
   },
+  "keywords": [
+    "manticoresearch",
+    "REST",
+    "search",
+    "client",
+    "index"
+  ],  
   "dependencies": {
     "superagent": "5.1.0"
   },
