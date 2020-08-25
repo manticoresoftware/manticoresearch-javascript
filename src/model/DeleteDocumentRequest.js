@@ -25,7 +25,7 @@
   /**
    * The DeleteDocumentRequest model module.
    * @module model/DeleteDocumentRequest
-   * @version 1.0.0
+   * @version 1.0.2
    */
 
   /**

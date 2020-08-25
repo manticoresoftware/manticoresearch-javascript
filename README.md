@@ -16,13 +16,13 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
 ## Documentation
 
-Full documentation is available in  [docs](https://github.com/manticoresoftware/manticoresearch-python/tree/master/docs) folder.
+Full documentation is available in  [docs](https://github.com/manticoresoftware/manticoresearch-javascript/tree/master/docs) folder.
 
 Manticore Search server documentation: https://manual.manticoresearch.com.
 
 ## Getting Started
 
-Please follow the [installation](#installation) instruction and execute the following JS code:
+A simple search case:
 
 ```javascript
 var Manticoresearch = require('manticoresearch');
