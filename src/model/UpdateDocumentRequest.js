@@ -25,7 +25,7 @@
   /**
    * The UpdateDocumentRequest model module.
    * @module model/UpdateDocumentRequest
-   * @version 1.0.2
+   * @version 1.0.3
    */
 
   /**

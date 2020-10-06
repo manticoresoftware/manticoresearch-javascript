@@ -25,7 +25,7 @@
   /**
    * The SearchResponse model module.
    * @module model/SearchResponse
-   * @version 1.0.2
+   * @version 1.0.3
    */
 
   /**

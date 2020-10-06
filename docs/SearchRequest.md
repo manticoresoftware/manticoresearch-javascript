@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **offset** | **Number** |  | [optional] 
 **maxMatches** | **Number** |  | [optional] 
 **sort** | **[Object]** |  | [optional] 
+**aggs** | **[Object]** |  | [optional] 
 **scriptFields** | **Object** |  | [optional] 
 **highlight** | **Object** |  | [optional] 
 **source** | **[String]** |  | [optional] 

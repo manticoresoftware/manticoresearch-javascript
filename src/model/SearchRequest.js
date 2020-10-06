@@ -25,7 +25,7 @@
   /**
    * The SearchRequest model module.
    * @module model/SearchRequest
-   * @version 1.0.2
+   * @version 1.0.3
    */
 
   /**
@@ -71,6 +71,9 @@
       if (data.hasOwnProperty('sort')) {
         obj['sort'] = ApiClient.convertToType(data['sort'], [Object]);
       }
+      if (data.hasOwnProperty('aggs')) {
+        obj['aggs'] = ApiClient.convertToType(data['aggs'], [Object]);
+      }
       if (data.hasOwnProperty('script_fields')) {
         obj['script_fields'] = ApiClient.convertToType(data['script_fields'], Object);
       }
@@ -111,6 +114,10 @@
    * @member {Array.<Object>} sort
    */
   exports.prototype['sort'] = undefined;
+  /**
+   * @member {Array.<Object>} aggs
+   */
+  exports.prototype['aggs'] = undefined;
   /**
    * @member {Object} script_fields
    */
