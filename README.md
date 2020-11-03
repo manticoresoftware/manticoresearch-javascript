@@ -28,17 +28,12 @@ A simple search case:
 var Manticoresearch = require('manticoresearch');
 
 
-var api = new Manticoresearch.SearchApi()
-var body = {"index":"test","query":{"match":{"content":"sample"}}};
+var searchApi = new Manticoresearch.SearchApi()
+async function() {
+    res =  await searchApi.search({"index":"forum","query":{"match_all":{},"bool":{"must":[{"equals":{"author_id":123}},{"in":{"forum_id":[1,3,7]}}]}},"sort":[{"post_date":"desc"}]});
+    console.log(JSON.stringify(res));
+}
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.search(body, callback);
 
 ```
 

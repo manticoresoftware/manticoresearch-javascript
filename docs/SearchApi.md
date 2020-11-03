@@ -18,17 +18,17 @@ Perform reverse search on a percolate index
 Performs a percolate search. 
 This method must be used only on percolate indexes.
 
-Expects two paramenters: the index name and an object with array of documents to be tested.
+Expects two parameters: the index name and an object with array of documents to be tested.
 An example of the documents object:
 
   ```
-  {"query":{"percolate":{"document":{"content":"sample content"}}}}
+  {"query":{"percolate":{"document":{"title":"What a nice bag"}}}}
   ```
 
 Responds with an object with matched stored queries: 
 
   ```
-  {'timed_out':false,'hits':{'total':2,'max_score':1,'hits':[{'_index':'idx_pq_1','_type':'doc','_id':'2','_score':'1','_source':{'query':{'match':{'title':'some'},}}},{'_index':'idx_pq_1','_type':'doc','_id':'5','_score':'1','_source':{'query':{'ql':'some | none'}}}]}}
+  {"took":0,"timed_out":false,"hits":{"total":1,"hits":[{"_index":"products","_type":"doc","_id":"2811045522851233808","_score":"1","_source":{"query":{"ql":"@title bag"}},"fields":{"_percolator_document_slot":[1]}}]}}
   ```
 
 
@@ -37,17 +37,11 @@ Responds with an object with matched stored queries:
 ```javascript
 var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new Manticoresearch.SearchApi();
-var index = "index_example"; // String | Name of the percolate index
-var percolateRequest = {"query":{"percolate":{"document":{"title":"some text to match"}}}}; // PercolateRequest | 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.percolate(index, percolateRequest, callback);
+var searchApi = new Manticoresearch.SearchApi();
+async function() {
+    res = await searchApi.percolate('products',{"query":{"percolate":{"document":{"title":"What a nice bag"}}}});
+}
+
 ```
 
 ### Parameters
@@ -86,7 +80,7 @@ Expects an object with mandatory properties:
 Example :
 
   ```
-  {'index':'movies','query':{'bool':{'must':[{'query_string':' movie'}]}},'script_fields':{'myexpr':{'script':{'inline':'IF(rating>8,1,0)'}}},'sort':[{'myexpr':'desc'},{'_score':'desc'}],'profile':true}
+  {"index":"myindex","query":{"query_string":"@title \"find me fast \"/2"}}
   ```
 
 It responds with an object with:
@@ -97,7 +91,7 @@ It responds with an object with:
 
 
   ```
-  {'took':10,'timed_out':false,'hits':{'total':2,'hits':[{'_id':'1','_score':1,'_source':{'gid':11}},{'_id':'2','_score':1,'_source':{'gid':12}}]}}
+  {"hits":{"hits":[{"_id":"1","_score":1,"_source":{"title":"first find me fast","gid":11}},{"_id":"2","_score":1,"_source":{"title":"second find me fast","gid":12}}],"total":2},"profile":None,"timed_out":False,"took":0}
   ```
 
 For more information about the match query syntax, additional paramaters that can be set to the input and response, please check: https://docs.manticoresearch.com/latest/html/http_reference/json_search.html.
@@ -109,15 +103,9 @@ For more information about the match query syntax, additional paramaters that ca
 var Manticoresearch = require('manticoresearch');
 
 var apiInstance = new Manticoresearch.SearchApi();
-var searchRequest = new Manticoresearch.SearchRequest(); // SearchRequest | 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.search(searchRequest, callback);
+async function(){
+    res = await searchApi.search({"index":"myindex","query":{"query_string":"@title \"find me fast \"/2"}});
+}
 ```
 
 ### Parameters

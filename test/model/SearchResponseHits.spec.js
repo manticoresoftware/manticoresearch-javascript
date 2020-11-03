@@ -1,9 +1,8 @@
 /**
  * Manticore Search Client
- * Experimental low-level client for Manticore Search.
+ * Experimental low-level client for Manticore Search. 
  * Contact: info@manticoresearch.com
  */
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD.
@@ -56,6 +55,12 @@
 
     it('should have the property hits (base name: "hits")', function() {
       // uncomment below and update the code to test the property hits
+      //var instance = new Manticoresearch.SearchResponseHits();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property aggregations (base name: "aggregations")', function() {
+      // uncomment below and update the code to test the property aggregations
       //var instance = new Manticoresearch.SearchResponseHits();
       //expect(instance).to.be();
     });

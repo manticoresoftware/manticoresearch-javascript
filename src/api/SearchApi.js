@@ -23,7 +23,7 @@
   /**
    * Search service.
    * @module api/SearchApi
-   * @version 1.0.3
+   * @version 2.0.0
    */
 
   /**
@@ -37,23 +37,15 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the percolate operation.
-     * @callback module:api/SearchApi~percolateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SearchResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Perform reverse search on a percolate index
-     * Performs a percolate search.  This method must be used only on percolate indexes.  Expects two paramenters: the index name and an object with array of documents to be tested. An example of the documents object:    ```   {\"query\":{\"percolate\":{\"document\":{\"content\":\"sample content\"}}}}   ```  Responds with an object with matched stored queries:     ```   {'timed_out':false,'hits':{'total':2,'max_score':1,'hits':[{'_index':'idx_pq_1','_type':'doc','_id':'2','_score':'1','_source':{'query':{'match':{'title':'some'},}}},{'_index':'idx_pq_1','_type':'doc','_id':'5','_score':'1','_source':{'query':{'ql':'some | none'}}}]}}   ``` 
+     * Performs a percolate search.  This method must be used only on percolate indexes.  Expects two parameters: the index name and an object with array of documents to be tested. An example of the documents object:    ```   {\"query\":{\"percolate\":{\"document\":{\"content\":\"sample content\"}}}}   ```  Responds with an object with matched stored queries:     ```   {'timed_out':false,'hits':{'total':2,'max_score':1,'hits':[{'_index':'idx_pq_1','_type':'doc','_id':'2','_score':'1','_source':{'query':{'match':{'title':'some'},}}},{'_index':'idx_pq_1','_type':'doc','_id':'5','_score':'1','_source':{'query':{'ql':'some | none'}}}]}}   ``` 
      * @param {String} index Name of the percolate index
      * @param {module:model/PercolateRequest} percolateRequest 
-     * @param {module:api/SearchApi~percolateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SearchResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
-    this.percolate = function(index, percolateRequest, callback) {
+    this.percolateWithHttpInfo = function(index, percolateRequest) {
       var postBody = percolateRequest;
       // verify the required parameter 'index' is set
       if (index === undefined || index === null) {
@@ -83,26 +75,32 @@
       return this.apiClient.callApi(
         '/json/pq/{index}/search', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the search operation.
-     * @callback module:api/SearchApi~searchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SearchResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Perform reverse search on a percolate index
+     * Performs a percolate search.  This method must be used only on percolate indexes.  Expects two parameters: the index name and an object with array of documents to be tested. An example of the documents object:    ```   {\"query\":{\"percolate\":{\"document\":{\"content\":\"sample content\"}}}}   ```  Responds with an object with matched stored queries:     ```   {'timed_out':false,'hits':{'total':2,'max_score':1,'hits':[{'_index':'idx_pq_1','_type':'doc','_id':'2','_score':'1','_source':{'query':{'match':{'title':'some'},}}},{'_index':'idx_pq_1','_type':'doc','_id':'5','_score':'1','_source':{'query':{'ql':'some | none'}}}]}}   ``` 
+     * @param {String} index Name of the percolate index
+     * @param {module:model/PercolateRequest} percolateRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SearchResponse}
      */
+    this.percolate = function(index, percolateRequest) {
+      return this.percolateWithHttpInfo(index, percolateRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Performs a search
      *  Expects an object with mandatory properties: * the index name * the match query object Example :    ```   {'index':'movies','query':{'bool':{'must':[{'query_string':' movie'}]}},'script_fields':{'myexpr':{'script':{'inline':'IF(rating>8,1,0)'}}},'sort':[{'myexpr':'desc'},{'_score':'desc'}],'profile':true}   ```  It responds with an object with: - time of execution - if the query timed out - an array with hits (matched documents) - additional, if profiling is enabled, an array with profiling information is attached     ```   {'took':10,'timed_out':false,'hits':{'total':2,'hits':[{'_id':'1','_score':1,'_source':{'gid':11}},{'_id':'2','_score':1,'_source':{'gid':12}}]}}   ```  For more information about the match query syntax, additional paramaters that can be set to the input and response, please check: https://docs.manticoresearch.com/latest/html/http_reference/json_search.html. 
      * @param {module:model/SearchRequest} searchRequest 
-     * @param {module:api/SearchApi~searchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SearchResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
-    this.search = function(searchRequest, callback) {
+    this.searchWithHttpInfo = function(searchRequest) {
       var postBody = searchRequest;
       // verify the required parameter 'searchRequest' is set
       if (searchRequest === undefined || searchRequest === null) {
@@ -127,8 +125,21 @@
       return this.apiClient.callApi(
         '/json/search', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Performs a search
+     *  Expects an object with mandatory properties: * the index name * the match query object Example :    ```   {'index':'movies','query':{'bool':{'must':[{'query_string':' movie'}]}},'script_fields':{'myexpr':{'script':{'inline':'IF(rating>8,1,0)'}}},'sort':[{'myexpr':'desc'},{'_score':'desc'}],'profile':true}   ```  It responds with an object with: - time of execution - if the query timed out - an array with hits (matched documents) - additional, if profiling is enabled, an array with profiling information is attached     ```   {'took':10,'timed_out':false,'hits':{'total':2,'hits':[{'_id':'1','_score':1,'_source':{'gid':11}},{'_id':'2','_score':1,'_source':{'gid':12}}]}}   ```  For more information about the match query syntax, additional paramaters that can be set to the input and response, please check: https://docs.manticoresearch.com/latest/html/http_reference/json_search.html. 
+     * @param {module:model/SearchRequest} searchRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SearchResponse}
+     */
+    this.search = function(searchRequest) {
+      return this.searchWithHttpInfo(searchRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
   };
 

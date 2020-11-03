@@ -15,7 +15,7 @@ Method | HTTP request | Description
 Perform SQL requests
 
 Run a query in SQL format.
-Expects is a query parameters string that can be in two modes:
+Expects a query parameters string that can be in two modes:
 * Select only query as `query=SELECT * FROM myindex`. The query string MUST be URL encoded
 * any type of query in format `mode=raw&query=SHOW TABLES`. The string must be as is (no URL encoding) and `mode` must be first.
 The response object depends on the query executed. In select mode the response has same format as `/search` operation.
@@ -26,16 +26,10 @@ The response object depends on the query executed. In select mode the response h
 ```javascript
 var Manticoresearch = require('manticoresearch');
 
-var apiInstance = new Manticoresearch.UtilsApi();
-var body = ["mode=raw&query=SHOW TABLES"]; // String | Expects is a query parameters string that can be in two modes:    * Select only query as `query=SELECT * FROM myindex`. The query string MUST be URL encoded    * any type of query in format `mode=raw&query=SHOW TABLES`. The string must be as is (no URL encoding) and `mode` must be first. 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.sql(body, callback);
+var utilsApi = new Manticoresearch.UtilsApi();
+async function() {
+    res =  await utilsApi.sql('mode=raw&query=SHOW TABLES');
+}
 ```
 
 ### Parameters

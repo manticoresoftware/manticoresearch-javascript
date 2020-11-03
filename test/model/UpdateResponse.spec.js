@@ -1,9 +1,8 @@
 /**
  * Manticore Search Client
- * Experimental low-level client for Manticore Search.
+ * Experimental low-level client for Manticore Search. 
  * Contact: info@manticoresearch.com
  */
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD.
