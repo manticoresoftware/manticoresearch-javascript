@@ -74,8 +74,8 @@
       if (data.hasOwnProperty('aggs')) {
         obj['aggs'] = ApiClient.convertToType(data['aggs'], [Object]);
       }
-      if (data.hasOwnProperty('script_fields')) {
-        obj['script_fields'] = ApiClient.convertToType(data['script_fields'], Object);
+      if (data.hasOwnProperty('expressions')) {
+        obj['expressions'] = ApiClient.convertToType(data['expressions'], Object);
       }
       if (data.hasOwnProperty('highlight')) {
         obj['highlight'] = ApiClient.convertToType(data['highlight'], Object);
@@ -119,9 +119,9 @@
    */
   exports.prototype['aggs'] = undefined;
   /**
-   * @member {Object} script_fields
+   * @member {Object} expressions
    */
-  exports.prototype['script_fields'] = undefined;
+  exports.prototype['expressions'] = undefined;
   /**
    * @member {Object} highlight
    */

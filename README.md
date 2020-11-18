@@ -26,8 +26,7 @@ A simple search case:
 
 ```javascript
 var Manticoresearch = require('manticoresearch');
-
-
+client.basePath="http://127.0.0.1:9308"; 
 var searchApi = new Manticoresearch.SearchApi()
 async function() {
     res =  await searchApi.search({"index":"forum","query":{"match_all":{},"bool":{"must":[{"equals":{"author_id":123}},{"in":{"forum_id":[1,3,7]}}]}},"sort":[{"post_date":"desc"}]});

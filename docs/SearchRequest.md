@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **maxMatches** | **Number** |  | [optional] 
 **sort** | **[Object]** |  | [optional] 
 **aggs** | **[Object]** |  | [optional] 
-**scriptFields** | **Object** |  | [optional] 
+**expressions** | **Object** |  | [optional] 
 **highlight** | **Object** |  | [optional] 
 **source** | **[String]** |  | [optional] 
 **profile** | **Boolean** |  | [optional] 

@@ -48,6 +48,9 @@
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      if (data.hasOwnProperty('max_score')) {
+        obj['max_score'] = ApiClient.convertToType(data['max_score'], 'Number');
+      }
       if (data.hasOwnProperty('total')) {
         obj['total'] = ApiClient.convertToType(data['total'], 'Number');
       }
@@ -61,6 +64,10 @@
     return obj;
   }
 
+  /**
+   * @member {Number} max_score
+   */
+  exports.prototype['max_score'] = undefined;
   /**
    * @member {Number} total
    */

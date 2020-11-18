@@ -54,6 +54,9 @@
       if (data.hasOwnProperty('index')) {
         obj['index'] = ApiClient.convertToType(data['index'], 'String');
       }
+      if (data.hasOwnProperty('cluster')) {
+        obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
+      }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
@@ -69,6 +72,11 @@
    * @member {String} index
    */
   exports.prototype['index'] = undefined;
+  /**
+   * cluster name
+   * @member {String} cluster
+   */
+  exports.prototype['cluster'] = undefined;
   /**
    * Document ID
    * @member {Number} id

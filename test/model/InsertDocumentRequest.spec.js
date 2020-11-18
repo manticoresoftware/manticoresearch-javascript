@@ -53,6 +53,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property cluster (base name: "cluster")', function() {
+      // uncomment below and update the code to test the property cluster
+      //var instance = new Manticoresearch.InsertDocumentRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
       //var instance = new Manticoresearch.InsertDocumentRequest();

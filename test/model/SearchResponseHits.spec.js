@@ -47,6 +47,12 @@
       //expect(instance).to.be.a(Manticoresearch.SearchResponseHits);
     });
 
+    it('should have the property maxScore (base name: "max_score")', function() {
+      // uncomment below and update the code to test the property maxScore
+      //var instance = new Manticoresearch.SearchResponseHits();
+      //expect(instance).to.be();
+    });
+
     it('should have the property total (base name: "total")', function() {
       // uncomment below and update the code to test the property total
       //var instance = new Manticoresearch.SearchResponseHits();

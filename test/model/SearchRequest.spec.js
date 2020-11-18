@@ -89,8 +89,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property scriptFields (base name: "script_fields")', function() {
-      // uncomment below and update the code to test the property scriptFields
+    it('should have the property expressions (base name: "expressions")', function() {
+      // uncomment below and update the code to test the property expressions
       //var instance = new Manticoresearch.SearchRequest();
       //expect(instance).to.be();
     });
