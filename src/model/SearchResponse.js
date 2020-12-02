@@ -25,7 +25,7 @@
   /**
    * The SearchResponse model module.
    * @module model/SearchResponse
-   * @version 2.0.0
+   * @version 2.0.2
    */
 
   /**
@@ -55,6 +55,9 @@
       if (data.hasOwnProperty('timed_out')) {
         obj['timed_out'] = ApiClient.convertToType(data['timed_out'], 'Boolean');
       }
+      if (data.hasOwnProperty('aggregations')) {
+        obj['aggregations'] = ApiClient.convertToType(data['aggregations'], {'String': Object});
+      }
       if (data.hasOwnProperty('hits')) {
         obj['hits'] = SearchResponseHits.constructFromObject(data['hits']);
       }
@@ -73,6 +76,10 @@
    * @member {Boolean} timed_out
    */
   exports.prototype['timed_out'] = undefined;
+  /**
+   * @member {Object.<String, Object>} aggregations
+   */
+  exports.prototype['aggregations'] = undefined;
   /**
    * @member {module:model/SearchResponseHits} hits
    */

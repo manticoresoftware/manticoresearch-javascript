@@ -24,7 +24,7 @@
 
   beforeEach(function() {
     var client= new Manticoresearch.ApiClient()
-    client.basePath="http://manticoresearch-manticore:9308";
+    client.basePath="http://127.0.0.1:6368";
     indexApi = new Manticoresearch.IndexApi(client);
     searchApi = new Manticoresearch.SearchApi(client);
     utilsApi = new Manticoresearch.UtilsApi(client);
@@ -153,6 +153,63 @@
         res =  await searchApi.search({"index":"products","query":{"match_all":{}}});
          
         res =  await utilsApi.sql('mode=raw&query=DROP TABLE products');
+        
+        res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price",}},"group_brand_id":{"terms":{"field":"brand_id"}}}});
+        console.log(JSON.stringify(res));
+        
+        res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"expressions":{"price_range":"INTERVAL(price,200,400,600,800)"},"aggs":{"group_property":{"terms":{"field":"price_range"}}}});
+        console.log(JSON.stringify(res));
+        
+        res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price","size":1,}},"group_brand_id":{"terms":{"field":"brand_id","size":3}}}});
+        console.log(JSON.stringify(res));
+         console.log('-----');
+         try {
+        res =  await searchApi.search({"index":"books","query":{"match":{"content":"and first"}},"highlight":{"fields":{"content":{"limit":50}},"limits_per_field":false}});
+        console.log(JSON.stringify(res));
+        
+        res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{"fields":{"title":{},"content":{"limit":50}}}});
+        console.log(JSON.stringify(res));
+        
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{"fields":["content","title"],"number_of_fragments":10}});
+        console.log(JSON.stringify(res));
+        
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{"fields":["content","title"],"fragment_size":100}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{"fields":["content","title"],"order":"score"}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{"fields":["content","title"],"no_match_size":0}});
+        console.log(JSON.stringify(res));
+        
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{"fields":["content","title"],"pre_tags":"before_","post_tags":"_after"}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"books","query":{"match":{"content":"one|robots"}},"highlight":{"fields":["content"],"highlight_query":{"match":{"*":"polite distance"}}}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"one|robots"}},"highlight":{"fields":["content"]}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"books","query":{"query_string":"try|gets|down|said"},"highlight":{"limit":50}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"books","query":{"match":{"*":"try"}},"highlight":{}});
+        console.log(JSON.stringify(res));
+             console.log('-----');
+                res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price",}},"group_brand_id":{"terms":{"field":"brand_id",}}}});
+        console.log(JSON.stringify(res));             
+                res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"expressions":{"price_range":"INTERVAL(price,200,400,600,800)"},"aggs":{"group_property":{"terms":{"field":"price_range"}}}});
+        console.log(JSON.stringify(res));
+                res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price","size":1,}},"group_brand_id":{"terms":{"field":"brand_id","size":3}}}});
+        console.log(JSON.stringify(res));       
+
+        res = await searchApi.search({"index":"films","limit":0,"aggs":{"release_year":{"terms":{"field":"release_year","size":100}}}});
+        console.log(JSON.stringify(res)); 
+        res = await searchApi.search({"index":"shoes","limit":0,"aggs":{"sizes":{"terms":{"field":"sizes","size":100}}}});
+        console.log(JSON.stringify(res));    
+        res = await searchApi.search({"index":"products2","limit":0,"aggs":{"color":{"terms":{"field":"meta.color","size":100}}}});
+        console.log(JSON.stringify(res));
+} catch (e) {
+        console.error(e);
+    } 
+        
       });
     });
 

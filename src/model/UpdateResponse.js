@@ -25,7 +25,7 @@
   /**
    * The UpdateResponse model module.
    * @module model/UpdateResponse
-   * @version 2.0.0
+   * @version 2.0.2
    */
 
   /**

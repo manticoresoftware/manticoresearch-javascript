@@ -25,7 +25,7 @@
   /**
    * The SearchResponseHits model module.
    * @module model/SearchResponseHits
-   * @version 2.0.0
+   * @version 2.0.2
    */
 
   /**
@@ -57,9 +57,6 @@
       if (data.hasOwnProperty('hits')) {
         obj['hits'] = ApiClient.convertToType(data['hits'], [Object]);
       }
-      if (data.hasOwnProperty('aggregations')) {
-        obj['aggregations'] = ApiClient.convertToType(data['aggregations'], [Object]);
-      }
     }
     return obj;
   }
@@ -76,10 +73,6 @@
    * @member {Array.<Object>} hits
    */
   exports.prototype['hits'] = undefined;
-  /**
-   * @member {Array.<Object>} aggregations
-   */
-  exports.prototype['aggregations'] = undefined;
 
 
 
