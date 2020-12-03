@@ -24,7 +24,7 @@
 
   beforeEach(function() {
     var client= new Manticoresearch.ApiClient()
-    client.basePath="http://127.0.0.1:6368";
+    client.basePath="http://manticoresearch-manticore:9308";
     indexApi = new Manticoresearch.IndexApi(client);
     searchApi = new Manticoresearch.SearchApi(client);
     utilsApi = new Manticoresearch.UtilsApi(client);
@@ -153,7 +153,7 @@
         res =  await searchApi.search({"index":"products","query":{"match_all":{}}});
          
         res =  await utilsApi.sql('mode=raw&query=DROP TABLE products');
-        
+        /*
         res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price",}},"group_brand_id":{"terms":{"field":"brand_id"}}}});
         console.log(JSON.stringify(res));
         
@@ -206,6 +206,7 @@
         console.log(JSON.stringify(res));    
         res = await searchApi.search({"index":"products2","limit":0,"aggs":{"color":{"terms":{"field":"meta.color","size":100}}}});
         console.log(JSON.stringify(res));
+        */
 } catch (e) {
         console.error(e);
     } 
