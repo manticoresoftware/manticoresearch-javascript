@@ -163,7 +163,7 @@
         res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price","size":1,}},"group_brand_id":{"terms":{"field":"brand_id","size":3}}}});
         console.log(JSON.stringify(res));
          console.log('-----');
-         try {
+        
         res =  await searchApi.search({"index":"books","query":{"match":{"content":"and first"}},"highlight":{"fields":{"content":{"limit":50}},"limits_per_field":false}});
         console.log(JSON.stringify(res));
         
@@ -207,10 +207,7 @@
         res = await searchApi.search({"index":"products2","limit":0,"aggs":{"color":{"terms":{"field":"meta.color","size":100}}}});
         console.log(JSON.stringify(res));
         */
-} catch (e) {
-        console.error(e);
-    } 
-        
+       
       });
     });
 
