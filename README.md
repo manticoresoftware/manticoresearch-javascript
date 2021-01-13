@@ -1,6 +1,6 @@
 # manticoresearch
 
-Experimental low-level client for Manticore Search.
+Low-level client for Manticore Search.
 
 
 ## Installation
