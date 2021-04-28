@@ -25,16 +25,35 @@ Manticore Search server documentation: https://manual.manticoresearch.com.
 A simple search case:
 
 ```javascript
-var Manticoresearch = require('manticoresearch');
+const Manticoresearch = require('manticoresearch');
+
+const client = new Manticoresearch.ApiClient();
 client.basePath="http://127.0.0.1:9308"; 
-var searchApi = new Manticoresearch.SearchApi()
+const searchApi = new Manticoresearch.SearchApi(client);
+
 async function() {
-    res =  await searchApi.search({"index":"forum","query":{"match_all":{},"bool":{"must":[{"equals":{"author_id":123}},{"in":{"forum_id":[1,3,7]}}]}},"sort":[{"post_date":"desc"}]});
+    const res =  await searchApi.search({"index":"forum","query":{"match_all":{},"bool":{"must":[{"equals":{"author_id":123}},{"in":{"forum_id":[1,3,7]}}]}},"sort":[{"post_date":"desc"}]});
     console.log(JSON.stringify(res));
 }
 
+```
+Case with running a SELECT `SphinxQL`, set as query parameter:
+```javascript
+const Manticoresearch = require('manticoresearch');
+
+const client = new Manticoresearch.ApiClient();
+client.basePath="http://127.0.0.1:9308";
+const searchApi = new Manticoresearch.UtilsApi(client);
+
+async function() {
+    const res =  await searchApi.sql(`mode=raw&query=SELECT * FROM idx_users WHERE match('${q}') LIMIT ${offset},${limit} 
+      OPTION field_weights=(name=50,alternative_name=30,description=10)`);
+    console.log(JSON.stringify(res));
+}
 
 ```
+
+
 
 ## Documentation for API Endpoints
 
