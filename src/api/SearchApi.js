@@ -1,8 +1,10 @@
-/**
+/*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
- * Contact: info@manticoresearch.com
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+ *
+ * All rights reserved
  */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -47,6 +49,16 @@
      */
     this.percolateWithHttpInfo = function(index, percolateRequest) {
       var postBody = percolateRequest;
+
+      var isSqlFunc = false;
+
+      if (postBody && isSqlFunc) {
+        if  ('rawResponse' in opts && !opts.rawResponse)
+          postBody = 'query=' + encodeURIComponent( String( postBody ) );
+        else if ( !('rawResponse' in opts) || opts.rawResponse)
+          postBody = 'mode=raw&query=' + String( postBody );
+      }
+
       // verify the required parameter 'index' is set
       if (index === undefined || index === null) {
         throw new Error("Missing the required parameter 'index' when calling percolate");
@@ -102,6 +114,16 @@
      */
     this.searchWithHttpInfo = function(searchRequest) {
       var postBody = searchRequest;
+
+      var isSqlFunc = false;
+
+      if (postBody && isSqlFunc) {
+        if  ('rawResponse' in opts && !opts.rawResponse)
+          postBody = 'query=' + encodeURIComponent( String( postBody ) );
+        else if ( !('rawResponse' in opts) || opts.rawResponse)
+          postBody = 'mode=raw&query=' + String( postBody );
+      }
+
       // verify the required parameter 'searchRequest' is set
       if (searchRequest === undefined || searchRequest === null) {
         throw new Error("Missing the required parameter 'searchRequest' when calling search");

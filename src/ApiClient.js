@@ -1,8 +1,10 @@
-/**
+/*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
- * Contact: info@manticoresearch.com
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+ *
+ * All rights reserved
  */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -579,7 +581,7 @@
     exports.hostSettings = function() {
         return [
             {
-              'url': "http://127.0.0.1:9308/",
+              'url': "http://127.0.0.1:9308",
               'description': "Default Manticore Search HTTP",
             }
       ];
