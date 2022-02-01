@@ -27,7 +27,7 @@
   /**
    * The DeleteResponse model module.
    * @module model/DeleteResponse
-   * @version 2.0.2
+   * @version 2.0.3
    */
 
   /**
