@@ -10,14 +10,14 @@ Method | HTTP request | Description
 
 ## sql
 
-> {String: Object} sql(body)
+> {String: Object} sql(body, opts)
 
 Perform SQL requests
 
 Run a query in SQL format.
-Expects a query parameters string that can be in two modes:
-* Select only query as `query=SELECT * FROM myindex`. The query string MUST be URL encoded
-* any type of query in format `mode=raw&query=SHOW TABLES`. The string must be as is (no URL encoding) and `mode` must be first.
+Expects a query string passed through `body` parameter and `opts` Object parameter that defines a format of response:
+* `opts` Object parameter can contain `{raw_response: false}` for Select only queries, e.g., `SELECT * FROM myindex`. The query string MUST be URL encoded in such cases. 
+* `opts` Object parameter can contain `{raw_response: true}` for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`. The query string must be as it is (no URL encoding).
 The response object depends on the query executed. In select mode the response has same format as `/search` operation.
 
 
@@ -28,7 +28,7 @@ var Manticoresearch = require('manticoresearch');
 
 var utilsApi = new Manticoresearch.UtilsApi();
 async function() {
-    res =  await utilsApi.sql('mode=raw&query=SHOW TABLES');
+    res =  await utilsApi.sql('SHOW TABLES');
 }
 ```
 
@@ -38,7 +38,8 @@ async function() {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **String**| Expects is a query parameters string that can be in two modes:    * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded    * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first.  | 
+ **body** | **String**| A query string, must be URL encoded if opts parameter is set and contains {raw_response: false} and must be as it is (no URL encoding) otherwise. | 
+ **opts** | **Object**| Optional, expects to contain a boolean `raw_response` value that defines a format of response. `raw_response` can be set to false for Select only queries or can be set to true for any queries (including Select queries).  if `opts` parameter is omitted it has the same effect as setting it to `{raw_response: true}` |
 
 ### Return type
 

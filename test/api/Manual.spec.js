@@ -53,6 +53,7 @@
         let res =  await utilsApi.sql('DROP TABLE IF EXISTS products');
         res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)', {'rawResponse': true});
 		res =  await utilsApi.sql('SELECT * FROM products', {'rawResponse': false} );
+		res =  await utilsApi.sql('SELECT * FROM products');
 
         res =  await indexApi.insert({"index" : "products", "id" : 1, "doc" : {"title" : "Crossbody Bag with Tassel", "price" : 19.85}});
         res =  await indexApi.insert({"index" : "products", "id" : 2, "doc" : {"title" : "Crossbody Bag with Tassel"}});

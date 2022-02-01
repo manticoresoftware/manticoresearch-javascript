@@ -49,14 +49,6 @@
     this.bulkWithHttpInfo = function(body) {
       var postBody = body;
 
-      var isSqlFunc = false;
-
-      if (postBody && isSqlFunc) {
-        if  ('rawResponse' in opts && !opts.rawResponse)
-          postBody = 'query=' + encodeURIComponent( String( postBody ) );
-        else if ( !('rawResponse' in opts) || opts.rawResponse)
-          postBody = 'mode=raw&query=' + String( postBody );
-      }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -108,14 +100,6 @@
     this.callDeleteWithHttpInfo = function(deleteDocumentRequest) {
       var postBody = deleteDocumentRequest;
 
-      var isSqlFunc = false;
-
-      if (postBody && isSqlFunc) {
-        if  ('rawResponse' in opts && !opts.rawResponse)
-          postBody = 'query=' + encodeURIComponent( String( postBody ) );
-        else if ( !('rawResponse' in opts) || opts.rawResponse)
-          postBody = 'mode=raw&query=' + String( postBody );
-      }
 
       // verify the required parameter 'deleteDocumentRequest' is set
       if (deleteDocumentRequest === undefined || deleteDocumentRequest === null) {
@@ -167,14 +151,6 @@
     this.insertWithHttpInfo = function(insertDocumentRequest) {
       var postBody = insertDocumentRequest;
 
-      var isSqlFunc = false;
-
-      if (postBody && isSqlFunc) {
-        if  ('rawResponse' in opts && !opts.rawResponse)
-          postBody = 'query=' + encodeURIComponent( String( postBody ) );
-        else if ( !('rawResponse' in opts) || opts.rawResponse)
-          postBody = 'mode=raw&query=' + String( postBody );
-      }
 
       // verify the required parameter 'insertDocumentRequest' is set
       if (insertDocumentRequest === undefined || insertDocumentRequest === null) {
@@ -226,14 +202,6 @@
     this.replaceWithHttpInfo = function(insertDocumentRequest) {
       var postBody = insertDocumentRequest;
 
-      var isSqlFunc = false;
-
-      if (postBody && isSqlFunc) {
-        if  ('rawResponse' in opts && !opts.rawResponse)
-          postBody = 'query=' + encodeURIComponent( String( postBody ) );
-        else if ( !('rawResponse' in opts) || opts.rawResponse)
-          postBody = 'mode=raw&query=' + String( postBody );
-      }
 
       // verify the required parameter 'insertDocumentRequest' is set
       if (insertDocumentRequest === undefined || insertDocumentRequest === null) {
@@ -285,14 +253,6 @@
     this.updateWithHttpInfo = function(updateDocumentRequest) {
       var postBody = updateDocumentRequest;
 
-      var isSqlFunc = false;
-
-      if (postBody && isSqlFunc) {
-        if  ('rawResponse' in opts && !opts.rawResponse)
-          postBody = 'query=' + encodeURIComponent( String( postBody ) );
-        else if ( !('rawResponse' in opts) || opts.rawResponse)
-          postBody = 'mode=raw&query=' + String( postBody );
-      }
 
       // verify the required parameter 'updateDocumentRequest' is set
       if (updateDocumentRequest === undefined || updateDocumentRequest === null) {
