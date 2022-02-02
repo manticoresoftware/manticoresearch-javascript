@@ -25,7 +25,7 @@
   /**
    * Index service.
    * @module api/IndexApi
-   * @version 2.0.3
+   * @version 3.0.0
    */
 
   /**
@@ -74,7 +74,10 @@
         '/json/bulk', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        return res;
+      });
     }
 
     /**
@@ -125,7 +128,10 @@
         '/json/delete', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        return res;
+      });
     }
 
     /**
@@ -176,7 +182,10 @@
         '/json/insert', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        return res;
+      });
     }
 
     /**
@@ -227,7 +236,10 @@
         '/json/replace', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        return res;
+      });
     }
 
     /**
@@ -278,7 +290,10 @@
         '/json/update', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        return res;
+      });
     }
 
     /**

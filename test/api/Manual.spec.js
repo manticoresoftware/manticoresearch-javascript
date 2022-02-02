@@ -25,7 +25,7 @@
 
   beforeEach(function() {
     var client= new Manticoresearch.ApiClient()
-    client.basePath="http://manticoresearch-manticore:9308";
+    client.basePath="http://127.0.0.1:9308";
     indexApi = new Manticoresearch.IndexApi(client);
     searchApi = new Manticoresearch.SearchApi(client);
     utilsApi = new Manticoresearch.UtilsApi(client);
@@ -51,16 +51,19 @@
     describe('test', function() {
       it('run manual code samples',async function() {
         let res =  await utilsApi.sql('DROP TABLE IF EXISTS products');
+		console.log(res)
         res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)', {'rawResponse': true});
+		console.log(res)
 		res =  await utilsApi.sql('SELECT * FROM products', {'rawResponse': false} );
-		res =  await utilsApi.sql('SELECT * FROM products');
-
+		console.log(res)
+		res =  await utilsApi.sql('SELECT * FROM products', {'rawResponse': true} );
+		console.log(res)
         res =  await indexApi.insert({"index" : "products", "id" : 1, "doc" : {"title" : "Crossbody Bag with Tassel", "price" : 19.85}});
         res =  await indexApi.insert({"index" : "products", "id" : 2, "doc" : {"title" : "Crossbody Bag with Tassel"}});
         res =  await indexApi.insert({"index" : "products", "id" : 0, "doc" : {"title" : "Yellow bag"}});
-         
+        
         res =  await indexApi.insert({"index" : "products", "id" : 0, "doc" : {"title" : "Yellow bag"}});
-         
+        
         let docs = [ 
             {"insert": {"index" : "products", "id" : 3, "doc" : {"title" : "Crossbody Bag with Tassel", "price" : 19.85}}}, 
             {"insert": {"index" : "products", "id" : 4, "doc" : {"title" : "microfiber sheet set", "price" : 19.99}}}, 
@@ -77,17 +80,16 @@
             {"replace": {"index" : "products", "id" : 1, "doc" : {"title" : "document one"}}}, 
             {"replace": {"index" : "products", "id" : 2, "doc" : {"title" : "document two"}}} ];
         res =  await indexApi.bulk(docs.map(e=>JSON.stringify(e)).join('\n'));
-         
+        
         
         res =  await indexApi.update({"index" : "products", "id" : 1, "doc" : {"price":10}});
-         
+
         res =  await indexApi.update({"index" : "products", "id" : 1, "doc" : {
             "price": 100000000000,
             "coeff": 3465.23,
             "tags1": [3,6,4],
             "tags2": []}});
          
-        
         res =  await indexApi.insert({"index" : "products", "id" : 100, "doc" : {"title" : "title", "meta" : {"tags":[1,2,3]}}});
          
         res =  await indexApi.update({"index" : "products", "id" : 100, "doc" : {

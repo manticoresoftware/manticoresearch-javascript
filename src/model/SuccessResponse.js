@@ -27,7 +27,7 @@
   /**
    * The SuccessResponse model module.
    * @module model/SuccessResponse
-   * @version 2.0.3
+   * @version 3.0.0
    */
 
   /**

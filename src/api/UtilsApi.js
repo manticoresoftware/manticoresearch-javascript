@@ -25,7 +25,7 @@
   /**
    * Utils service.
    * @module api/UtilsApi
-   * @version 2.0.3
+   * @version 3.0.0
    */
 
   /**
@@ -42,11 +42,11 @@
 
     /**
      * Perform SQL requests
-     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex` The query string must be URL encoded if `raw_response` parameter is set to False The query string must be as is (no URL encoding) if `raw_response` parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
-     * @param {String} body A query parameter string. The query string must be URL encoded if `raw_response` parameter is set to False The query string must be as is (no URL encoding) if `raw_response` parameter is set to True or omitted. 
+     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex` The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
+     * @param {String} body A query parameter string. 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.rawResponse Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` or omitted for any type of queries:  (default to true)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object.<String, {String: Object}>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
      */
     this.sqlWithHttpInfo = function(body, opts) {
       opts = opts || {};
@@ -56,7 +56,7 @@
         if  ('rawResponse' in opts && !opts.rawResponse)
           postBody = 'query=' + encodeURIComponent( String( postBody ) );
         else if ( !('rawResponse' in opts) || opts.rawResponse)
-          postBody = 'mode=raw&query=' + String( postBody );
+          postBody = 'mode=raw&query=' + encodeURIComponent( String( postBody ) );
       }
 
       // verify the required parameter 'body' is set
@@ -79,21 +79,28 @@
       var authNames = [];
       var contentTypes = ['text/plain'];
       var accepts = ['application/json'];
-      var returnType = {'String': Object};
+      var returnType = [Object];
+      if ('rawResponse' in opts && !opts.rawResponse) 
+        returnType = Object;
       return this.apiClient.callApi(
         '/sql', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        if ('rawResponse' in opts && !opts.rawResponse)
+          res['data'] = [ res['data'] ];
+        return res;
+      });
     }
 
     /**
      * Perform SQL requests
-     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex` The query string must be URL encoded if `raw_response` parameter is set to False The query string must be as is (no URL encoding) if `raw_response` parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
-     * @param {String} body A query parameter string. The query string must be URL encoded if `raw_response` parameter is set to False The query string must be as is (no URL encoding) if `raw_response` parameter is set to True or omitted. 
+     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex` The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
+     * @param {String} body A query parameter string. 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.rawResponse Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` or omitted for any type of queries:  (default to true)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, {String: Object}>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
      */
     this.sql = function(body, opts) {
       return this.sqlWithHttpInfo(body, opts)

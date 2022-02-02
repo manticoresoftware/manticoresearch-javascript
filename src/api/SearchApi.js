@@ -25,7 +25,7 @@
   /**
    * Search service.
    * @module api/SearchApi
-   * @version 2.0.3
+   * @version 3.0.0
    */
 
   /**
@@ -80,7 +80,10 @@
         '/json/pq/{index}/search', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        return res;
+      });
     }
 
     /**
@@ -132,7 +135,10 @@
         '/json/search', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
-      );
+      ).then( function(res) {
+        console.log(res);
+        return res;
+      });
     }
 
     /**

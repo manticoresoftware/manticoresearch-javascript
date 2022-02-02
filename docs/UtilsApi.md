@@ -10,14 +10,15 @@ Method | HTTP request | Description
 
 ## sql
 
-> {String: Object} sql(body, opts)
+> {String: Array} sql(body, opts)
 
 Perform SQL requests
 
 Run a query in SQL format.
 Expects a query string passed through `body` parameter and `opts` Object parameter that defines a format of response:
-* `opts` Object parameter can contain `{raw_response: false}` for Select only queries, e.g., `SELECT * FROM myindex`. The query string MUST be URL encoded in such cases. 
-* `opts` Object parameter can contain `{raw_response: true}` for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`. The query string must be as it is (no URL encoding).
+* `opts` Object parameter can contain `{raw_response: false}` for Select only queries, e.g., `SELECT * FROM myindex`.  
+* `opts` Object parameter can contain `{raw_response: true}` for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`. 
+The query string must stay as it is, no URL encoding is needed.
 The response object depends on the query executed. In select mode the response has same format as `/search` operation.
 
 
@@ -38,12 +39,12 @@ async function() {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **String**| A query string, must be URL encoded if opts parameter is set and contains {raw_response: false} and must be as it is (no URL encoding) otherwise. | 
+ **body** | **String**| A query string. | 
  **opts** | **Object**| Optional, expects to contain a boolean `raw_response` value that defines a format of response. `raw_response` can be set to false for Select only queries or can be set to true for any queries (including Select queries).  if `opts` parameter is omitted it has the same effect as setting it to `{raw_response: true}` |
 
 ### Return type
 
-**{String: Object}**
+**{String: Array}**
 
 ### Authorization
 
