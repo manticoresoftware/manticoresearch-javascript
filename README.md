@@ -54,7 +54,6 @@ async function() {
 ```
 
 
-
 ## Documentation for API Endpoints
 
 All URIs are relative to *http://127.0.0.1:9308*
