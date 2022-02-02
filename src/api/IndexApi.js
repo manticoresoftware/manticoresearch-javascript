@@ -1,8 +1,10 @@
-/**
+/*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
- * Contact: info@manticoresearch.com
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+ *
+ * All rights reserved
  */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -23,7 +25,7 @@
   /**
    * Index service.
    * @module api/IndexApi
-   * @version 2.0.2
+   * @version 2.0.3
    */
 
   /**
@@ -46,6 +48,8 @@
      */
     this.bulkWithHttpInfo = function(body) {
       var postBody = body;
+
+
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
         throw new Error("Missing the required parameter 'body' when calling bulk");
@@ -95,6 +99,8 @@
      */
     this.callDeleteWithHttpInfo = function(deleteDocumentRequest) {
       var postBody = deleteDocumentRequest;
+
+
       // verify the required parameter 'deleteDocumentRequest' is set
       if (deleteDocumentRequest === undefined || deleteDocumentRequest === null) {
         throw new Error("Missing the required parameter 'deleteDocumentRequest' when calling callDelete");
@@ -144,6 +150,8 @@
      */
     this.insertWithHttpInfo = function(insertDocumentRequest) {
       var postBody = insertDocumentRequest;
+
+
       // verify the required parameter 'insertDocumentRequest' is set
       if (insertDocumentRequest === undefined || insertDocumentRequest === null) {
         throw new Error("Missing the required parameter 'insertDocumentRequest' when calling insert");
@@ -193,6 +201,8 @@
      */
     this.replaceWithHttpInfo = function(insertDocumentRequest) {
       var postBody = insertDocumentRequest;
+
+
       // verify the required parameter 'insertDocumentRequest' is set
       if (insertDocumentRequest === undefined || insertDocumentRequest === null) {
         throw new Error("Missing the required parameter 'insertDocumentRequest' when calling replace");
@@ -242,6 +252,8 @@
      */
     this.updateWithHttpInfo = function(updateDocumentRequest) {
       var postBody = updateDocumentRequest;
+
+
       // verify the required parameter 'updateDocumentRequest' is set
       if (updateDocumentRequest === undefined || updateDocumentRequest === null) {
         throw new Error("Missing the required parameter 'updateDocumentRequest' when calling update");

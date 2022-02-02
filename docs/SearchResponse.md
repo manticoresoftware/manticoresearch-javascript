@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **aggregations** | **{String: Object}** |  | [optional] 
 **hits** | [**SearchResponseHits**](SearchResponseHits.md) |  | [optional] 
 **profile** | **Object** |  | [optional] 
+**warning** | **{String: Object}** |  | [optional] 
 
 

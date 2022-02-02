@@ -1,8 +1,10 @@
-/**
+/*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
- * Contact: info@manticoresearch.com
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+ *
+ * All rights reserved
  */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD.
@@ -73,6 +75,12 @@
 
     it('should have the property profile (base name: "profile")', function() {
       // uncomment below and update the code to test the property profile
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property warning (base name: "warning")', function() {
+      // uncomment below and update the code to test the property warning
       //var instance = new Manticoresearch.SearchResponse();
       //expect(instance).to.be();
     });
