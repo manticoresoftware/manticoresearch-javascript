@@ -1,10 +1,8 @@
-/*
+/**
  * Manticore Search Client
- * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
- *
- * All rights reserved
+ * Experimental low-level client for Manticore Search. 
+ * Contact: info@manticoresearch.com
  */
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -27,7 +25,7 @@
   /**
    * The SearchResponse model module.
    * @module model/SearchResponse
-   * @version 2.0.3
+   * @version 2.0.2
    */
 
   /**
@@ -66,9 +64,6 @@
       if (data.hasOwnProperty('profile')) {
         obj['profile'] = ApiClient.convertToType(data['profile'], Object);
       }
-      if (data.hasOwnProperty('warning')) {
-        obj['warning'] = ApiClient.convertToType(data['warning'], {'String': Object});
-      }
     }
     return obj;
   }
@@ -93,10 +88,6 @@
    * @member {Object} profile
    */
   exports.prototype['profile'] = undefined;
-  /**
-   * @member {Object.<String, Object>} warning
-   */
-  exports.prototype['warning'] = undefined;
 
 
 

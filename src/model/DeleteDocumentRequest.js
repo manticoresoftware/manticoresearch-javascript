@@ -1,10 +1,8 @@
-/*
+/**
  * Manticore Search Client
- * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
- *
- * All rights reserved
+ * Experimental low-level client for Manticore Search. 
+ * Contact: info@manticoresearch.com
  */
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -27,12 +25,12 @@
   /**
    * The DeleteDocumentRequest model module.
    * @module model/DeleteDocumentRequest
-   * @version 2.0.3
+   * @version 2.0.2
    */
 
   /**
    * Constructs a new <code>DeleteDocumentRequest</code>.
-   * Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://manual.manticoresearch.com/Deleting_documents) 
+   * Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://docs.manticoresearch.com/latest/html/http_reference/json_delete.html) 
    * @alias module:model/DeleteDocumentRequest
    * @class
    * @param index {String} Index name

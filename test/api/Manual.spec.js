@@ -1,8 +1,7 @@
-/*
+/**
  * Manticore Search Client
- * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
- *
- * All rights reserved
+ * Experimental low-level client for Manticore Search.
+ * Contact: info@manticoresearch.com
  */
 
 (function(root, factory) {
@@ -50,11 +49,9 @@
   describe('Manual', function() {
     describe('test', function() {
       it('run manual code samples',async function() {
-        let res =  await utilsApi.sql('DROP TABLE IF EXISTS products');
-        res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)', {'rawResponse': true});
-		res =  await utilsApi.sql('SELECT * FROM products', {'rawResponse': false} );
-		res =  await utilsApi.sql('SELECT * FROM products');
-
+        utilsApi.sql('mode=raw&query=DROP TABLE IF EXISTS products');
+        let res =  await utilsApi.sql('mode=raw&query=CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)');
+         
         res =  await indexApi.insert({"index" : "products", "id" : 1, "doc" : {"title" : "Crossbody Bag with Tassel", "price" : 19.85}});
         res =  await indexApi.insert({"index" : "products", "id" : 2, "doc" : {"title" : "Crossbody Bag with Tassel"}});
         res =  await indexApi.insert({"index" : "products", "id" : 0, "doc" : {"title" : "Yellow bag"}});
@@ -105,14 +102,14 @@
         res =  await indexApi.insert({"index" : "products", "id" : 1, "doc" : {"title" : "Crossbody Bag with Tassel", "price" : 19.85}});
         res =  await indexApi.callDelete({"index" : "products", "id" : 1});
          
-        res =  await utilsApi.sql('TRUNCATE TABLE products');
+        res =  await utilsApi.sql('mode=raw&query=TRUNCATE TABLE products');
          
-        res =  await utilsApi.sql('SHOW TABLES LIKE \'pro%\'');
+        res =  await utilsApi.sql('mode=raw&query=SHOW TABLES LIKE \'pro%\'');
          
         
-        res =  await utilsApi.sql('drop table forum');
+        res =  await utilsApi.sql('mode=raw&query=drop table forum');
          
-        res =  await utilsApi.sql('create table forum(title text, content text, author_id int, forum_id int, post_date timestamp) min_infix_len=\'3\'');
+        res =  await utilsApi.sql('mode=raw&query=create table forum(title text, content text, author_id int, forum_id int, post_date timestamp) min_infix_len=\'3\'');
          
         res =  await searchApi.search({"index":"forum","query":{"match_all":{},"bool":{"must":[{"equals":{"author_id":123}},{"in":{"forum_id":[1,3,7]}}]}},"sort":[{"post_date":"desc"}]});
          
@@ -126,21 +123,21 @@
          
         
 
-        res =  await utilsApi.sql('DROP TABLE products');
-        res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS products (title text,product_codes multi)');
+        res =  await utilsApi.sql('mode=raw&query=DROP TABLE products');
+        res =  await utilsApi.sql('mode=raw&query=CREATE TABLE IF NOT EXISTS products (title text,product_codes multi)');
         
         res =  await indexApi.insert({"index":"products","id":1,"doc":{"title":"first","product_codes":[4,2,1,3]}});
          
         res =  await searchApi.search({"index":"products","query":{"match_all":{}}});
          
-        res =  await utilsApi.sql('DROP TABLE products');
+        res =  await utilsApi.sql('mode=raw&query=DROP TABLE products');
         
         
-        res =  await utilsApi.sql('SHOW AGENT STATUS');
+        res =  await utilsApi.sql('mode=raw&query=SHOW AGENT STATUS');
          
         
         
-        res =  await utilsApi.sql('create table products(title text, color string) type=\'pq\'');
+        res =  await utilsApi.sql('mode=raw&query=create table products(title text, color string) type=\'pq\'');
         res =  await indexApi.insert({"index" : "products", "doc" : {"query" : "@title bag" }});
          
         res =  await indexApi.insert({"index" : "products",  "doc" : {"query" : "@title shoes", "filters": "color='red'" }});
@@ -155,7 +152,7 @@
          
         res =  await searchApi.search({"index":"products","query":{"match_all":{}}});
          
-        res =  await utilsApi.sql('DROP TABLE products');
+        res =  await utilsApi.sql('mode=raw&query=DROP TABLE products');
         /*
         res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price",}},"group_brand_id":{"terms":{"field":"brand_id"}}}});
         console.log(JSON.stringify(res));
