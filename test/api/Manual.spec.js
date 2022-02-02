@@ -25,7 +25,7 @@
 
   beforeEach(function() {
     var client= new Manticoresearch.ApiClient()
-    client.basePath="http://127.0.0.1:9308";
+    client.basePath="http://manticoresearch-manticore:9308";
     indexApi = new Manticoresearch.IndexApi(client);
     searchApi = new Manticoresearch.SearchApi(client);
     utilsApi = new Manticoresearch.UtilsApi(client);
