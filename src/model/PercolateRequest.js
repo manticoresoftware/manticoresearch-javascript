@@ -8,18 +8,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/PercolateRequestQuery'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./PercolateRequestQuery'));
   } else {
     // Browser globals (root is window)
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.PercolateRequest = factory(root.Manticoresearch.ApiClient);
+    root.Manticoresearch.PercolateRequest = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.PercolateRequestQuery);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, PercolateRequestQuery) {
   'use strict';
 
 
@@ -35,7 +35,7 @@
    * Object with documents to percolate
    * @alias module:model/PercolateRequest
    * @class
-   * @param query {Object.<String, Object>} 
+   * @param query {module:model/PercolateRequestQuery} 
    */
   var exports = function(query) {
     var _this = this;
@@ -54,14 +54,14 @@
     if (data) {
       obj = obj || new exports();
       if (data.hasOwnProperty('query')) {
-        obj['query'] = ApiClient.convertToType(data['query'], {'String': Object});
+        obj['query'] = PercolateRequestQuery.constructFromObject(data['query']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Object.<String, Object>} query
+   * @member {module:model/PercolateRequestQuery} query
    */
   exports.prototype['query'] = undefined;
 

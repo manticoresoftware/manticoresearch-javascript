@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **{String: Object}** |  | 
+**query** | [**PercolateRequestQuery**](PercolateRequestQuery.md) |  | 
 
 

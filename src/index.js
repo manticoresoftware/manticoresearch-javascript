@@ -8,12 +8,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BulkResponse', 'model/DeleteDocumentRequest', 'model/DeleteResponse', 'model/ErrorResponse', 'model/InsertDocumentRequest', 'model/PercolateRequest', 'model/SearchRequest', 'model/SearchResponse', 'model/SearchResponseHits', 'model/SuccessResponse', 'model/UpdateDocumentRequest', 'model/UpdateResponse', 'api/IndexApi', 'api/SearchApi', 'api/UtilsApi'], factory);
+    define(['ApiClient', 'model/BulkResponse', 'model/DeleteDocumentRequest', 'model/DeleteResponse', 'model/ErrorResponse', 'model/InsertDocumentRequest', 'model/PercolateRequest', 'model/PercolateRequestQuery', 'model/SearchRequest', 'model/SearchResponse', 'model/SearchResponseHits', 'model/SuccessResponse', 'model/UpdateDocumentRequest', 'model/UpdateResponse', 'api/IndexApi', 'api/SearchApi', 'api/UtilsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/BulkResponse'), require('./model/DeleteDocumentRequest'), require('./model/DeleteResponse'), require('./model/ErrorResponse'), require('./model/InsertDocumentRequest'), require('./model/PercolateRequest'), require('./model/SearchRequest'), require('./model/SearchResponse'), require('./model/SearchResponseHits'), require('./model/SuccessResponse'), require('./model/UpdateDocumentRequest'), require('./model/UpdateResponse'), require('./api/IndexApi'), require('./api/SearchApi'), require('./api/UtilsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/BulkResponse'), require('./model/DeleteDocumentRequest'), require('./model/DeleteResponse'), require('./model/ErrorResponse'), require('./model/InsertDocumentRequest'), require('./model/PercolateRequest'), require('./model/PercolateRequestQuery'), require('./model/SearchRequest'), require('./model/SearchResponse'), require('./model/SearchResponseHits'), require('./model/SuccessResponse'), require('./model/UpdateDocumentRequest'), require('./model/UpdateResponse'), require('./api/IndexApi'), require('./api/SearchApi'), require('./api/UtilsApi'));
   }
-}(function(ApiClient, BulkResponse, DeleteDocumentRequest, DeleteResponse, ErrorResponse, InsertDocumentRequest, PercolateRequest, SearchRequest, SearchResponse, SearchResponseHits, SuccessResponse, UpdateDocumentRequest, UpdateResponse, IndexApi, SearchApi, UtilsApi) {
+}(function(ApiClient, BulkResponse, DeleteDocumentRequest, DeleteResponse, ErrorResponse, InsertDocumentRequest, PercolateRequest, PercolateRequestQuery, SearchRequest, SearchResponse, SearchResponseHits, SuccessResponse, UpdateDocumentRequest, UpdateResponse, IndexApi, SearchApi, UtilsApi) {
   'use strict';
 
   /**
@@ -83,6 +83,11 @@
      * @property {module:model/PercolateRequest}
      */
     PercolateRequest: PercolateRequest,
+    /**
+     * The PercolateRequestQuery model constructor.
+     * @property {module:model/PercolateRequestQuery}
+     */
+    PercolateRequestQuery: PercolateRequestQuery,
     /**
      * The SearchRequest model constructor.
      * @property {module:model/SearchRequest}

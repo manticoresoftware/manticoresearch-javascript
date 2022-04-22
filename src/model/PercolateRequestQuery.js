@@ -17,7 +17,7 @@
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.ErrorResponse = factory(root.Manticoresearch.ApiClient);
+    root.Manticoresearch.PercolateRequestQuery = factory(root.Manticoresearch.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -25,54 +25,47 @@
 
 
   /**
-   * The ErrorResponse model module.
-   * @module model/ErrorResponse
+   * The PercolateRequestQuery model module.
+   * @module model/PercolateRequestQuery
    * @version 3.0.0
    */
 
   /**
-   * Constructs a new <code>ErrorResponse</code>.
-   * Error response
-   * @alias module:model/ErrorResponse
+   * Constructs a new <code>PercolateRequestQuery</code>.
+   * @alias module:model/PercolateRequestQuery
    * @class
-   * @param error {Object.<String, Object>} 
-   * @param status {Number} 
+   * @extends Object
+   * @param percolate {Object} 
    */
-  var exports = function(error, status) {
+  var exports = function(percolate) {
     var _this = this;
 
-    _this['error'] = error;
-    _this['status'] = status;
+    _this['percolate'] = percolate;
+    return _this;
   };
 
   /**
-   * Constructs a <code>ErrorResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PercolateRequestQuery</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ErrorResponse} obj Optional instance to populate.
-   * @return {module:model/ErrorResponse} The populated <code>ErrorResponse</code> instance.
+   * @param {module:model/PercolateRequestQuery} obj Optional instance to populate.
+   * @return {module:model/PercolateRequestQuery} The populated <code>PercolateRequestQuery</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      if (data.hasOwnProperty('error')) {
-        obj['error'] = ApiClient.convertToType(data['error'], {'String': Object});
-      }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'Number');
+      ApiClient.constructFromObject(data, obj, 'Object');
+      if (data.hasOwnProperty('percolate')) {
+        obj['percolate'] = ApiClient.convertToType(data['percolate'], Object);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Object.<String, Object>} error
+   * @member {Object} percolate
    */
-  exports.prototype['error'] = undefined;
-  /**
-   * @member {Number} status
-   */
-  exports.prototype['status'] = undefined;
+  exports.prototype['percolate'] = undefined;
 
 
 

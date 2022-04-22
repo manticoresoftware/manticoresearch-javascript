@@ -112,7 +112,7 @@
         res =  await utilsApi.sql('SHOW TABLES LIKE \'pro%\'');
          
         
-        res =  await utilsApi.sql('drop table forum');
+        res =  await utilsApi.sql('drop table if exists forum');
          
         res =  await utilsApi.sql('create table forum(title text, content text, author_id int, forum_id int, post_date timestamp) min_infix_len=\'3\'');
          
@@ -156,7 +156,11 @@
         res =  await searchApi.percolate('products',{"query":{"percolate":{"documents":[{"title":"nice pair of shoes","color":"blue"},{"title":"beautiful bag"}]}}});
          
         res =  await searchApi.search({"index":"products","query":{"match_all":{}}});
-         
+        console.log(res)
+
+        res =  await searchApi.search({"index":"products","query":{"match_all":{}},"options":{"max_matches":1}});
+        console.log(res)
+
         res =  await utilsApi.sql('DROP TABLE products');
         /*
         res =  await searchApi.search({"index":"facetdemo2","query":{"match_all":{}},"limit":5,"aggs":{"group_property":{"terms":{"field":"price",}},"group_brand_id":{"terms":{"field":"brand_id"}}}});

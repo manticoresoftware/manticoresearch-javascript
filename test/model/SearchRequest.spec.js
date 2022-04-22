@@ -109,6 +109,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property profile (base name: "profile")', function() {
       // uncomment below and update the code to test the property profile
       //var instance = new Manticoresearch.SearchRequest();

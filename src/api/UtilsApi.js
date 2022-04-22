@@ -87,7 +87,6 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
-        console.log(res);
         if ('rawResponse' in opts && !opts.rawResponse)
           res['data'] = [ res['data'] ];
         return res;

@@ -36,7 +36,7 @@
    * @alias module:model/SearchRequest
    * @class
    * @param index {String} 
-   * @param query {Object.<String, Object>} 
+   * @param query {Object} 
    */
   var exports = function(index, query) {
     var _this = this;
@@ -59,7 +59,7 @@
         obj['index'] = ApiClient.convertToType(data['index'], 'String');
       }
       if (data.hasOwnProperty('query')) {
-        obj['query'] = ApiClient.convertToType(data['query'], {'String': Object});
+        obj['query'] = ApiClient.convertToType(data['query'], Object);
       }
       if (data.hasOwnProperty('limit')) {
         obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
@@ -85,6 +85,9 @@
       if (data.hasOwnProperty('_source')) {
         obj['_source'] = ApiClient.convertToType(data['_source'], ['String']);
       }
+      if (data.hasOwnProperty('options')) {
+        obj['options'] = ApiClient.convertToType(data['options'], {'String': Object});
+      }
       if (data.hasOwnProperty('profile')) {
         obj['profile'] = ApiClient.convertToType(data['profile'], 'Boolean');
       }
@@ -97,7 +100,7 @@
    */
   exports.prototype['index'] = undefined;
   /**
-   * @member {Object.<String, Object>} query
+   * @member {Object} query
    */
   exports.prototype['query'] = undefined;
   /**
@@ -132,6 +135,10 @@
    * @member {Array.<String>} _source
    */
   exports.prototype['_source'] = undefined;
+  /**
+   * @member {Object.<String, Object>} options
+   */
+  exports.prototype['options'] = undefined;
   /**
    * @member {Boolean} profile
    */

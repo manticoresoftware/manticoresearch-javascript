@@ -1,10 +1,9 @@
-# Manticoresearch.ErrorResponse
+# Manticoresearch.PercolateRequestQuery
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **{String: Object}** |  | 
-**status** | **Number** |  | 
+**percolate** | **Object** |  | 
 
 

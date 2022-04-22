@@ -3,16 +3,19 @@
 Low-level client for Manticore Search.
 
 
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/2.0.3
+
+## Requirements
+
+Node v8.
+
+Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
+
 ## Installation
 
 ```shell
 npm install manticoresearch 
 ```
-## Requirements
-
-Node v8.
-
-Minimum Manticore Search version is > 4.2.0 with HTTP protocol enabled.
 
 ## Documentation
 
@@ -22,16 +25,21 @@ Manticore Search server documentation: https://manual.manticoresearch.com.
 
 ## Getting Started
 
-A simple search case:
+Please follow the [installation](#installation) instruction and execute the following Javascript code:
+
 
 ```javascript
 var Manticoresearch = require('manticoresearch');
-client.basePath="http://127.0.0.1:9308"; 
-var searchApi = new Manticoresearch.SearchApi()
-async function() {
-    res =  await searchApi.search({"index":"forum","query":{"match_all":{},"bool":{"must":[{"equals":{"author_id":123}},{"in":{"forum_id":[1,3,7]}}]}},"sort":[{"post_date":"desc"}]});
-    console.log(JSON.stringify(res));
-}
+var client = Manticoresearch.ApiClient();
+client.basePath="http://localhost:9308";
+
+var api = new Manticoresearch.IndexApi(client)
+var body = ["'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"]; // {String} 
+api.bulk(body).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
 
 ```
@@ -60,6 +68,7 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.ErrorResponse](docs/ErrorResponse.md)
  - [Manticoresearch.InsertDocumentRequest](docs/InsertDocumentRequest.md)
  - [Manticoresearch.PercolateRequest](docs/PercolateRequest.md)
+ - [Manticoresearch.PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [Manticoresearch.SearchRequest](docs/SearchRequest.md)
  - [Manticoresearch.SearchResponse](docs/SearchResponse.md)
  - [Manticoresearch.SearchResponseHits](docs/SearchResponseHits.md)

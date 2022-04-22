@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **index** | **String** |  | 
-**query** | **{String: Object}** |  | 
+**query** | **Object** |  | 
 **limit** | **Number** |  | [optional] 
 **offset** | **Number** |  | [optional] 
 **maxMatches** | **Number** |  | [optional] 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **expressions** | **Object** |  | [optional] 
 **highlight** | **Object** |  | [optional] 
 **source** | **[String]** |  | [optional] 
+**options** | **{String: Object}** |  | [optional] 
 **profile** | **Boolean** |  | [optional] 
 
 

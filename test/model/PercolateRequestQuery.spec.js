@@ -23,7 +23,7 @@
 
   beforeEach(function() {
     // create a new instance
-    //instance = new Manticoresearch.UpdateResponse();
+    //instance = new Manticoresearch.PercolateRequestQuery();
   });
 
   var getProperty = function(object, getter, property) {
@@ -42,34 +42,16 @@
       object[property] = value;
   }
 
-  describe('UpdateResponse', function() {
-    it('should create an instance of UpdateResponse', function() {
-      // uncomment below and update the code to test UpdateResponse
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be.a(Manticoresearch.UpdateResponse);
+  describe('PercolateRequestQuery', function() {
+    it('should create an instance of PercolateRequestQuery', function() {
+      // uncomment below and update the code to test PercolateRequestQuery
+      //var instance = new Manticoresearch.PercolateRequestQuery();
+      //expect(instance).to.be.a(Manticoresearch.PercolateRequestQuery);
     });
 
-    it('should have the property index (base name: "_index")', function() {
-      // uncomment below and update the code to test the property index
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property updated (base name: "updated")', function() {
-      // uncomment below and update the code to test the property updated
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property id (base name: "_id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property result (base name: "result")', function() {
-      // uncomment below and update the code to test the property result
-      //var instance = new Manticoresearch.UpdateResponse();
+    it('should have the property percolate (base name: "percolate")', function() {
+      // uncomment below and update the code to test the property percolate
+      //var instance = new Manticoresearch.PercolateRequestQuery();
       //expect(instance).to.be();
     });
 

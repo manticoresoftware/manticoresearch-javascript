@@ -81,7 +81,6 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
-        console.log(res);
         return res;
       });
     }
@@ -136,7 +135,6 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
-        console.log(res);
         return res;
       });
     }
