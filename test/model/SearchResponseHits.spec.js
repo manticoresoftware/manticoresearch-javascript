@@ -61,6 +61,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property totalRelation (base name: "total_relation")', function() {
+      // uncomment below and update the code to test the property totalRelation
+      //var instance = new Manticoresearch.SearchResponseHits();
+      //expect(instance).to.be();
+    });
+
     it('should have the property hits (base name: "hits")', function() {
       // uncomment below and update the code to test the property hits
       //var instance = new Manticoresearch.SearchResponseHits();

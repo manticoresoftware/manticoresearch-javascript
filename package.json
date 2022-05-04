@@ -1,6 +1,6 @@
 {
   "name": "manticoresearch",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "description": "Javascript client for Manticore Search",
   "license": "MIT",
   "main": "src/index.js",

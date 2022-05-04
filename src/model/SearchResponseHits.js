@@ -27,7 +27,7 @@
   /**
    * The SearchResponseHits model module.
    * @module model/SearchResponseHits
-   * @version 3.0.0
+   * @version 3.2.0
    */
 
   /**
@@ -56,6 +56,9 @@
       if (data.hasOwnProperty('total')) {
         obj['total'] = ApiClient.convertToType(data['total'], 'Number');
       }
+      if (data.hasOwnProperty('total_relation')) {
+        obj['total_relation'] = ApiClient.convertToType(data['total_relation'], 'String');
+      }
       if (data.hasOwnProperty('hits')) {
         obj['hits'] = ApiClient.convertToType(data['hits'], [Object]);
       }
@@ -71,6 +74,10 @@
    * @member {Number} total
    */
   exports.prototype['total'] = undefined;
+  /**
+   * @member {String} total_relation
+   */
+  exports.prototype['total_relation'] = undefined;
   /**
    * @member {Array.<Object>} hits
    */

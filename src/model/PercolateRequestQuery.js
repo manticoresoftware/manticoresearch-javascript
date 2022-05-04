@@ -27,7 +27,7 @@
   /**
    * The PercolateRequestQuery model module.
    * @module model/PercolateRequestQuery
-   * @version 3.0.0
+   * @version 3.2.0
    */
 
   /**
