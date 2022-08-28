@@ -39,6 +39,14 @@ Please follow the [installation](#installation) instruction and execute the foll
 var Manticoresearch = require('manticoresearch');
 var client = Manticoresearch.ApiClient();
 client.basePath="http://localhost:9308";
+/*
+If a custom http agent is needed, e.g., to enable keep-alive connections, the 'requestAgent' option can be set to override 'superagent' agent instance used by default:
+client.requestAgent = new http.Agent({
+  keepAlive: true,
+  maxSockets: 1,
+  keepAliveMsecs: 1000
+});
+*/
 
 var api = new Manticoresearch.IndexApi(client)
 var body = ["'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"]; // {String} 
