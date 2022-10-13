@@ -17,7 +17,7 @@
   'use strict';
 
   /**
-   * Low_level_client_for_Manticore_Search_.<br>
+   * Low-level client for Manticore Search. .<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -45,7 +45,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 3.2.0
+   * @version 3.2.1
    */
   var exports = {
     /**

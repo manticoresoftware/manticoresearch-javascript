@@ -3,8 +3,6 @@
 Low-level client for Manticore Search.
 
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.2.0
-
 ## Requirements
 
 Node v8.
@@ -37,7 +35,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```javascript
 var Manticoresearch = require('manticoresearch');
-var client = Manticoresearch.ApiClient();
+var client = new Manticoresearch.ApiClient();
 client.basePath="http://localhost:9308";
 /*
 If a custom http agent is needed, e.g., to enable keep-alive connections, the 'requestAgent' option can be set to override 'superagent' agent instance used by default:

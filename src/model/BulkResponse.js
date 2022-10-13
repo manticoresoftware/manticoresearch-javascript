@@ -27,7 +27,7 @@
   /**
    * The BulkResponse model module.
    * @module model/BulkResponse
-   * @version 3.2.0
+   * @version 3.2.1
    */
 
   /**

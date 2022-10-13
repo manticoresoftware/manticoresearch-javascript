@@ -27,7 +27,7 @@
   /**
    * The SearchRequest model module.
    * @module model/SearchRequest
-   * @version 3.2.0
+   * @version 3.2.1
    */
 
   /**
