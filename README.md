@@ -3,7 +3,7 @@
 Low-level client for Manticore Search.
 
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.2.1
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.3.0
 
 ## Requirements
 
@@ -77,16 +77,41 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Manticoresearch.Aggregation](docs/Aggregation.md)
+ - [Manticoresearch.BoolFilter](docs/BoolFilter.md)
  - [Manticoresearch.BulkResponse](docs/BulkResponse.md)
  - [Manticoresearch.DeleteDocumentRequest](docs/DeleteDocumentRequest.md)
  - [Manticoresearch.DeleteResponse](docs/DeleteResponse.md)
+ - [Manticoresearch.EqualsFilter](docs/EqualsFilter.md)
  - [Manticoresearch.ErrorResponse](docs/ErrorResponse.md)
+ - [Manticoresearch.Facet](docs/Facet.md)
+ - [Manticoresearch.FilterBoolean](docs/FilterBoolean.md)
+ - [Manticoresearch.FilterNumber](docs/FilterNumber.md)
+ - [Manticoresearch.FilterString](docs/FilterString.md)
+ - [Manticoresearch.GeoDistanceFilter](docs/GeoDistanceFilter.md)
+ - [Manticoresearch.GeoDistanceFilterLocationAnchor](docs/GeoDistanceFilterLocationAnchor.md)
+ - [Manticoresearch.Highlight](docs/Highlight.md)
+ - [Manticoresearch.HighlightField](docs/HighlightField.md)
+ - [Manticoresearch.InFilter](docs/InFilter.md)
  - [Manticoresearch.InsertDocumentRequest](docs/InsertDocumentRequest.md)
+ - [Manticoresearch.MatchFilter](docs/MatchFilter.md)
+ - [Manticoresearch.MatchOp](docs/MatchOp.md)
+ - [Manticoresearch.MatchOpFilter](docs/MatchOpFilter.md)
+ - [Manticoresearch.MatchPhraseFilter](docs/MatchPhraseFilter.md)
+ - [Manticoresearch.NotFilterBoolean](docs/NotFilterBoolean.md)
+ - [Manticoresearch.NotFilterNumber](docs/NotFilterNumber.md)
+ - [Manticoresearch.NotFilterString](docs/NotFilterString.md)
  - [Manticoresearch.PercolateRequest](docs/PercolateRequest.md)
  - [Manticoresearch.PercolateRequestQuery](docs/PercolateRequestQuery.md)
+ - [Manticoresearch.QueryFilter](docs/QueryFilter.md)
+ - [Manticoresearch.RangeFilter](docs/RangeFilter.md)
  - [Manticoresearch.SearchRequest](docs/SearchRequest.md)
  - [Manticoresearch.SearchResponse](docs/SearchResponse.md)
  - [Manticoresearch.SearchResponseHits](docs/SearchResponseHits.md)
+ - [Manticoresearch.SortMVA](docs/SortMVA.md)
+ - [Manticoresearch.SortMultiple](docs/SortMultiple.md)
+ - [Manticoresearch.SortOrder](docs/SortOrder.md)
+ - [Manticoresearch.SourceByRules](docs/SourceByRules.md)
  - [Manticoresearch.SuccessResponse](docs/SuccessResponse.md)
  - [Manticoresearch.UpdateDocumentRequest](docs/UpdateDocumentRequest.md)
  - [Manticoresearch.UpdateResponse](docs/UpdateResponse.md)

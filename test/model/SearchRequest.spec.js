@@ -61,6 +61,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property fulltextFilter (base name: "fulltext_filter")', function() {
+      // uncomment below and update the code to test the property fulltextFilter
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property attrFilter (base name: "attr_filter")', function() {
+      // uncomment below and update the code to test the property attrFilter
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property limit (base name: "limit")', function() {
       // uncomment below and update the code to test the property limit
       //var instance = new Manticoresearch.SearchRequest();
@@ -85,6 +97,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sortOld (base name: "sort_old")', function() {
+      // uncomment below and update the code to test the property sortOld
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property aggs (base name: "aggs")', function() {
       // uncomment below and update the code to test the property aggs
       //var instance = new Manticoresearch.SearchRequest();
@@ -103,7 +121,7 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property source (base name: "_source")', function() {
+    it('should have the property source (base name: "source")', function() {
       // uncomment below and update the code to test the property source
       //var instance = new Manticoresearch.SearchRequest();
       //expect(instance).to.be();
@@ -117,6 +135,12 @@
 
     it('should have the property profile (base name: "profile")', function() {
       // uncomment below and update the code to test the property profile
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property trackScores (base name: "track_scores")', function() {
+      // uncomment below and update the code to test the property trackScores
       //var instance = new Manticoresearch.SearchRequest();
       //expect(instance).to.be();
     });

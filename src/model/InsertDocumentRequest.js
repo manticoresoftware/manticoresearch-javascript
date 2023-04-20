@@ -27,7 +27,7 @@
   /**
    * The InsertDocumentRequest model module.
    * @module model/InsertDocumentRequest
-   * @version 3.2.1
+   * @version 3.3.0
    */
 
   /**
