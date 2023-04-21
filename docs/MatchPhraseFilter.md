@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **queryPhrase** | **String** |  | 
 **queryFields** | **String** |  | 
 
-[[Using in search requests]](SearchApi.md#MatchPhraseFilter)
+[[Using in search requests]](SearchRequest.md#MatchPhraseFilter)
 
 
 

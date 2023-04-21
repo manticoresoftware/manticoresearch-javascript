@@ -77,7 +77,7 @@
       var accepts = ['application/json'];
       var returnType = SearchResponse;
       return this.apiClient.callApi(
-        '/json/pq/{index}/search', 'POST',
+        '/pq/{index}/search', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
@@ -101,8 +101,8 @@
 
 
     /**
-     * Performs a search
-     *  Expects an object with mandatory properties: * the index name * the match query object Example :    ```   {     'index':'movies',     'query':     {       'bool':       {         'must':[{'query_string':' movie'}]       }     },     'script_fields':     {       'myexpr':       {         'script':{'inline':'IF(rating>8,1,0)'       }     },     'sort':     [       {'myexpr':'desc'},       {'_score':'desc'}     ],     'profile':true   }   ```  It responds with an object with: - an array with hits (matched documents) found - if the query is timed out - time of execution - if profiling is enabled, an additional array with profiling information attached     ```   {     'took':10,     'timed_out':false,     'hits':     {       'total':2,       'hits':       [         {'_id':'1','_score':1,'_source':{'gid':11}},         {'_id':'2','_score':1,'_source':{'gid':12}}       ]     }   }   ```  Alternatively, you can use auxiliary query objects to build your search queries as it's shown in the example below. For more information about the match query syntax and additional parameters that can be added to  request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
+     * Performs a search on an index
+     *  The method expects an object with the following mandatory properties: * the name of the index to search * the match query object Here is an example search request:    ```   {     'index':'movies',     'query':     {       'bool':       {         'must':[{'query_string':' movie'}]       }     },     'script_fields':     {       'myexpr':       {         'script':{'inline':'IF(rating>8,1,0)'       }     },     'sort':     [       {'myexpr':'desc'},       {'_score':'desc'}     ],     'profile':true   }   ```  Alternatively, you can use auxiliary objects to build your search query. For details, see the documentation on [**SearchRequest**](SearchRequest.md)  The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Here is an example search response:    ```   {     'took':10,     'timed_out':false,     'hits':     {       'total':2,       'hits':       [         {'_id':'1','_score':1,'_source':{'gid':11}},         {'_id':'2','_score':1,'_source':{'gid':12}}       ]     }   }   ```  For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
      * @param {module:model/SearchRequest} searchRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
@@ -248,7 +248,7 @@
       var accepts = ['application/json'];
       var returnType = SearchResponse;
       return this.apiClient.callApi(
-        '/json/search', 'POST',
+        '/search', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
@@ -257,8 +257,8 @@
     }
 
     /**
-     * Performs a search
-     *  Expects an object with mandatory properties: * the index name * the match query object Example :    ```   {     'index':'movies',     'query':     {       'bool':       {         'must':[{'query_string':' movie'}]       }     },     'script_fields':     {       'myexpr':       {         'script':{'inline':'IF(rating>8,1,0)'       }     },     'sort':     [       {'myexpr':'desc'},       {'_score':'desc'}     ],     'profile':true   }   ```  It responds with an object with: - an array with hits (matched documents) found - if the query is timed out - time of execution - if profiling is enabled, an additional array with profiling information attached     ```   {     'took':10,     'timed_out':false,     'hits':     {       'total':2,       'hits':       [         {'_id':'1','_score':1,'_source':{'gid':11}},         {'_id':'2','_score':1,'_source':{'gid':12}}       ]     }   }   ```  Alternatively, you can use auxiliary query objects to build your search queries as it's shown in the example below. For more information about the match query syntax and additional parameters that can be added to  request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
+     * Performs a search on an index
+     *  The method expects an object with the following mandatory properties: * the name of the index to search * the match query object Here is an example search request:    ```   {     'index':'movies',     'query':     {       'bool':       {         'must':[{'query_string':' movie'}]       }     },     'script_fields':     {       'myexpr':       {         'script':{'inline':'IF(rating>8,1,0)'       }     },     'sort':     [       {'myexpr':'desc'},       {'_score':'desc'}     ],     'profile':true   }   ```  Alternatively, you can use auxiliary objects to build your search query. For details, see the documentation on [**SearchRequest**](SearchRequest.md)  The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Here is an example search response:    ```   {     'took':10,     'timed_out':false,     'hits':     {       'total':2,       'hits':       [         {'_id':'1','_score':1,'_source':{'gid':11}},         {'_id':'2','_score':1,'_source':{'gid':12}}       ]     }   }   ```  For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
      * @param {module:model/SearchRequest} searchRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SearchResponse}
      */

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **distanceType** | **String** |  | [optional] 
 **distance** | **String** |  | [optional] 
 
-[[Using in search requests]](SearchApi.md#GeoDistanceFilter)
+[[Using in search requests]](SearchRequest.md#GeoDistanceFilter)
 
 
 

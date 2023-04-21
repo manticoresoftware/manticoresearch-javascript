@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **htmlStripMode** | **String** |  | [optional] 
 **snippetBoundary** | **String** |  | [optional] 
 
-[[Using in search requests]](SearchApi.md#Highlight)
+[[Using in search requests]](SearchRequest.md#Highlight)
 
 
 

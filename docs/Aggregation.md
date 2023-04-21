@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **field** | **String** |  | 
 **size** | **Number** |  | [optional] [default to 20]
 
-[[Using in search requests]](SearchApi.md#Aggregation)
+[[Using in search requests]](SearchRequest.md#Aggregation)
 
 
 

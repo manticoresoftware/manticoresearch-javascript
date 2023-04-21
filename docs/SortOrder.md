@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **attr** | **String** |  | 
 **order** | **String** |  | 
 
-[[Using in search requests]](SearchApi.md#SortOrder)
+[[Using in search requests]](SearchRequest.md#SortOrder)
 
 
 

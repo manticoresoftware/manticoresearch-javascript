@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **lt** | **Number** |  | [optional] 
 **gt** | **Number** |  | [optional] 
 
-[[Using in search requests]](SearchApi.md#RangeFilter)
+[[Using in search requests]](SearchRequest.md#RangeFilter)
 
 
 

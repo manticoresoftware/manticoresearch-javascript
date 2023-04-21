@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **queryFields** | **String** |  | 
 **operator** | **String** |  | 
 
-[[Using in search requests]](SearchApi.md#MatchOpFilter)
+[[Using in search requests]](SearchRequest.md#MatchOpFilter)
 
 
 

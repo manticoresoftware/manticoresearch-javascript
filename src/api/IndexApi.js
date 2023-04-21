@@ -71,7 +71,7 @@
       var accepts = ['application/json'];
       var returnType = BulkResponse;
       return this.apiClient.callApi(
-        '/json/bulk', 'POST',
+        '/bulk', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
@@ -124,7 +124,7 @@
       var accepts = ['application/json'];
       var returnType = DeleteResponse;
       return this.apiClient.callApi(
-        '/json/delete', 'POST',
+        '/delete', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
@@ -177,7 +177,7 @@
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
       return this.apiClient.callApi(
-        '/json/insert', 'POST',
+        '/insert', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
@@ -230,7 +230,7 @@
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
       return this.apiClient.callApi(
-        '/json/replace', 'POST',
+        '/replace', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {
@@ -283,7 +283,7 @@
       var accepts = ['application/json'];
       var returnType = UpdateResponse;
       return this.apiClient.callApi(
-        '/json/update', 'POST',
+        '/update', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       ).then( function(res) {

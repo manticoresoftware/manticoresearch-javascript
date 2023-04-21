@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **must** | **[Object]** |  | [optional] 
 **mustNot** | **[Object]** |  | [optional] 
 
-[[Using in search requests]](SearchApi.md#BoolFilter)
+[[Using in search requests]](SearchRequest.md#BoolFilter)
 
 
 

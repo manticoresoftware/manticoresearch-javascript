@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **field** | **String** |  | 
 **values** | **[Object]** |  | 
 
-[[Using in search requests]](SearchApi.md#InFilter)
+[[Using in search requests]](SearchRequest.md#InFilter)
 
 
 

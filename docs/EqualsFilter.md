@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **field** | **String** |  | 
 **value** | **Object** |  | 
 
-[[Using in search requests]](SearchApi.md#EqualsFilter)
+[[Using in search requests]](SearchRequest.md#EqualsFilter)
 
 
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **order** | **String** |  | 
 **mode** | **String** |  | 
 
-[[Using in search requests]](SearchApi.md#SortMVA)
+[[Using in search requests]](SearchRequest.md#SortMVA)
 
 
 
