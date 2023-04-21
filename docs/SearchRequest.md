@@ -393,7 +393,7 @@ async function(){
 }
 ```
 			
-#### Building a search request in an alternative way with a single literal object 
+## Creating a search request in an alternative way with a single literal object 
 ```javascript
 
 var searchRequest = {"index":"myindex","query":{"query_string":"@title \"find me fast \"/2"}};

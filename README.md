@@ -6,8 +6,6 @@
 
 ## Requirements
 
-Node v8.
-
 Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
 | Manticore Search  | manticoresearch-javascript   |     Node      |

@@ -32,7 +32,7 @@
 
   /**
    * Constructs a new <code>SearchRequest</code>.
-   * Payload for search operation
+   * Request object for search operation
    * @alias module:model/SearchRequest
    * @class
    * @param index {String} 
