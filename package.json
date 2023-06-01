@@ -16,7 +16,7 @@
     "search",
     "client",
     "index"
-  ],  
+  ],
   "dependencies": {
     "superagent": "5.1.0",
     "json-bigint": "1.0.0"

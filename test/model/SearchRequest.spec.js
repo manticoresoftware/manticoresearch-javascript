@@ -97,12 +97,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sortOld (base name: "sort_old")', function() {
-      // uncomment below and update the code to test the property sortOld
-      //var instance = new Manticoresearch.SearchRequest();
-      //expect(instance).to.be();
-    });
-
     it('should have the property aggs (base name: "aggs")', function() {
       // uncomment below and update the code to test the property aggs
       //var instance = new Manticoresearch.SearchRequest();

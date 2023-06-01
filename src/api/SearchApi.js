@@ -48,7 +48,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
     this.percolateWithHttpInfo = function(index, percolateRequest) {
-      var postBody = percolateRequest;
+      var postBody = JSON.parse(JSON.stringify(percolateRequest));
 
 
       // verify the required parameter 'index' is set
@@ -107,7 +107,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
     this.searchWithHttpInfo = function(searchRequest) {
-      var postBody = searchRequest;
+      var postBody = JSON.parse(JSON.stringify(searchRequest));
 
 
       // verify the required parameter 'searchRequest' is set

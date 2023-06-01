@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **offset** | **Number** |  | [optional] 
 **maxMatches** | **Number** |  | [optional] 
 **sort** | **[Object]** |  | [optional] 
-**sortOld** | **[Object]** |  | [optional] 
 **aggs** | [**[Aggregation]**](Aggregation.md) |  | [optional] 
 **expressions** | **[Object]** |  | [optional] 
 **highlight** | [**Highlight**](Highlight.md) |  | [optional] 

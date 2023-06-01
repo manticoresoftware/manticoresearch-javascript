@@ -77,9 +77,6 @@
       if (data.hasOwnProperty('sort')) {
         obj['sort'] = ApiClient.convertToType(data['sort'], [Object]);
       }
-      if (data.hasOwnProperty('sort_old')) {
-        obj['sort_old'] = ApiClient.convertToType(data['sort_old'], [Object]);
-      }
       if (data.hasOwnProperty('aggs')) {
         obj['aggs'] = ApiClient.convertToType(data['aggs'], [Aggregation]);
       }
@@ -138,10 +135,6 @@
    * @member {Array.<Object>} sort
    */
   exports.prototype['sort'] = undefined;
-  /**
-   * @member {Array.<Object>} sort_old
-   */
-  exports.prototype['sort_old'] = undefined;
   /**
    * @member {Array.<module:model/Aggregation>} aggs
    */

@@ -50,7 +50,7 @@
      */
     this.sqlWithHttpInfo = function(body, opts) {
       opts = opts || {};
-      var postBody = body;
+      var postBody = JSON.parse(JSON.stringify(body));
 
       if (postBody) {
         if  ('rawResponse' in opts && !opts.rawResponse)

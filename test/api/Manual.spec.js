@@ -53,95 +53,141 @@
 	
 		try {
 			let res =  await utilsApi.sql('DROP TABLE IF EXISTS movies');
-        	res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS movies (title text, plot text, year integer, rating float, code multi)');
+			res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS movies (title text, plot text, year integer, rating float, code multi)');
 			let docs = [ 
-            	{"insert": {"index" : "movies", "id" : 1, "doc" : {"title" : "Star Trek 2: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2002, "rating": 6.4, "code": [1,2,3]}}},
-            	{"insert": {"index" : "movies", "id" : 2, "doc" : {"title" : "Star Trek 1: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2001, "rating": 6.5, "code": [1,12,3]}}},
-            	{"insert": {"index" : "movies", "id" : 3, "doc" : {"title" : "Star Trek 3: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2003, "rating": 6.6, "code": [11,2,3]}}},
-            	{"insert": {"index" : "movies", "id" : 4, "doc" : {"title" : "Star Trek 4: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2003, "rating": 6.5, "code": [1,2,4]}}}
-        	];
-	        res =  await indexApi.bulk(docs.map(e=>JSON.stringify(e)).join('\n'));
-			
+				{"insert": {"index" : "movies", "id" : 1, "doc" : {"title" : "Star Trek 2: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2002, "rating": 6.4, "code": [1,2,3]}}},
+				{"insert": {"index" : "movies", "id" : 2, "doc" : {"title" : "Star Trek 1: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2001, "rating": 6.5, "code": [1,12,3]}}},
+				{"insert": {"index" : "movies", "id" : 3, "doc" : {"title" : "Star Trek 3: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2003, "rating": 6.6, "code": [11,2,3]}}},
+				{"insert": {"index" : "movies", "id" : 4, "doc" : {"title" : "Star Trek 4: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2003, "rating": 6.5, "code": [1,2,4]}}}
+			];
+			res =  await indexApi.bulk(docs.map(e=>JSON.stringify(e)).join('\n'));
+
 			let search_request = {"index":"movies"};
+
+			res =  await searchApi.search(search_request);
+
 			search_request.limit = 10;
-        	search_request.options = {'cutoff': 5};
-        	search_request.options['ranker'] = 'bm25';
-        	search_request.source = 'title';
+			search_request.options = {'cutoff': 5};
+			search_request.options['ranker'] = 'bm25';
+			search_request.source = 'title';
+
+			res =  await searchApi.search(search_request);
 
 			search_request.source = new Manticoresearch.SourceByRules();
-        	search_request.source.includes = ['title', 'year'];
-        	search_request.source.excludes = ['code'];
+      		search_request.source.includes = ['title', 'year'];
+      		search_request.source.excludes = ['code'];
+
+      		res =  await searchApi.search(search_request);
 
 			search_request.sort = ['year']
-        	let sort2 = new Manticoresearch.SortOrder('rating', 'asc');
-        	let sort3 = new Manticoresearch.SortMVA('code', 'desc', 'max');
-        	search_request.sort.push(...[sort2,sort3]);
+      		let sort2 = new Manticoresearch.SortOrder('rating', 'asc');
+      		let sort3 = new Manticoresearch.SortMVA('code', 'desc', 'max');
+      		search_request.sort.push(...[sort2,sort3]);
+
+      		res =  await searchApi.search(search_request);
 
 			let expr = {'expr': 'min(year,2900)'};
-        	search_request.expressions = [expr];
-        	search_request.expressions.push({'expr2': 'max(year,2100)'});
-        	search_request.source.includes.push('expr2');
+      		search_request.expressions = [expr];
+      		search_request.expressions.push({'expr2': 'max(year,2100)'});
+      		search_request.source.includes.push('expr2');
+
+      		res =  await searchApi.search(search_request);
 
 			let agg1 = new Manticoresearch.Aggregation('agg1', 'year');
 			Manticoresearch.Aggregation.constructFromObject({size:10}, agg1);
-        	search_request.aggs = [agg1];
-        	search_request.aggs.push(new Manticoresearch.Aggregation('agg2', 'rating'));
+      		search_request.aggs = [agg1];
+      		search_request.aggs.push(new Manticoresearch.Aggregation('agg2', 'rating'));
+
+      		res =  await searchApi.search(search_request);
 
 			let highlight = new Manticoresearch.Highlight();
-        	highlight.fieldnames = ['title'];
-        	highlight.post_tags = '</post_tag>';
-    	    highlight.encoder = 'default';
-	        highlight.snippet_boundary = 'sentence';
-        	search_request.highlight = highlight;
+      		highlight.fieldnames = ['title'];
+      		highlight.post_tags = '</post_tag>';
+    		highlight.encoder = 'default';
+	    	highlight.snippet_boundary = 'sentence';
+      		search_request.highlight = highlight;
+
+      		res =  await searchApi.search(search_request);
  
 			let highlightField = new Manticoresearch.HighlightField('title');
-        	let highlightField2 = new Manticoresearch.HighlightField('plot');
+			let highlightField2 = new Manticoresearch.HighlightField('plot');
 			Manticoresearch.HighlightField.constructFromObject({limit:5}, highlightField2);
 			Manticoresearch.HighlightField.constructFromObject({limit_words:10}, highlightField2);
-        	highlight.fields = [highlightField, highlightField2];
-        	search_request.highlight = highlight;
+			highlight.fields = [highlightField, highlightField2];
+			search_request.highlight = highlight;
+
+			res =  await searchApi.search(search_request);
+
+			highlight.highlight_query = {'match': { '*': "Star" } };
+			search_request.highlight = highlight;
+
+			res =  await searchApi.search(search_request);
 
 			search_request.fulltext_filter = new Manticoresearch.QueryFilter('Star Trek 2');
-        	search_request.fulltext_filter = new Manticoresearch.MatchFilter('Nemesis', 'title');
+
+			res =  await searchApi.search(search_request);
+
+			search_request.fulltext_filter = new Manticoresearch.MatchFilter('Nemesis', 'title');
+
+			res =  await searchApi.search(search_request);
+
 			search_request.fulltext_filter = new Manticoresearch.MatchPhraseFilter('Star Trek 2', 'title');
+
+			res =  await searchApi.search(search_request);
+
 			search_request.fulltext_filter = new Manticoresearch.MatchOpFilter('Enterprise test', 'title,plot', 'or');
 
+			res =  await searchApi.search(search_request);
+
 			search_request.attr_filter = new Manticoresearch.EqualsFilter('year', 2003);
+
+			res =  await searchApi.search(search_request);
 			
 			let inFilter = new Manticoresearch.InFilter('year', [2001, 2002]);
-    	    inFilter.values = inFilter.values.concat([10,11]);
-	        search_request.attr_filter = inFilter;
+			inFilter.values = inFilter.values.concat([10,11]);
+			search_request.attr_filter = inFilter;
+
+			res =  await searchApi.search(search_request);
 
 			let rangeFilter = new Manticoresearch.RangeFilter('year');
 			Manticoresearch.RangeFilter.constructFromObject({lte: 2002}, rangeFilter);
 			Manticoresearch.RangeFilter.constructFromObject({gte: 1000}, rangeFilter);
-        	search_request.attr_filter = rangeFilter;
+			search_request.attr_filter = rangeFilter;
 
-			//let geoFilter = new Manticoresearch.GeoDistanceFilter();
-			//let loc_anchor = {'location_anchor': {'lat':10,'lon':20}};
-			//Manticoresearch.GeoDistanceFilter.constructFromObject(loc_anchor, geoFilter);
-			//Manticoresearch.GeoDistanceFilter.constructFromObject({'location_source':'field3,field4'}, geoFilter);
-			//Manticoresearch.GeoDistanceFilter.constructFromObject({'distance_type': 'adaptive', 'distance': '100km'}, geoFilter);
-        	//search_request.attr_filter = geoFilter;
+			res =  await searchApi.search(search_request);
+
+			let geoFilter = new Manticoresearch.GeoDistanceFilter();
+			let loc_anchor = {'location_anchor': {'lat':10,'lon':20.5}};
+			Manticoresearch.GeoDistanceFilter.constructFromObject(loc_anchor, geoFilter);
+			Manticoresearch.GeoDistanceFilter.constructFromObject({'location_source':'year,rating'}, geoFilter);
+			Manticoresearch.GeoDistanceFilter.constructFromObject({'distance_type': 'adaptive', 'distance': '100km'}, geoFilter);
+			search_request.attr_filter = geoFilter;
+
+			res =  await searchApi.search(search_request);
 
 			let boolFilter = new Manticoresearch.BoolFilter();
-        	boolFilter.must = [ new Manticoresearch.EqualsFilter('year', 2001) ];
+			boolFilter.must = [ new Manticoresearch.EqualsFilter('year', 2001) ];
 			rangeFilter = new Manticoresearch.RangeFilter('rating');
 			Manticoresearch.RangeFilter.constructFromObject({lte: 20}, rangeFilter);
-        	boolFilter.must.push(rangeFilter);
-        	search_request.attr_filter = boolFilter;
+			boolFilter.must.push(rangeFilter);
+			search_request.attr_filter = boolFilter;
+
+			res =  await searchApi.search(search_request);
 
 			boolFilter.must_not = [ new Manticoresearch.EqualsFilter('year', 2001) ];
 			search_request.attr_filter = boolFilter;
-			
-			let fulltext_filter = new Manticoresearch.MatchFilter('Star', 'title');
-        	let nestedBoolFilter = new Manticoresearch.BoolFilter();
-        	nestedBoolFilter.should = [ new Manticoresearch.EqualsFilter('rating', 6.5), fulltext_filter];
-        	boolFilter.must = [nestedBoolFilter];
-            search_request.attr_filter = boolFilter;
 
 			res =  await searchApi.search(search_request);
-			console.log(JSON.stringify(res, null, 4));
+
+			let fulltext_filter = new Manticoresearch.MatchFilter('Star', 'title');
+			let nestedBoolFilter = new Manticoresearch.BoolFilter();
+			nestedBoolFilter.should = [ new Manticoresearch.EqualsFilter('rating', 6.5), fulltext_filter];
+      		boolFilter.must = [nestedBoolFilter];
+			search_request.attr_filter = boolFilter;
+
+			res =  await searchApi.search(search_request);
+
+			console.log("Search tests finished");
 		} catch (e) {
 			console.error(e);
 		}
@@ -206,7 +252,6 @@
         res =  await utilsApi.sql('TRUNCATE TABLE products');
          
         res =  await utilsApi.sql('SHOW TABLES LIKE \'pro%\'');
-         
         
         res =  await utilsApi.sql('drop table if exists forum');
          
@@ -214,15 +259,11 @@
          
         res =  await searchApi.search({"index":"forum","query":{"match_all":{},"bool":{"must":[{"equals":{"author_id":123}},{"in":{"forum_id":[1,3,7]}}]}},"sort":[{"post_date":"desc"}]});
          
-            
-
         res =  await indexApi.insert({"index" : "forum", "id" : 0, "doc" : {"title" : "i me"}});
         res =  await indexApi.insert({"index" : "forum", "id" : 0, "doc" : {"title" : "wayne","content":"hey"}});
         res =  await searchApi.search({"index":"forum","query":{"query_string":"i me"},"_source":{"excludes":["*"]},"limit":1,"profile":true});
          
         res =  await searchApi.search({"index":"forum","query":{"query_string":"@title way* @content hey"},"_source":{"excludes":["*"]},"limit":1,"profile":true});
-         
-        
 
         res =  await utilsApi.sql('DROP TABLE products');
         res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS products (title text,product_codes multi)');
@@ -233,10 +274,7 @@
          
         res =  await utilsApi.sql('DROP TABLE products');
         
-        
         res =  await utilsApi.sql('SHOW AGENT STATUS');
-         
-        
         
         res =  await utilsApi.sql('create table products(title text, color string) type=\'pq\'');
         res =  await indexApi.insert({"index" : "products", "doc" : {"query" : "@title bag" }});
@@ -245,17 +283,13 @@
          
         res =  await indexApi.insert({"index" : "products",  "doc" : {"query" : "@title shoes","filters": "color in ('blue', 'green')" }});
          
-        
-        
         res =  await searchApi.percolate('products',{"query":{"percolate":{"document":{"title":"What a nice bag"}}}});
          
         res =  await searchApi.percolate('products',{"query":{"percolate":{"documents":[{"title":"nice pair of shoes","color":"blue"},{"title":"beautiful bag"}]}}});
          
         res =  await searchApi.search({"index":"products","query":{"match_all":{}}});
-        console.log(res)
 
         res =  await searchApi.search({"index":"products","query":{"match_all":{}},"options":{"max_matches":1}});
-        console.log(res)
 
         res =  await utilsApi.sql('DROP TABLE products');
         /*
@@ -312,7 +346,7 @@
         res = await searchApi.search({"index":"products2","limit":0,"aggs":{"color":{"terms":{"field":"meta.color","size":100}}}});
         console.log(JSON.stringify(res));
         */
-       
+		console.log("Tests finished");
       });
     });
 

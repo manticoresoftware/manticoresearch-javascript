@@ -14,12 +14,10 @@ Method | HTTP request | Description
 
 Performs a search on an index. 
 
-The method expects an object with the following mandatory properties:
+The method expects a SearchRequest object with the following mandatory properties:
         
-* the name of the index to search
+* the name of the index to search | string
         
-* the match query object
-
 For details, see the documentation on [**SearchRequest**](SearchRequest.md)
 
 The method returns an object with the following properties:
@@ -76,14 +74,14 @@ var searchRequest = new Manticoresearch.SearchRequest();
 searchRequest.index = "test";
 searchRequest.fulltext_filter = new Manticoresearch.QueryFilter('Star Trek 2');
 
-// or create SearchRequest in an alternative way
+// or create SearchRequest in an alternative way as in the previous versions of the client. It uses a single complex JSON object for a query field
 searchRequest = {"index":"test","query":{"query_string":"find smth"}};
 
 // Perform a search
-async function(){
+(async function searchExample() {
     var res = await searchApi.search(searchRequest);
     console.log(JSON.stringify(res, null, 4));
-}
+})();
 
 ```
 
@@ -111,13 +109,13 @@ No authorization required
 
 > SearchResponse percolate(index, percolateRequest)
 
-Perform a reverse search on a percolate index
+Performs a reverse search on a percolate index. [[More info on percolate indexes in Manticore Search Manual]](https://manual.manticoresearch.com/Creating_a_table/Local_tables/Percolate_table#Percolate-table)
 
-Performs a percolate search. 
 This method must be used only on percolate indexes.
 
-Expects two parameters: the index name and an object with an array of documents to search with.
-Here is an example of the document object:
+Expects two parameters: the index name and an object with a document or an array of documents to search by.
+Here is an example of the object with a single document:
+
 ```
 {
   "query":
@@ -126,7 +124,7 @@ Here is an example of the document object:
     {
       "document":
       {
-        "title":"sample content"
+        "content":"sample content"
       }
     }
   }
@@ -163,6 +161,27 @@ Responds with an object with matched stored queries:
 }
 ```
 
+And here is an example of the object with multiple documents:
+
+```
+{
+  "query":
+  {
+    "percolate":
+    {
+      "documents": [
+        {
+          "content":"sample content"
+        },
+        {
+          "content":"another sample content"
+        }
+      ]
+    }
+  }
+}
+```
+
 
 ### Example
 
@@ -170,9 +189,9 @@ Responds with an object with matched stored queries:
 var Manticoresearch = require('manticoresearch');
 
 var searchApi = new Manticoresearch.SearchApi();
-async function() {
+(async function percolateExample() {
     res = await searchApi.percolate('products',{"query":{"percolate":{"document":{"title":"What a nice bag"}}}});
-}
+})();
 
 ```
 

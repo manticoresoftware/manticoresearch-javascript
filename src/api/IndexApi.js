@@ -47,7 +47,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BulkResponse} and HTTP response
      */
     this.bulkWithHttpInfo = function(body) {
-      var postBody = body;
+      var postBody = JSON.parse(JSON.stringify(body));
 
 
       // verify the required parameter 'body' is set
@@ -100,7 +100,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteResponse} and HTTP response
      */
     this.callDeleteWithHttpInfo = function(deleteDocumentRequest) {
-      var postBody = deleteDocumentRequest;
+      var postBody = JSON.parse(JSON.stringify(deleteDocumentRequest));
 
 
       // verify the required parameter 'deleteDocumentRequest' is set
@@ -153,7 +153,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessResponse} and HTTP response
      */
     this.insertWithHttpInfo = function(insertDocumentRequest) {
-      var postBody = insertDocumentRequest;
+      var postBody = JSON.parse(JSON.stringify(insertDocumentRequest));
 
 
       // verify the required parameter 'insertDocumentRequest' is set
@@ -206,7 +206,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessResponse} and HTTP response
      */
     this.replaceWithHttpInfo = function(insertDocumentRequest) {
-      var postBody = insertDocumentRequest;
+      var postBody = JSON.parse(JSON.stringify(insertDocumentRequest));
 
 
       // verify the required parameter 'insertDocumentRequest' is set
@@ -259,7 +259,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateResponse} and HTTP response
      */
     this.updateWithHttpInfo = function(updateDocumentRequest) {
-      var postBody = updateDocumentRequest;
+      var postBody = JSON.parse(JSON.stringify(updateDocumentRequest));
 
 
       // verify the required parameter 'updateDocumentRequest' is set
