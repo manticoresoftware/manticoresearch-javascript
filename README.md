@@ -1,6 +1,6 @@
-# manticoresearch
+# Manticore Javascript client
 
-Сlient for Manticore Search.
+Official client for Manticore Search.
 
 ❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.3.0
 
@@ -65,7 +65,7 @@ async function(){
 
 ## Documentation
 
-Full documentation on the API Endpoints and Models used is available in  [docs](https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.3.0/docs) folder as listed below.
+Full documentation on the API Endpoints and Models used is available in  [docs](https://github.com/manticoresoftware/manticoresearch-javascript/tree/master/docs) folder as listed below.
 
 Manticore Search server documentation: https://manual.manticoresearch.com.
 
