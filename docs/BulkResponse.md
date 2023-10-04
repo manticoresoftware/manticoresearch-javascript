@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | **Object** |  | [optional] 
-**error** | **Boolean** |  | [optional] 
+**errors** | **Boolean** |  | [optional] 
+**error** | **String** |  | [optional] 
 
 
 

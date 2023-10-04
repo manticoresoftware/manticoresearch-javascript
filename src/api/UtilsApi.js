@@ -25,7 +25,7 @@
   /**
    * Utils service.
    * @module api/UtilsApi
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

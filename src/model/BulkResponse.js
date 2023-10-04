@@ -27,7 +27,7 @@
   /**
    * The BulkResponse model module.
    * @module model/BulkResponse
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**
@@ -57,8 +57,11 @@
       if (data.hasOwnProperty('items')) {
         obj['items'] = ApiClient.convertToType(data['items'], Object);
       }
+      if (data.hasOwnProperty('errors')) {
+        obj['errors'] = ApiClient.convertToType(data['errors'], 'Boolean');
+      }
       if (data.hasOwnProperty('error')) {
-        obj['error'] = ApiClient.convertToType(data['error'], 'Boolean');
+        obj['error'] = ApiClient.convertToType(data['error'], 'String');
       }
     }
     return obj;
@@ -69,7 +72,11 @@
    */
   exports.prototype['items'] = undefined;
   /**
-   * @member {Boolean} error
+   * @member {Boolean} errors
+   */
+  exports.prototype['errors'] = undefined;
+  /**
+   * @member {String} error
    */
   exports.prototype['error'] = undefined;
 

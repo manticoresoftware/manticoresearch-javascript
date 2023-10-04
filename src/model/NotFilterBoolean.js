@@ -27,7 +27,7 @@
   /**
    * The NotFilterBoolean model module.
    * @module model/NotFilterBoolean
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

@@ -27,7 +27,7 @@
   /**
    * The RangeFilter model module.
    * @module model/RangeFilter
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

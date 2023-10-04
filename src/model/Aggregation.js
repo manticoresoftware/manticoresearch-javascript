@@ -27,7 +27,7 @@
   /**
    * The Aggregation model module.
    * @module model/Aggregation
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

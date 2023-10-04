@@ -27,7 +27,7 @@
   /**
    * The FilterBoolean model module.
    * @module model/FilterBoolean
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**
