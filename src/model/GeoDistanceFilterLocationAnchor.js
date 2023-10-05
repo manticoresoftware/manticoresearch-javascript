@@ -27,7 +27,7 @@
   /**
    * The GeoDistanceFilterLocationAnchor model module.
    * @module model/GeoDistanceFilterLocationAnchor
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

@@ -27,7 +27,7 @@
   /**
    * The Facet model module.
    * @module model/Facet
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

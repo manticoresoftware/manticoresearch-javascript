@@ -27,7 +27,7 @@
   /**
    * The FilterString model module.
    * @module model/FilterString
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

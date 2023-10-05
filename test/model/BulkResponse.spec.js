@@ -55,6 +55,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property errors (base name: "errors")', function() {
+      // uncomment below and update the code to test the property errors
+      //var instance = new Manticoresearch.BulkResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property error (base name: "error")', function() {
       // uncomment below and update the code to test the property error
       //var instance = new Manticoresearch.BulkResponse();

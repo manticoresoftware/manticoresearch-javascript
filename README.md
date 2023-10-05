@@ -1,8 +1,9 @@
 # Manticore Javascript client
 
-Official client for Manticore Search.
+Сlient for Manticore Search.
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.3.0
+
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.3.1
 
 ## Requirements
 
@@ -10,6 +11,7 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
 | Manticore Search  | manticoresearch-javascript   |     Node      |
 | ----------------- | ---------------------------- | ------------- |
+| >= 6.2.0          | 3.3.1                        | >= 10.0       |
 | >= 4.2.1          | 3.0.x                        | >= 10.0       |
 | >= 4.0.2          | 2.0.3                        | >= 10.0       |
 | >= 2.5.1          | 2.0.2                        | >= 8.0        |
@@ -65,7 +67,7 @@ async function(){
 
 ## Documentation
 
-Full documentation on the API Endpoints and Models used is available in  [docs](https://github.com/manticoresoftware/manticoresearch-javascript/tree/master/docs) folder as listed below.
+Full documentation on the API Endpoints and Models used is available in  [docs](https://github.com/manticoresoftware/manticoresearch-javascript/tree/3.3.1/docs) folder as listed below.
 
 Manticore Search server documentation: https://manual.manticoresearch.com.
 

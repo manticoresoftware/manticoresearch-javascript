@@ -27,7 +27,7 @@
   /**
    * The SearchResponseHits model module.
    * @module model/SearchResponseHits
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

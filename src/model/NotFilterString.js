@@ -27,7 +27,7 @@
   /**
    * The NotFilterString model module.
    * @module model/NotFilterString
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**

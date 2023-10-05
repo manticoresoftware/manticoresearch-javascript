@@ -27,7 +27,7 @@
   /**
    * The MatchFilter model module.
    * @module model/MatchFilter
-   * @version 3.3.0
+   * @version 3.3.1
    */
 
   /**
