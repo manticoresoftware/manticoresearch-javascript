@@ -23,7 +23,7 @@
 
   beforeEach(function() {
     // create a new instance
-    //instance = new Manticoresearch.Aggregation();
+    //instance = new Manticoresearch.AggregationTerms();
   });
 
   var getProperty = function(object, getter, property) {
@@ -42,22 +42,22 @@
       object[property] = value;
   }
 
-  describe('Aggregation', function() {
-    it('should create an instance of Aggregation', function() {
-      // uncomment below and update the code to test Aggregation
-      //var instance = new Manticoresearch.Aggregation();
-      //expect(instance).to.be.a(Manticoresearch.Aggregation);
+  describe('AggregationTerms', function() {
+    it('should create an instance of AggregationTerms', function() {
+      // uncomment below and update the code to test AggregationTerms
+      //var instance = new Manticoresearch.AggregationTerms();
+      //expect(instance).to.be.a(Manticoresearch.AggregationTerms);
     });
 
-    it('should have the property terms (base name: "terms")', function() {
-      // uncomment below and update the code to test the property terms
-      //var instance = new Manticoresearch.Aggregation();
+    it('should have the property field (base name: "field")', function() {
+      // uncomment below and update the code to test the property field
+      //var instance = new Manticoresearch.AggregationTerms();
       //expect(instance).to.be();
     });
 
-    it('should have the property sort (base name: "sort")', function() {
-      // uncomment below and update the code to test the property sort
-      //var instance = new Manticoresearch.Aggregation();
+    it('should have the property size (base name: "size")', function() {
+      // uncomment below and update the code to test the property size
+      //var instance = new Manticoresearch.AggregationTerms();
       //expect(instance).to.be();
     });
 

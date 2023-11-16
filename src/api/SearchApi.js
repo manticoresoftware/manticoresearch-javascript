@@ -25,7 +25,7 @@
   /**
    * Search service.
    * @module api/SearchApi
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**
@@ -177,11 +177,7 @@
 			let keyPropName = obj['attr'] ? 'attr' : 'name';
 			keyPropVal = obj[keyPropName];
 			delete obj[keyPropName];
-			if (objType == 'aggs') {
-				newObj[keyPropVal] = {'terms': obj};
-			} else {
-				newObj[keyPropVal] = obj;
-			}
+			newObj[keyPropVal] = obj;
 		}
 		
 		return newObj;
@@ -218,7 +214,7 @@
 		});
 	  }
 	  
-	  ['expressions', 'aggs', 'highlight.fields'].forEach(propSign => {
+	  ['highlight.fields'].forEach(propSign => {
 		const propNames = propSign.split('.');
 		let nestedObj = [postBody];
 		for (let i=0; i < propNames.length; i++) {

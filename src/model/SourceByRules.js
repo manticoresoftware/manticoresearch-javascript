@@ -27,7 +27,7 @@
   /**
    * The SourceByRules model module.
    * @module model/SourceByRules
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**

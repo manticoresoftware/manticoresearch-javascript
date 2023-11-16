@@ -17,7 +17,7 @@
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.EqualsFilter = factory(root.Manticoresearch.ApiClient);
+    root.Manticoresearch.AggregationSortInnerValue = factory(root.Manticoresearch.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -25,54 +25,42 @@
 
 
   /**
-   * The EqualsFilter model module.
-   * @module model/EqualsFilter
+   * The AggregationSortInnerValue model module.
+   * @module model/AggregationSortInnerValue
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>EqualsFilter</code>.
-   * Equals attribute filter
-   * @alias module:model/EqualsFilter
+   * Constructs a new <code>AggregationSortInnerValue</code>.
+   * @alias module:model/AggregationSortInnerValue
    * @class
-   * @param field {String} 
-   * @param value {Object} 
    */
-  var exports = function(field, value) {
+  var exports = function() {
     var _this = this;
 
-    _this['field'] = field;
-    _this['value'] = value;
   };
 
   /**
-   * Constructs a <code>EqualsFilter</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AggregationSortInnerValue</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/EqualsFilter} obj Optional instance to populate.
-   * @return {module:model/EqualsFilter} The populated <code>EqualsFilter</code> instance.
+   * @param {module:model/AggregationSortInnerValue} obj Optional instance to populate.
+   * @return {module:model/AggregationSortInnerValue} The populated <code>AggregationSortInnerValue</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      if (data.hasOwnProperty('field')) {
-        obj['field'] = ApiClient.convertToType(data['field'], 'String');
-      }
-      if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], Object);
+      if (data.hasOwnProperty('order')) {
+        obj['order'] = ApiClient.convertToType(data['order'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} field
+   * @member {String} order
    */
-  exports.prototype['field'] = undefined;
-  /**
-   * @member {Object} value
-   */
-  exports.prototype['value'] = undefined;
+  exports.prototype['order'] = undefined;
 
 
 

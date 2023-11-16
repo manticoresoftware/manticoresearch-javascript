@@ -27,7 +27,7 @@
   /**
    * The SortMultiple model module.
    * @module model/SortMultiple
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**

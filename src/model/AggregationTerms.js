@@ -17,7 +17,7 @@
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.EqualsFilter = factory(root.Manticoresearch.ApiClient);
+    root.Manticoresearch.AggregationTerms = factory(root.Manticoresearch.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -25,32 +25,27 @@
 
 
   /**
-   * The EqualsFilter model module.
-   * @module model/EqualsFilter
+   * The AggregationTerms model module.
+   * @module model/AggregationTerms
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>EqualsFilter</code>.
-   * Equals attribute filter
-   * @alias module:model/EqualsFilter
+   * Constructs a new <code>AggregationTerms</code>.
+   * @alias module:model/AggregationTerms
    * @class
-   * @param field {String} 
-   * @param value {Object} 
    */
-  var exports = function(field, value) {
+  var exports = function() {
     var _this = this;
 
-    _this['field'] = field;
-    _this['value'] = value;
   };
 
   /**
-   * Constructs a <code>EqualsFilter</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AggregationTerms</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/EqualsFilter} obj Optional instance to populate.
-   * @return {module:model/EqualsFilter} The populated <code>EqualsFilter</code> instance.
+   * @param {module:model/AggregationTerms} obj Optional instance to populate.
+   * @return {module:model/AggregationTerms} The populated <code>AggregationTerms</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -58,21 +53,23 @@
       if (data.hasOwnProperty('field')) {
         obj['field'] = ApiClient.convertToType(data['field'], 'String');
       }
-      if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], Object);
+      if (data.hasOwnProperty('size')) {
+        obj['size'] = ApiClient.convertToType(data['size'], 'Number');
       }
     }
     return obj;
   }
 
   /**
+   * Attribute Name to Aggregate
    * @member {String} field
    */
   exports.prototype['field'] = undefined;
   /**
-   * @member {Object} value
+   * Maximum Number of Buckets in the Result
+   * @member {Number} size
    */
-  exports.prototype['value'] = undefined;
+  exports.prototype['size'] = undefined;
 
 
 

@@ -27,7 +27,7 @@
   /**
    * The SearchRequest model module.
    * @module model/SearchRequest
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**
@@ -78,10 +78,10 @@
         obj['sort'] = ApiClient.convertToType(data['sort'], [Object]);
       }
       if (data.hasOwnProperty('aggs')) {
-        obj['aggs'] = ApiClient.convertToType(data['aggs'], [Aggregation]);
+        obj['aggs'] = ApiClient.convertToType(data['aggs'], {'String': Aggregation});
       }
       if (data.hasOwnProperty('expressions')) {
-        obj['expressions'] = ApiClient.convertToType(data['expressions'], [Object]);
+        obj['expressions'] = ApiClient.convertToType(data['expressions'], {'String': 'String'});
       }
       if (data.hasOwnProperty('highlight')) {
         obj['highlight'] = Highlight.constructFromObject(data['highlight']);
@@ -136,11 +136,11 @@
    */
   exports.prototype['sort'] = undefined;
   /**
-   * @member {Array.<module:model/Aggregation>} aggs
+   * @member {Object.<String, module:model/Aggregation>} aggs
    */
   exports.prototype['aggs'] = undefined;
   /**
-   * @member {Array.<Object>} expressions
+   * @member {Object.<String, String>} expressions
    */
   exports.prototype['expressions'] = undefined;
   /**

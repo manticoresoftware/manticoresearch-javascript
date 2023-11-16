@@ -23,7 +23,7 @@
 
   beforeEach(function() {
     // create a new instance
-    //instance = new Manticoresearch.Aggregation();
+    //instance = new Manticoresearch.AggregationSortInnerValue();
   });
 
   var getProperty = function(object, getter, property) {
@@ -42,22 +42,16 @@
       object[property] = value;
   }
 
-  describe('Aggregation', function() {
-    it('should create an instance of Aggregation', function() {
-      // uncomment below and update the code to test Aggregation
-      //var instance = new Manticoresearch.Aggregation();
-      //expect(instance).to.be.a(Manticoresearch.Aggregation);
+  describe('AggregationSortInnerValue', function() {
+    it('should create an instance of AggregationSortInnerValue', function() {
+      // uncomment below and update the code to test AggregationSortInnerValue
+      //var instance = new Manticoresearch.AggregationSortInnerValue();
+      //expect(instance).to.be.a(Manticoresearch.AggregationSortInnerValue);
     });
 
-    it('should have the property terms (base name: "terms")', function() {
-      // uncomment below and update the code to test the property terms
-      //var instance = new Manticoresearch.Aggregation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property sort (base name: "sort")', function() {
-      // uncomment below and update the code to test the property sort
-      //var instance = new Manticoresearch.Aggregation();
+    it('should have the property order (base name: "order")', function() {
+      // uncomment below and update the code to test the property order
+      //var instance = new Manticoresearch.AggregationSortInnerValue();
       //expect(instance).to.be();
     });
 

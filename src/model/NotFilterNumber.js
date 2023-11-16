@@ -27,7 +27,7 @@
   /**
    * The NotFilterNumber model module.
    * @module model/NotFilterNumber
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**

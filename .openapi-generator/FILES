@@ -4,6 +4,8 @@
 .travis.yml
 README.md
 docs/Aggregation.md
+docs/AggregationSortInnerValue.md
+docs/AggregationTerms.md
 docs/BoolFilter.md
 docs/BulkResponse.md
 docs/DeleteDocumentRequest.md
@@ -53,6 +55,8 @@ src/api/SearchApi.js
 src/api/UtilsApi.js
 src/index.js
 src/model/Aggregation.js
+src/model/AggregationSortInnerValue.js
+src/model/AggregationTerms.js
 src/model/BoolFilter.js
 src/model/BulkResponse.js
 src/model/DeleteDocumentRequest.js
@@ -94,6 +98,8 @@ test/api/IndexApi.spec.js
 test/api/SearchApi.spec.js
 test/api/UtilsApi.spec.js
 test/model/Aggregation.spec.js
+test/model/AggregationSortInnerValue.spec.js
+test/model/AggregationTerms.spec.js
 test/model/BoolFilter.spec.js
 test/model/BulkResponse.spec.js
 test/model/DeleteDocumentRequest.spec.js

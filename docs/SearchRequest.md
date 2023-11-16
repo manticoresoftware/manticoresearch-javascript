@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **offset** | **Number** |  | [optional] 
 **maxMatches** | **Number** |  | [optional] 
 **sort** | **[Object]** |  | [optional] 
-**aggs** | [**[Aggregation]**](Aggregation.md) |  | [optional] 
-**expressions** | **[Object]** |  | [optional] 
+**aggs** | [**{String: Aggregation}**](Aggregation.md) |  | [optional] 
+**expressions** | **{String: String}** |  | [optional] 
 **highlight** | [**Highlight**](Highlight.md) |  | [optional] 
 **source** | **Object** |  | [optional] 
 **options** | **{String: Object}** |  | [optional] 
@@ -110,10 +110,10 @@ var searchRequest = new Manticoresearch.SearchRequest();
 searchRequest.index = "movies";
 searchRequest.query = {"match_all": {}};
 
-var expr = {'expr': 'min(year,2900)'};
-searchRequest.expressions = [expr];
-searchRequest.expressions.push({'expr2': 'max(year,2100)'});
-searchRequest.source.includes.push('expr2');
+var expr = {'expr1': 'min(year,2900)'};
+searchRequest.expressions = expr;
+searchRequest.expressions['expr2'] = 'max(year,2100)';
+searchRequest.source.includes.push('expr1', 'expr2');
 
 async function(){
 	var res = await searchApi.search(searchRequest);
@@ -132,10 +132,16 @@ var searchRequest = new Manticoresearch.SearchRequest();
 searchRequest.index = "movies";
 searchRequest.query = {"match_all": {}};
 
-var agg1 = new Manticoresearch.Aggregation('agg1', 'year');
-Manticoresearch.Aggregation.constructFromObject({size:10}, agg1);
-searchRequest.aggs = [agg1];
-searchRequest.aggs.push(new Manticoresearch.Aggregation('agg2', 'rating'));
+var aggTerms = {};
+Manticoresearch.AggregationTerms.constructFromObject({field: 'year', size: 10}, aggTerms);
+var agg1 = new Manticoresearch.Aggregation();
+agg1['terms'] = aggTerms;
+agg1['sort'] = ['year'];
+searchRequest.aggs = {agg1: agg1};
+
+var agg2 = new Manticoresearch.Aggregation();
+agg2['terms'] = Manticoresearch.AggregationTerms.constructFromObject({field: 'rating'});
+searchRequest.aggs['agg2'] = agg2;
 
 async function(){
 	var res = await searchApi.search(searchRequest);

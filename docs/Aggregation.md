@@ -4,9 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**field** | **String** |  | 
-**size** | **Number** |  | [optional] [default to 20]
+**terms** | [**AggregationTerms**](AggregationTerms.md) |  | [optional] 
+**sort** | **[{String: AggregationSortInnerValue}]** |  | [optional] 
 
 [[Using in search requests]](SearchRequest.md#Aggregation)
 

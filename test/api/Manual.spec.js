@@ -25,7 +25,7 @@
 
   beforeEach(function() {
     var client= new Manticoresearch.ApiClient()
-    client.basePath="http://manticoresearch-manticore:9308";
+    client.basePath="http://localhost:9408";
     indexApi = new Manticoresearch.IndexApi(client);
     searchApi = new Manticoresearch.SearchApi(client);
     utilsApi = new Manticoresearch.UtilsApi(client);
@@ -61,11 +61,11 @@
 				{"insert": {"index" : "movies", "id" : 4, "doc" : {"title" : "Star Trek 4: Nemesis", "plot": "The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.", "year": 2003, "rating": 6.5, "code": [1,2,4]}}}
 			];
 			res =  await indexApi.bulk(docs.map(e=>JSON.stringify(e)).join('\n'));
-
+			
 			let search_request = {"index":"movies"};
 
 			res =  await searchApi.search(search_request);
-
+			
 			search_request.limit = 10;
 			search_request.options = {'cutoff': 5};
 			search_request.options['ranker'] = 'bm25';
@@ -86,17 +86,22 @@
 
       		res =  await searchApi.search(search_request);
 
-			let expr = {'expr': 'min(year,2900)'};
-      		search_request.expressions = [expr];
-      		search_request.expressions.push({'expr2': 'max(year,2100)'});
-      		search_request.source.includes.push('expr2');
+      		search_request.expressions = {'expr': 'min(year,2900)'};
+      		let expr2 = 'max(year,2100)';
+      		search_request.expressions['expr2'] = expr2;
+      		search_request.source.includes.push('expr', 'expr2');
 
       		res =  await searchApi.search(search_request);
 
-			let agg1 = new Manticoresearch.Aggregation('agg1', 'year');
-			Manticoresearch.Aggregation.constructFromObject({size:10}, agg1);
-      		search_request.aggs = [agg1];
-      		search_request.aggs.push(new Manticoresearch.Aggregation('agg2', 'rating'));
+			let terms = {};
+			Manticoresearch.AggregationTerms.constructFromObject({field: 'year', size: 10}, terms);
+			let agg1 = new Manticoresearch.Aggregation();
+			agg1['terms'] = terms;
+			agg1['sort'] = ['year'];
+			search_request.aggs = {agg1: agg1};
+			let agg2 = new Manticoresearch.Aggregation();
+			agg2['terms'] = Manticoresearch.AggregationTerms.constructFromObject({field: 'rating'});
+      		search_request.aggs['agg2'] = agg2;
 
       		res =  await searchApi.search(search_request);
 
@@ -193,13 +198,12 @@
 		}
 				
         let res =  await utilsApi.sql('DROP TABLE IF EXISTS products');
-		console.log(res)
+
         res =  await utilsApi.sql('CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)', {'rawResponse': true});
-		console.log(res)
+
 		res =  await utilsApi.sql('SELECT * FROM products', {'rawResponse': false} );
-		console.log(res)
 		res =  await utilsApi.sql('SELECT * FROM products', {'rawResponse': true} );
-		console.log(res)
+
         res =  await indexApi.insert({"index" : "products", "id" : 1, "doc" : {"title" : "Crossbody Bag with Tassel", "price" : 19.85}});
         res =  await indexApi.insert({"index" : "products", "id" : 2, "doc" : {"title" : "Crossbody Bag with Tassel"}});
         res =  await indexApi.insert({"index" : "products", "id" : 0, "doc" : {"title" : "Yellow bag"}});

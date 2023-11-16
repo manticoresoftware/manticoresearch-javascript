@@ -27,7 +27,7 @@
   /**
    * The BoolFilter model module.
    * @module model/BoolFilter
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**

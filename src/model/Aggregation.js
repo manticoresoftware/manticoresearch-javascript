@@ -8,18 +8,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/AggregationSortInnerValue', 'model/AggregationTerms'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./AggregationSortInnerValue'), require('./AggregationTerms'));
   } else {
     // Browser globals (root is window)
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.Aggregation = factory(root.Manticoresearch.ApiClient);
+    root.Manticoresearch.Aggregation = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.AggregationSortInnerValue, root.Manticoresearch.AggregationTerms);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, AggregationSortInnerValue, AggregationTerms) {
   'use strict';
 
 
@@ -27,23 +27,18 @@
   /**
    * The Aggregation model module.
    * @module model/Aggregation
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**
    * Constructs a new <code>Aggregation</code>.
-   * Query aggregation object
+   * Aggregation Alias
    * @alias module:model/Aggregation
    * @class
-   * @param name {String} 
-   * @param field {String} 
    */
-  var exports = function(name, field) {
+  var exports = function() {
     var _this = this;
 
-    _this['name'] = name;
-    _this['field'] = field;
-    _this['size'] = this.size;
   };
 
   /**
@@ -56,32 +51,24 @@
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('terms')) {
+        obj['terms'] = AggregationTerms.constructFromObject(data['terms']);
       }
-      if (data.hasOwnProperty('field')) {
-        obj['field'] = ApiClient.convertToType(data['field'], 'String');
-      }
-      if (data.hasOwnProperty('size')) {
-        obj['size'] = ApiClient.convertToType(data['size'], 'Number');
+      if (data.hasOwnProperty('sort')) {
+        obj['sort'] = ApiClient.convertToType(data['sort'], [{'String': AggregationSortInnerValue}]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} name
+   * @member {module:model/AggregationTerms} terms
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['terms'] = undefined;
   /**
-   * @member {String} field
+   * @member {Array.<Object.<String, module:model/AggregationSortInnerValue>>} sort
    */
-  exports.prototype['field'] = undefined;
-  /**
-   * @member {Number} size
-   * @default 20
-   */
-  exports.prototype['size'] = 20;
+  exports.prototype['sort'] = undefined;
 
 
 

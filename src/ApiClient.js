@@ -24,7 +24,7 @@
 
   /**
    * @module ApiClient
-   * @version 3.3.1
+   * @version 4.0.0
    */
 
   /**
@@ -335,8 +335,6 @@
     });
   };
 
-  exports.JSONbig = require('json-bigint')({ storeAsString: true });
-
   /**
    * Deserializes an HTTP response body into a value of the specified type.
    * @param {Object} response A SuperAgent response object.
@@ -350,20 +348,14 @@
     if (response == null || returnType == null || response.status == 204) {
       return null;
     }
-    // Use json-bigint for parsing json responses otherwise rely on SuperAgent
+    // Rely on SuperAgent for parsing response body.
     // See http://visionmedia.github.io/superagent/#parsing-response-bodies
-	var data;
-	if (returnType === Object || typeof returnType === 'object') {
-		data = exports.JSONbig.parse(response.text);
-	} else {
-		data = response.body;
-	}
+    var data = response.body;
     if (data == null || (typeof data === 'object' && typeof data.length === 'undefined' && !Object.keys(data).length)) {
       // SuperAgent does not always produce a body; use the unparsed response as a fallback
       data = response.text;
     }
-    const res = exports.convertToType(data, returnType);
-	return res;
+    return exports.convertToType(data, returnType);
   };
 
   /**
@@ -448,8 +440,7 @@
     }
 
     if (contentType === 'application/x-www-form-urlencoded') {
-	  console.log('test request 2');
-	  request.send(querystring.stringify(this.normalizeParams(formParams)));
+      request.send(querystring.stringify(this.normalizeParams(formParams)));
     } else if (contentType == 'multipart/form-data') {
       var _formParams = this.normalizeParams(formParams);
       for (var key in _formParams) {

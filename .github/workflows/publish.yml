@@ -1,0 +1,26 @@
+name: Publishing
+
+on:
+  push:
+    branches-ignore: [ master ]
+
+jobs:
+  publish:
+    name: Publish the client to the public registry
+    runs-on: ubuntu-latest
+    env:
+      NPMRC: ${{ secrets.NPMRC }}
+    strategy:
+      matrix:
+        node-version: ['18.x']
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: |
+        echo "$NPMRC" > ~/.npmrc
+        npm publish
+

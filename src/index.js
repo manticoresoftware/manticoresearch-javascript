@@ -8,12 +8,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Aggregation', 'model/BoolFilter', 'model/BulkResponse', 'model/DeleteDocumentRequest', 'model/DeleteResponse', 'model/EqualsFilter', 'model/ErrorResponse', 'model/Facet', 'model/FilterBoolean', 'model/FilterNumber', 'model/FilterString', 'model/GeoDistanceFilter', 'model/GeoDistanceFilterLocationAnchor', 'model/Highlight', 'model/HighlightField', 'model/InFilter', 'model/InsertDocumentRequest', 'model/MatchFilter', 'model/MatchOp', 'model/MatchOpFilter', 'model/MatchPhraseFilter', 'model/NotFilterBoolean', 'model/NotFilterNumber', 'model/NotFilterString', 'model/PercolateRequest', 'model/PercolateRequestQuery', 'model/QueryFilter', 'model/RangeFilter', 'model/SearchRequest', 'model/SearchResponse', 'model/SearchResponseHits', 'model/SortMVA', 'model/SortMultiple', 'model/SortOrder', 'model/SourceByRules', 'model/SuccessResponse', 'model/UpdateDocumentRequest', 'model/UpdateResponse', 'api/IndexApi', 'api/SearchApi', 'api/UtilsApi'], factory);
+    define(['ApiClient', 'model/Aggregation', 'model/AggregationSortInnerValue', 'model/AggregationTerms', 'model/BoolFilter', 'model/BulkResponse', 'model/DeleteDocumentRequest', 'model/DeleteResponse', 'model/EqualsFilter', 'model/ErrorResponse', 'model/Facet', 'model/FilterBoolean', 'model/FilterNumber', 'model/FilterString', 'model/GeoDistanceFilter', 'model/GeoDistanceFilterLocationAnchor', 'model/Highlight', 'model/HighlightField', 'model/InFilter', 'model/InsertDocumentRequest', 'model/MatchFilter', 'model/MatchOp', 'model/MatchOpFilter', 'model/MatchPhraseFilter', 'model/NotFilterBoolean', 'model/NotFilterNumber', 'model/NotFilterString', 'model/PercolateRequest', 'model/PercolateRequestQuery', 'model/QueryFilter', 'model/RangeFilter', 'model/SearchRequest', 'model/SearchResponse', 'model/SearchResponseHits', 'model/SortMVA', 'model/SortMultiple', 'model/SortOrder', 'model/SourceByRules', 'model/SuccessResponse', 'model/UpdateDocumentRequest', 'model/UpdateResponse', 'api/IndexApi', 'api/SearchApi', 'api/UtilsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Aggregation'), require('./model/BoolFilter'), require('./model/BulkResponse'), require('./model/DeleteDocumentRequest'), require('./model/DeleteResponse'), require('./model/EqualsFilter'), require('./model/ErrorResponse'), require('./model/Facet'), require('./model/FilterBoolean'), require('./model/FilterNumber'), require('./model/FilterString'), require('./model/GeoDistanceFilter'), require('./model/GeoDistanceFilterLocationAnchor'), require('./model/Highlight'), require('./model/HighlightField'), require('./model/InFilter'), require('./model/InsertDocumentRequest'), require('./model/MatchFilter'), require('./model/MatchOp'), require('./model/MatchOpFilter'), require('./model/MatchPhraseFilter'), require('./model/NotFilterBoolean'), require('./model/NotFilterNumber'), require('./model/NotFilterString'), require('./model/PercolateRequest'), require('./model/PercolateRequestQuery'), require('./model/QueryFilter'), require('./model/RangeFilter'), require('./model/SearchRequest'), require('./model/SearchResponse'), require('./model/SearchResponseHits'), require('./model/SortMVA'), require('./model/SortMultiple'), require('./model/SortOrder'), require('./model/SourceByRules'), require('./model/SuccessResponse'), require('./model/UpdateDocumentRequest'), require('./model/UpdateResponse'), require('./api/IndexApi'), require('./api/SearchApi'), require('./api/UtilsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Aggregation'), require('./model/AggregationSortInnerValue'), require('./model/AggregationTerms'), require('./model/BoolFilter'), require('./model/BulkResponse'), require('./model/DeleteDocumentRequest'), require('./model/DeleteResponse'), require('./model/EqualsFilter'), require('./model/ErrorResponse'), require('./model/Facet'), require('./model/FilterBoolean'), require('./model/FilterNumber'), require('./model/FilterString'), require('./model/GeoDistanceFilter'), require('./model/GeoDistanceFilterLocationAnchor'), require('./model/Highlight'), require('./model/HighlightField'), require('./model/InFilter'), require('./model/InsertDocumentRequest'), require('./model/MatchFilter'), require('./model/MatchOp'), require('./model/MatchOpFilter'), require('./model/MatchPhraseFilter'), require('./model/NotFilterBoolean'), require('./model/NotFilterNumber'), require('./model/NotFilterString'), require('./model/PercolateRequest'), require('./model/PercolateRequestQuery'), require('./model/QueryFilter'), require('./model/RangeFilter'), require('./model/SearchRequest'), require('./model/SearchResponse'), require('./model/SearchResponseHits'), require('./model/SortMVA'), require('./model/SortMultiple'), require('./model/SortOrder'), require('./model/SourceByRules'), require('./model/SuccessResponse'), require('./model/UpdateDocumentRequest'), require('./model/UpdateResponse'), require('./api/IndexApi'), require('./api/SearchApi'), require('./api/UtilsApi'));
   }
-}(function(ApiClient, Aggregation, BoolFilter, BulkResponse, DeleteDocumentRequest, DeleteResponse, EqualsFilter, ErrorResponse, Facet, FilterBoolean, FilterNumber, FilterString, GeoDistanceFilter, GeoDistanceFilterLocationAnchor, Highlight, HighlightField, InFilter, InsertDocumentRequest, MatchFilter, MatchOp, MatchOpFilter, MatchPhraseFilter, NotFilterBoolean, NotFilterNumber, NotFilterString, PercolateRequest, PercolateRequestQuery, QueryFilter, RangeFilter, SearchRequest, SearchResponse, SearchResponseHits, SortMVA, SortMultiple, SortOrder, SourceByRules, SuccessResponse, UpdateDocumentRequest, UpdateResponse, IndexApi, SearchApi, UtilsApi) {
+}(function(ApiClient, Aggregation, AggregationSortInnerValue, AggregationTerms, BoolFilter, BulkResponse, DeleteDocumentRequest, DeleteResponse, EqualsFilter, ErrorResponse, Facet, FilterBoolean, FilterNumber, FilterString, GeoDistanceFilter, GeoDistanceFilterLocationAnchor, Highlight, HighlightField, InFilter, InsertDocumentRequest, MatchFilter, MatchOp, MatchOpFilter, MatchPhraseFilter, NotFilterBoolean, NotFilterNumber, NotFilterString, PercolateRequest, PercolateRequestQuery, QueryFilter, RangeFilter, SearchRequest, SearchResponse, SearchResponseHits, SortMVA, SortMultiple, SortOrder, SourceByRules, SuccessResponse, UpdateDocumentRequest, UpdateResponse, IndexApi, SearchApi, UtilsApi) {
   'use strict';
 
   /**
@@ -45,7 +45,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 3.3.1
+   * @version 4.0.0
    */
   var exports = {
     /**
@@ -58,6 +58,16 @@
      * @property {module:model/Aggregation}
      */
     Aggregation: Aggregation,
+    /**
+     * The AggregationSortInnerValue model constructor.
+     * @property {module:model/AggregationSortInnerValue}
+     */
+    AggregationSortInnerValue: AggregationSortInnerValue,
+    /**
+     * The AggregationTerms model constructor.
+     * @property {module:model/AggregationTerms}
+     */
+    AggregationTerms: AggregationTerms,
     /**
      * The BoolFilter model constructor.
      * @property {module:model/BoolFilter}
