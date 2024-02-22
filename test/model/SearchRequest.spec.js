@@ -55,6 +55,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property knn (base name: "knn")', function() {
+      // uncomment below and update the code to test the property knn
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property query (base name: "query")', function() {
       // uncomment below and update the code to test the property query
       //var instance = new Manticoresearch.SearchRequest();
@@ -135,6 +141,24 @@
 
     it('should have the property trackScores (base name: "track_scores")', function() {
       // uncomment below and update the code to test the property trackScores
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property queryVector (base name: "query_vector")', function() {
+      // uncomment below and update the code to test the property queryVector
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property docId (base name: "doc_id")', function() {
+      // uncomment below and update the code to test the property docId
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property k (base name: "k")', function() {
+      // uncomment below and update the code to test the property k
       //var instance = new Manticoresearch.SearchRequest();
       //expect(instance).to.be();
     });

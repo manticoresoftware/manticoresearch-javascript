@@ -2,19 +2,12 @@
 
 Сlient for Manticore Search.
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/4.0.0
+
 
 ## Requirements
 
 Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
-| Manticore Search  | manticoresearch-javascript   |     Node      |
-| ----------------- | ---------------------------- | ------------- |
-| >= 6.2.0          | 4.0.0                        | >= 10.0       |
-| >= 6.2.0          | 3.3.1                        | >= 10.0       |
-| >= 4.2.1          | 3.0.x                        | >= 10.0       |
-| >= 4.0.2          | 2.0.3                        | >= 10.0       |
-| >= 2.5.1          | 2.0.2                        | >= 8.0        |
 
 
 ## Installation
@@ -108,6 +101,8 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.HighlightField](docs/HighlightField.md)
  - [Manticoresearch.InFilter](docs/InFilter.md)
  - [Manticoresearch.InsertDocumentRequest](docs/InsertDocumentRequest.md)
+ - [Manticoresearch.KnnQueryByDocId](docs/KnnQueryByDocId.md)
+ - [Manticoresearch.KnnQueryByVector](docs/KnnQueryByVector.md)
  - [Manticoresearch.MatchFilter](docs/MatchFilter.md)
  - [Manticoresearch.MatchOp](docs/MatchOp.md)
  - [Manticoresearch.MatchOpFilter](docs/MatchOpFilter.md)
@@ -120,6 +115,7 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.QueryFilter](docs/QueryFilter.md)
  - [Manticoresearch.RangeFilter](docs/RangeFilter.md)
  - [Manticoresearch.SearchRequest](docs/SearchRequest.md)
+ - [Manticoresearch.SearchRequestKnn](docs/SearchRequestKnn.md)
  - [Manticoresearch.SearchResponse](docs/SearchResponse.md)
  - [Manticoresearch.SearchResponseHits](docs/SearchResponseHits.md)
  - [Manticoresearch.SortMVA](docs/SortMVA.md)

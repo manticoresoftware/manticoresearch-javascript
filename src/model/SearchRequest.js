@@ -8,18 +8,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Aggregation', 'model/Highlight'], factory);
+    define(['ApiClient', 'model/Aggregation', 'model/Highlight', 'model/SearchRequestKnn'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Aggregation'), require('./Highlight'));
+    module.exports = factory(require('../ApiClient'), require('./Aggregation'), require('./Highlight'), require('./SearchRequestKnn'));
   } else {
     // Browser globals (root is window)
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.SearchRequest = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.Aggregation, root.Manticoresearch.Highlight);
+    root.Manticoresearch.SearchRequest = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.Aggregation, root.Manticoresearch.Highlight, root.Manticoresearch.SearchRequestKnn);
   }
-}(this, function(ApiClient, Aggregation, Highlight) {
+}(this, function(ApiClient, Aggregation, Highlight, SearchRequestKnn) {
   'use strict';
 
 
@@ -55,6 +55,9 @@
       obj = obj || new exports();
       if (data.hasOwnProperty('index')) {
         obj['index'] = ApiClient.convertToType(data['index'], 'String');
+      }
+      if (data.hasOwnProperty('knn')) {
+        obj['knn'] = SearchRequestKnn.constructFromObject(data['knn']);
       }
       if (data.hasOwnProperty('query')) {
         obj['query'] = ApiClient.convertToType(data['query'], Object);
@@ -98,6 +101,15 @@
       if (data.hasOwnProperty('track_scores')) {
         obj['track_scores'] = ApiClient.convertToType(data['track_scores'], 'Boolean');
       }
+      if (data.hasOwnProperty('query_vector')) {
+        obj['query_vector'] = ApiClient.convertToType(data['query_vector'], Object);
+      }
+      if (data.hasOwnProperty('doc_id')) {
+        obj['doc_id'] = ApiClient.convertToType(data['doc_id'], Object);
+      }
+      if (data.hasOwnProperty('k')) {
+        obj['k'] = ApiClient.convertToType(data['k'], Object);
+      }
     }
     return obj;
   }
@@ -107,6 +119,10 @@
    * @default ''
    */
   exports.prototype['index'] = '';
+  /**
+   * @member {module:model/SearchRequestKnn} knn
+   */
+  exports.prototype['knn'] = undefined;
   /**
    * @member {Object} query
    */
@@ -163,6 +179,18 @@
    * @member {Boolean} track_scores
    */
   exports.prototype['track_scores'] = undefined;
+  /**
+   * @member {Object} query_vector
+   */
+  exports.prototype['query_vector'] = undefined;
+  /**
+   * @member {Object} doc_id
+   */
+  exports.prototype['doc_id'] = undefined;
+  /**
+   * @member {Object} k
+   */
+  exports.prototype['k'] = undefined;
 
 
 

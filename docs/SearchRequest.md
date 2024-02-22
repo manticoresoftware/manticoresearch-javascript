@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **index** | **String** |  | [default to &#39;&#39;]
+**knn** | [**SearchRequestKnn**](SearchRequestKnn.md) |  | [optional] 
 **query** | **Object** |  | [optional] 
 **fulltextFilter** | **Object** |  | [optional] 
 **attrFilter** | **Object** |  | [optional] 
@@ -19,6 +20,9 @@ Name | Type | Description | Notes
 **options** | **{String: Object}** |  | [optional] 
 **profile** | **Boolean** |  | [optional] 
 **trackScores** | **Boolean** |  | [optional] 
+**queryVector** | **Object** |  | [optional] 
+**docId** | **Object** |  | [optional] 
+**k** | **Object** |  | [optional] 
 
 
 ## Building a search request

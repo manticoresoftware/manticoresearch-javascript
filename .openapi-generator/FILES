@@ -23,6 +23,8 @@ docs/HighlightField.md
 docs/InFilter.md
 docs/IndexApi.md
 docs/InsertDocumentRequest.md
+docs/KnnQueryByDocId.md
+docs/KnnQueryByVector.md
 docs/MatchFilter.md
 docs/MatchOp.md
 docs/MatchOpFilter.md
@@ -36,6 +38,7 @@ docs/QueryFilter.md
 docs/RangeFilter.md
 docs/SearchApi.md
 docs/SearchRequest.md
+docs/SearchRequestKnn.md
 docs/SearchResponse.md
 docs/SearchResponseHits.md
 docs/SortMVA.md
@@ -73,6 +76,8 @@ src/model/Highlight.js
 src/model/HighlightField.js
 src/model/InFilter.js
 src/model/InsertDocumentRequest.js
+src/model/KnnQueryByDocId.js
+src/model/KnnQueryByVector.js
 src/model/MatchFilter.js
 src/model/MatchOp.js
 src/model/MatchOpFilter.js
@@ -85,6 +90,7 @@ src/model/PercolateRequestQuery.js
 src/model/QueryFilter.js
 src/model/RangeFilter.js
 src/model/SearchRequest.js
+src/model/SearchRequestKnn.js
 src/model/SearchResponse.js
 src/model/SearchResponseHits.js
 src/model/SortMVA.js
@@ -116,6 +122,8 @@ test/model/Highlight.spec.js
 test/model/HighlightField.spec.js
 test/model/InFilter.spec.js
 test/model/InsertDocumentRequest.spec.js
+test/model/KnnQueryByDocId.spec.js
+test/model/KnnQueryByVector.spec.js
 test/model/MatchFilter.spec.js
 test/model/MatchOp.spec.js
 test/model/MatchOpFilter.spec.js
@@ -128,6 +136,7 @@ test/model/PercolateRequestQuery.spec.js
 test/model/QueryFilter.spec.js
 test/model/RangeFilter.spec.js
 test/model/SearchRequest.spec.js
+test/model/SearchRequestKnn.spec.js
 test/model/SearchResponse.spec.js
 test/model/SearchResponseHits.spec.js
 test/model/SortMVA.spec.js
