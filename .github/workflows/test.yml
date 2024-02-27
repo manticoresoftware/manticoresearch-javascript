@@ -17,6 +17,8 @@ jobs:
     services:
       manticoresearch-manticore:
         image: manticoresearch/manticore:dev
+        env:
+          EXTRA: 1
         ports:
           - 9408:9308
 
@@ -27,6 +29,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
+        if timeout 10 grep -qm1 'accepting connections' <(docker logs "${{ job.services.manticoresearch-manticore.id }}"); then echo 'accepting connections'; else echo 'Timeout failed'; fi
         npm install
         npm test
         
