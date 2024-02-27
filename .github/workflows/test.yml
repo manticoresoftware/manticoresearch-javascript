@@ -29,7 +29,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
-        if timeout 10 grep -qm1 'accepting connections' <(docker logs "${{ job.services.manticoresearch-manticore.id }}"); then echo 'accepting connections'; else echo 'Timeout failed'; fi
+        if timeout 60 grep -qm1 'accepting connections' <(docker logs "${{ job.services.manticoresearch-manticore.id }}"); then echo 'accepting connections'; else echo 'Timeout failed'; fi
         npm install
         npm test
         
