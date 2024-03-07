@@ -7,7 +7,6 @@ jobs:
     uses: ./.github/workflows/test.yml
   publish:
     name: Publish the client to the public registry
-    needs: [test]
     runs-on: ubuntu-latest
     env:
       NPMRC: ${{ secrets.NPMRC }}
