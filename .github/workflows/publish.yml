@@ -21,7 +21,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: |
+    - name: Check for dev-version
+      if:  ${{ contains(github.ref, 'master') }}
+      run: |
+        VERSION=`git log -1 --date=format:"%y%m%d%H" --format=%cd|head`
+        echo "version $VERSION"
+        "version": "4.1.1"
+        sed -i -E "s/(version\": \")([0-9]\.[0-9]\.)(.*)(\")/\1\2$VERSION\4/1" package.json
+    - name: Publish
+      run: |
         echo "$NPMRC" > ~/.npmrc
         npm publish
 

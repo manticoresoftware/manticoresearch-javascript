@@ -448,7 +448,6 @@
     }
 
     if (contentType === 'application/x-www-form-urlencoded') {
-	  console.log('test request 2');
 	  request.send(querystring.stringify(this.normalizeParams(formParams)));
     } else if (contentType == 'multipart/form-data') {
       var _formParams = this.normalizeParams(formParams);

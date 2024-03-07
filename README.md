@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *Manticoresearch.IndexApi* | [**insert**](docs/IndexApi.md#insert) | **POST** /insert | Create a new document in an index
 *Manticoresearch.IndexApi* | [**replace**](docs/IndexApi.md#replace) | **POST** /replace | Replace new document in an index
 *Manticoresearch.IndexApi* | [**update**](docs/IndexApi.md#update) | **POST** /update | Update a document in an index
+*Manticoresearch.IndexApi* | [**update_0**](docs/IndexApi.md#update_0) | **POST** /{index}/_update/{id} | Partially replaces a document in an index
 *Manticoresearch.SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /pq/{index}/search | Perform reverse search on a percolate index
 *Manticoresearch.SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /search | Performs a search on an index
 *Manticoresearch.UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
@@ -120,6 +121,7 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [Manticoresearch.QueryFilter](docs/QueryFilter.md)
  - [Manticoresearch.RangeFilter](docs/RangeFilter.md)
+ - [Manticoresearch.ReplaceDocumentRequest](docs/ReplaceDocumentRequest.md)
  - [Manticoresearch.SearchRequest](docs/SearchRequest.md)
  - [Manticoresearch.SearchRequestKnn](docs/SearchRequestKnn.md)
  - [Manticoresearch.SearchResponse](docs/SearchResponse.md)
