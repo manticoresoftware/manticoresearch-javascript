@@ -10,6 +10,7 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
 | Manticore Search  | manticoresearch-javascript   |     Node      |
 | ----------------- | ---------------------------- | ------------- |
+| dev               | manticoresearch-dev          | >= 10.0       |
 | >= 6.2.0          | >= 3.3.1                     | >= 10.0       |
 | >= 4.2.1          | >= 3.0.x                     | >= 10.0       |
 | >= 4.0.2          | >= 2.0.3                     | >= 10.0       |
