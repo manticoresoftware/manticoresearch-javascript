@@ -17,7 +17,7 @@
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.AggregationTerms = factory(root.Manticoresearch.ApiClient);
+    root.Manticoresearch.AggregationCompositeSourcesInnerValueTerms = factory(root.Manticoresearch.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -25,14 +25,14 @@
 
 
   /**
-   * The AggregationTerms model module.
-   * @module model/AggregationTerms
+   * The AggregationCompositeSourcesInnerValueTerms model module.
+   * @module model/AggregationCompositeSourcesInnerValueTerms
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>AggregationTerms</code>.
-   * @alias module:model/AggregationTerms
+   * Constructs a new <code>AggregationCompositeSourcesInnerValueTerms</code>.
+   * @alias module:model/AggregationCompositeSourcesInnerValueTerms
    * @class
    */
   var exports = function() {
@@ -41,20 +41,17 @@
   };
 
   /**
-   * Constructs a <code>AggregationTerms</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AggregationCompositeSourcesInnerValueTerms</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/AggregationTerms} obj Optional instance to populate.
-   * @return {module:model/AggregationTerms} The populated <code>AggregationTerms</code> instance.
+   * @param {module:model/AggregationCompositeSourcesInnerValueTerms} obj Optional instance to populate.
+   * @return {module:model/AggregationCompositeSourcesInnerValueTerms} The populated <code>AggregationCompositeSourcesInnerValueTerms</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
       if (data.hasOwnProperty('field')) {
         obj['field'] = ApiClient.convertToType(data['field'], 'String');
-      }
-      if (data.hasOwnProperty('size')) {
-        obj['size'] = ApiClient.convertToType(data['size'], 'Number');
       }
     }
     return obj;
@@ -65,11 +62,6 @@
    * @member {String} field
    */
   exports.prototype['field'] = undefined;
-  /**
-   * Maximum number of buckets in the result
-   * @member {Number} size
-   */
-  exports.prototype['size'] = undefined;
 
 
 

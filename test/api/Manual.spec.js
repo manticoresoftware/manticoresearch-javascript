@@ -75,24 +75,24 @@
 			res =  await searchApi.search(search_request);
 
 			search_request.source = new Manticoresearch.SourceByRules();
-  		search_request.source.includes = ['title', '_year'];
-  		search_request.source.excludes = ['code'];
+  			search_request.source.includes = ['title', '_year'];
+  			search_request.source.excludes = ['code'];
 
-  		res =  await searchApi.search(search_request);
+  			res =  await searchApi.search(search_request);
 
 			search_request.sort = ['_year']
-  		let sort2 = new Manticoresearch.SortOrder('rating', 'asc');
-  		let sort3 = new Manticoresearch.SortMVA('code', 'desc', 'max');
-  		search_request.sort.push(...[sort2,sort3]);
+  			let sort2 = new Manticoresearch.SortOrder('rating', 'asc');
+  			let sort3 = new Manticoresearch.SortMVA('code', 'desc', 'max');
+  			search_request.sort.push(...[sort2,sort3]);
 
-  		res =  await searchApi.search(search_request);
+	  		res =  await searchApi.search(search_request);
 
-  		search_request.expressions = {'expr': 'min(_year,2900)'};
-  		let expr2 = 'max(_year,2100)';
-  		search_request.expressions['expr2'] = expr2;
-  		search_request.source.includes.push('expr', 'expr2');
+  			search_request.expressions = {'expr': 'min(_year,2900)'};
+  			let expr2 = 'max(_year,2100)';
+  			search_request.expressions['expr2'] = expr2;
+  			search_request.source.includes.push('expr', 'expr2');
 
-  		res =  await searchApi.search(search_request);
+  			res =  await searchApi.search(search_request);
 
 			let terms = {};
 			Manticoresearch.AggregationTerms.constructFromObject({field: '_year', size: 10}, terms);
@@ -102,18 +102,29 @@
 			search_request.aggs = {agg1: agg1};
 			let agg2 = new Manticoresearch.Aggregation();
 			agg2['terms'] = Manticoresearch.AggregationTerms.constructFromObject({field: 'rating'});
-      search_request.aggs['agg2'] = agg2;
+			search_request.aggs['agg2'] = agg2;
 
-      res =  await searchApi.search(search_request);
+    		res =  await searchApi.search(search_request);
+    		
+			let compAggTerms1 = Manticoresearch.AggregationCompositeSourcesInnerValueTerms.constructFromObject({field: '_year'});
+			let compAgg1 = Manticoresearch.AggregationCompositeSourcesInnerValue.constructFromObject({'terms': compAggTerms1})
+			let compAggTerms2 = Manticoresearch.AggregationCompositeSourcesInnerValueTerms.constructFromObject({field: 'rating'});
+			let compAgg2 = Manticoresearch.AggregationCompositeSourcesInnerValue.constructFromObject({'terms': compAggTerms2});
+			let compSources = [{'comp_agg_1': compAgg1}, {'comp_agg_2': compAgg2}];
+			let compAgg = Manticoresearch.AggregationComposite.constructFromObject({'size': 5, 'sources': compSources});
+			let agg = Manticoresearch.Aggregation.constructFromObject({'composite': compAgg});
+			search_request.aggs = {'comp_agg': agg};
+
+			res =  await searchApi.search(search_request);
 
 			let highlight = new Manticoresearch.Highlight();
-      highlight.fieldnames = ['title'];
-      highlight.post_tags = '</post_tag>';
-    	highlight.encoder = 'default';
-	    highlight.snippet_boundary = 'sentence';
-      search_request.highlight = highlight;
+      		highlight.fieldnames = ['title'];
+      		highlight.post_tags = '</post_tag>';
+			highlight.encoder = 'default';
+			highlight.snippet_boundary = 'sentence';
+      		search_request.highlight = highlight;
 
-      res =  await searchApi.search(search_request);
+			res =  await searchApi.search(search_request);
   
 			let highlightField = new Manticoresearch.HighlightField('title');
 			let highlightField2 = new Manticoresearch.HighlightField('plot');

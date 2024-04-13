@@ -8,18 +8,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AggregationSortInnerValue', 'model/AggregationTerms'], factory);
+    define(['ApiClient', 'model/AggregationComposite', 'model/AggregationSortInnerValue', 'model/AggregationTerms'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./AggregationSortInnerValue'), require('./AggregationTerms'));
+    module.exports = factory(require('../ApiClient'), require('./AggregationComposite'), require('./AggregationSortInnerValue'), require('./AggregationTerms'));
   } else {
     // Browser globals (root is window)
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.Aggregation = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.AggregationSortInnerValue, root.Manticoresearch.AggregationTerms);
+    root.Manticoresearch.Aggregation = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.AggregationComposite, root.Manticoresearch.AggregationSortInnerValue, root.Manticoresearch.AggregationTerms);
   }
-}(this, function(ApiClient, AggregationSortInnerValue, AggregationTerms) {
+}(this, function(ApiClient, AggregationComposite, AggregationSortInnerValue, AggregationTerms) {
   'use strict';
 
 
@@ -57,6 +57,9 @@
       if (data.hasOwnProperty('sort')) {
         obj['sort'] = ApiClient.convertToType(data['sort'], [{'String': AggregationSortInnerValue}]);
       }
+      if (data.hasOwnProperty('composite')) {
+        obj['composite'] = AggregationComposite.constructFromObject(data['composite']);
+      }
     }
     return obj;
   }
@@ -69,6 +72,10 @@
    * @member {Array.<Object.<String, module:model/AggregationSortInnerValue>>} sort
    */
   exports.prototype['sort'] = undefined;
+  /**
+   * @member {module:model/AggregationComposite} composite
+   */
+  exports.prototype['composite'] = undefined;
 
 
 

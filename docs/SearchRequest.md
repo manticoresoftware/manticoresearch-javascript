@@ -151,6 +151,21 @@ async function(){
 	var res = await searchApi.search(searchRequest);
 	console.log(JSON.stringify(res, null, 4));  
 }
+
+// Composite aggregation example
+var compAggTerms1 = Manticoresearch.AggregationCompositeSourcesInnerValueTerms.constructFromObject({field: '_year'});
+var compAgg1 = Manticoresearch.AggregationCompositeSourcesInnerValue.constructFromObject({'terms': compAggTerms1})
+var compAggTerms2 = Manticoresearch.AggregationCompositeSourcesInnerValueTerms.constructFromObject({field: 'rating'});
+var compAgg2 = Manticoresearch.AggregationCompositeSourcesInnerValue.constructFromObject({'terms': compAggTerms2});
+var compSources = [{'comp_agg_1': compAgg1}, {'comp_agg_2': compAgg2}];
+var compAgg = Manticoresearch.AggregationComposite.constructFromObject({'size': 5, 'sources': compSources});
+var agg = Manticoresearch.Aggregation.constructFromObject({'composite': compAgg});
+searchRequest.aggs = {'comp_agg': agg};
+
+async function(){
+	var res = await searchApi.search(searchRequest);
+	console.log(JSON.stringify(res, null, 4));  
+}
 ```
 
 ### Highlight
