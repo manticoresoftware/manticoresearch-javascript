@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **field** | **String** |  | 
-**lte** | **Number** |  | [optional] 
-**gte** | **Number** |  | [optional] 
-**lt** | **Number** |  | [optional] 
-**gt** | **Number** |  | [optional] 
+**lte** | [**RangeFilterLte**](RangeFilterLte.md) |  | [optional] 
+**gte** | [**RangeFilterLte**](RangeFilterLte.md) |  | [optional] 
+**lt** | [**RangeFilterLte**](RangeFilterLte.md) |  | [optional] 
+**gt** | [**RangeFilterLte**](RangeFilterLte.md) |  | [optional] 
 
 [[Using in search requests]](SearchRequest.md#RangeFilter)
 

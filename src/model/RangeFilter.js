@@ -8,18 +8,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/RangeFilterLte'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./RangeFilterLte'));
   } else {
     // Browser globals (root is window)
     if (!root.Manticoresearch) {
       root.Manticoresearch = {};
     }
-    root.Manticoresearch.RangeFilter = factory(root.Manticoresearch.ApiClient);
+    root.Manticoresearch.RangeFilter = factory(root.Manticoresearch.ApiClient, root.Manticoresearch.RangeFilterLte);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, RangeFilterLte) {
   'use strict';
 
 
@@ -57,16 +57,16 @@
         obj['field'] = ApiClient.convertToType(data['field'], 'String');
       }
       if (data.hasOwnProperty('lte')) {
-        obj['lte'] = ApiClient.convertToType(data['lte'], 'Number');
+        obj['lte'] = RangeFilterLte.constructFromObject(data['lte']);
       }
       if (data.hasOwnProperty('gte')) {
-        obj['gte'] = ApiClient.convertToType(data['gte'], 'Number');
+        obj['gte'] = RangeFilterLte.constructFromObject(data['gte']);
       }
       if (data.hasOwnProperty('lt')) {
-        obj['lt'] = ApiClient.convertToType(data['lt'], 'Number');
+        obj['lt'] = RangeFilterLte.constructFromObject(data['lt']);
       }
       if (data.hasOwnProperty('gt')) {
-        obj['gt'] = ApiClient.convertToType(data['gt'], 'Number');
+        obj['gt'] = RangeFilterLte.constructFromObject(data['gt']);
       }
     }
     return obj;
@@ -77,19 +77,19 @@
    */
   exports.prototype['field'] = undefined;
   /**
-   * @member {Number} lte
+   * @member {module:model/RangeFilterLte} lte
    */
   exports.prototype['lte'] = undefined;
   /**
-   * @member {Number} gte
+   * @member {module:model/RangeFilterLte} gte
    */
   exports.prototype['gte'] = undefined;
   /**
-   * @member {Number} lt
+   * @member {module:model/RangeFilterLte} lt
    */
   exports.prototype['lt'] = undefined;
   /**
-   * @member {Number} gt
+   * @member {module:model/RangeFilterLte} gt
    */
   exports.prototype['gt'] = undefined;
 

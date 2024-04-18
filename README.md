@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [Manticoresearch.QueryFilter](docs/QueryFilter.md)
  - [Manticoresearch.RangeFilter](docs/RangeFilter.md)
+ - [Manticoresearch.RangeFilterLte](docs/RangeFilterLte.md)
  - [Manticoresearch.ReplaceDocumentRequest](docs/ReplaceDocumentRequest.md)
  - [Manticoresearch.SearchRequest](docs/SearchRequest.md)
  - [Manticoresearch.SearchRequestKnn](docs/SearchRequestKnn.md)

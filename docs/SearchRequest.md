@@ -337,9 +337,9 @@ async function(){
 var searchRequest = manticoresearch.model.SearchRequest();
 searchRequest.index = "movies";
 
-var rangeFilter = new Manticoresearch.RangeFilter('year');
-Manticoresearch.RangeFilter.constructFromObject({lte: 2002}, rangeFilter);
-Manticoresearch.RangeFilter.constructFromObject({gte: 1000}, rangeFilter);
+var rangeFilter = new Manticoresearch.RangeFilter('_year');
+rangeFilter.lte = 2002
+rangeFilter.gte = 1000
 searchRequest.attr_filter = rangeFilter;
 
 async function(){
