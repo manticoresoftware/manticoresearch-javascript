@@ -335,7 +335,7 @@
     });
   };
 
-  exports.JSONbig = require('json-bigint')({ storeAsString: true });
+  exports.JSONbig = require('json-bigint');
 
   /**
    * Deserializes an HTTP response body into a value of the specified type.
@@ -353,11 +353,9 @@
     // Use json-bigint for parsing json responses otherwise rely on SuperAgent
     // See http://visionmedia.github.io/superagent/#parsing-response-bodies
 	var data;
-	if (returnType === Object || typeof returnType === 'object') {
-		data = exports.JSONbig.parse(response.text);
-	} else {
-		data = response.body;
-	}
+	
+	data = exports.JSONbig.parse(response.text);
+	
     if (data == null || (typeof data === 'object' && typeof data.length === 'undefined' && !Object.keys(data).length)) {
       // SuperAgent does not always produce a body; use the unparsed response as a fallback
       data = response.text;
@@ -465,7 +463,7 @@
       if (!request.header['Content-Type']) {
           request.type('application/json');
       }
-      request.send(bodyParam);
+      request.send(typeof bodyParam === 'object' ? exports.JSONbig.stringify(bodyParam) : bodyParam);
     }
 
     var accept = this.jsonPreferredMime(accepts);

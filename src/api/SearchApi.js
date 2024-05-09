@@ -47,7 +47,7 @@
      * @param {module:model/PercolateRequest} percolateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
-    this.percolateWithHttpInfo = function(index, percolateRequest) {
+    this.percolateWithHtstringtpInfo = function(index, percolateRequest) {
       var postBody = JSON.parse(JSON.stringify(percolateRequest));
 
 
@@ -107,7 +107,7 @@
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
     this.searchWithHttpInfo = function(searchRequest) {
-      var postBody = JSON.parse(JSON.stringify(searchRequest));
+      var postBody = ApiClient.JSONbig.parse(ApiClient.JSONbig.stringify(searchRequest));
 
 
       // verify the required parameter 'searchRequest' is set

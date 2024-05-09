@@ -19,7 +19,7 @@
   ],  
   "dependencies": {
     "superagent": "5.1.0",
-    "json-bigint": "1.0.0"
+    "json-bigint": "0.4.0"
   },
   "devDependencies": {
     "inherits": "^2.0.4",
