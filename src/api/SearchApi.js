@@ -47,7 +47,7 @@
      * @param {module:model/PercolateRequest} percolateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
-    this.percolateWithHtstringtpInfo = function(index, percolateRequest) {
+    this.percolateWithHttpInfo = function(index, percolateRequest) {
       var postBody = JSON.parse(JSON.stringify(percolateRequest));
 
 
