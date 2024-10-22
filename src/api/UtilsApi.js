@@ -50,7 +50,9 @@ export default class UtilsApi {
       if (body === undefined || body === null) {
         throw new Error("Missing the required parameter 'body' when calling sql");
       }
-
+      if (!('rawResponse' in opts)) {
+		opts['rawResponse'] = true;
+	  }
       let pathParams = {
       };
       let queryParams = {

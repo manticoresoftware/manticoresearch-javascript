@@ -30,5 +30,6 @@ jobs:
     - name: Publish
       run: |
         echo "$NPMRC" > ~/.npmrc
+        npm install --save-dev babel-cli
         npm publish
 
