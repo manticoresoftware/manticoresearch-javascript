@@ -5,10 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **index** | **String** | Index name | 
-**cluster** | **String** | cluster name | [optional] 
-**id** | **Number** | Document ID | [optional] 
-**query** | **Object** | Query tree object | [optional] 
-
-
+**cluster** | **String** | Cluster name | [optional] 
+**id** | **Number** | The ID of document for deletion | [optional] 
+**query** | **Object** | Defines the criteria to match documents for deletion | [optional] 
 
 

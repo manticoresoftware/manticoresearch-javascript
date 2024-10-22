@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**percolate** | **Object** |  | 
-
-
+**percolate** | **Object** | Object representing the document to percolate | 
 
 

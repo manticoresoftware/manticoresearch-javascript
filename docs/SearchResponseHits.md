@@ -4,11 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**maxScore** | **Number** |  | [optional] 
-**total** | **Number** |  | [optional] 
-**totalRelation** | **String** |  | [optional] 
-**hits** | **[Object]** |  | [optional] 
-
-
+**maxScore** | **Number** | Maximum score among the matched documents | [optional] 
+**total** | **Number** | Total number of matched documents | [optional] 
+**totalRelation** | **String** | Indicates whether the total number of hits is accurate or an estimate | [optional] 
+**hits** | **[Object]** | Array of hit objects, each representing a matched document | [optional] 
 
 

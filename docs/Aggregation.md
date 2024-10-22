@@ -4,11 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**terms** | [**AggregationTerms**](AggregationTerms.md) |  | [optional] 
-**sort** | **[{String: AggregationSortInnerValue}]** |  | [optional] 
-**composite** | [**AggregationComposite**](AggregationComposite.md) |  | [optional] 
-
-[[Using in search requests]](SearchRequest.md#Aggregation)
-
+**terms** | [**AggTerms**](AggTerms.md) |  | [optional] 
+**sort** | **[Object]** |  | [optional] 
+**composite** | [**AggComposite**](AggComposite.md) |  | [optional] 
 
 

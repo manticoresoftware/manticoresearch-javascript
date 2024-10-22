@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **{String: Object}** |  | 
-**status** | **Number** |  | 
-
-
+**error** | [**ResponseError**](ResponseError.md) |  | 
+**status** | **Number** | HTTP status code of the error response | [optional] [default to 500]
 
 
