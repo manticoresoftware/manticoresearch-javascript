@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    //instance = new Manticoresearch.SqlResponse();
+    instance = new Manticoresearch.SqlResponse();
   });
 
   var getProperty = function(object, getter, property) {
