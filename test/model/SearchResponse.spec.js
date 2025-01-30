@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property scroll (base name: "scroll")', function() {
+      // uncomment below and update the code to test the property scroll
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property warning (base name: "warning")', function() {
       // uncomment below and update the code to test the property warning
       //var instance = new Manticoresearch.SearchResponse();

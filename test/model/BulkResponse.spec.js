@@ -72,6 +72,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property currentLine (base name: "current_line")', function() {
+      // uncomment below and update the code to test the property currentLine
+      //var instance = new Manticoresearch.BulkResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property skippedLines (base name: "skipped_lines")', function() {
+      // uncomment below and update the code to test the property skippedLines
+      //var instance = new Manticoresearch.BulkResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

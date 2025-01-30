@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MatchAll model module.
  * @module model/MatchAll
- * @version 5.0.0
+ * @version 6.0.0
  */
 class MatchAll {
     /**

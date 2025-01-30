@@ -17,7 +17,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The UpdateDocumentRequest model module.
  * @module model/UpdateDocumentRequest
- * @version 5.0.0
+ * @version 6.0.0
  */
 class UpdateDocumentRequest {
     /**

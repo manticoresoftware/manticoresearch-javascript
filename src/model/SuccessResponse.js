@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SuccessResponse model module.
  * @module model/SuccessResponse
- * @version 5.0.0
+ * @version 6.0.0
  */
 class SuccessResponse {
     /**
@@ -51,6 +51,9 @@ class SuccessResponse {
             if (data.hasOwnProperty('_index')) {
                 obj['_index'] = ApiClient.convertToType(data['_index'], 'String');
             }
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
+            }
             if (data.hasOwnProperty('_id')) {
                 obj['_id'] = ApiClient.convertToType(data['_id'], 'Number');
             }
@@ -81,6 +84,10 @@ class SuccessResponse {
             throw new Error("Expected the field `_index` to be a primitive type in the JSON string but got " + data['_index']);
         }
         // ensure the json data is a string
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
+        }
+        // ensure the json data is a string
         if (data['result'] && !(typeof data['result'] === 'string' || data['result'] instanceof String)) {
             throw new Error("Expected the field `result` to be a primitive type in the JSON string but got " + data['result']);
         }
@@ -98,6 +105,12 @@ class SuccessResponse {
  * @member {String} _index
  */
 SuccessResponse.prototype['_index'] = undefined;
+
+/**
+ * Name of the document table (alias of index)
+ * @member {String} table
+ */
+SuccessResponse.prototype['table'] = undefined;
 
 /**
  * ID of the document affected by the request operation

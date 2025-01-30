@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property table (base name: "table")', function() {
+      // uncomment below and update the code to test the property table
+      //var instance = new Manticoresearch.SuccessResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property id (base name: "_id")', function() {
       // uncomment below and update the code to test the property id
       //var instance = new Manticoresearch.SuccessResponse();

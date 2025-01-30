@@ -18,7 +18,7 @@ import AggTerms from './AggTerms';
 /**
  * The Aggregation model module.
  * @module model/Aggregation
- * @version 5.0.0
+ * @version 6.0.0
  */
 class Aggregation {
     /**

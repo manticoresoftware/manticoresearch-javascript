@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateResponse model module.
  * @module model/UpdateResponse
- * @version 5.0.0
+ * @version 6.0.0
  */
 class UpdateResponse {
     /**

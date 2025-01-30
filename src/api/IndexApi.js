@@ -26,7 +26,7 @@ import UpdateResponse from '../model/UpdateResponse';
 /**
 * Index service.
 * @module api/IndexApi
-* @version 5.0.0
+* @version 6.0.0
 */
 export default class IndexApi {
 

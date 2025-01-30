@@ -47,6 +47,7 @@ import SearchRequest from './model/SearchRequest';
 import SearchResponse from './model/SearchResponse';
 import SearchResponseHits from './model/SearchResponseHits';
 import SourceRules from './model/SourceRules';
+import SqlResponse from './model/SqlResponse';
 import SuccessResponse from './model/SuccessResponse';
 import UpdateDocumentRequest from './model/UpdateDocumentRequest';
 import UpdateResponse from './model/UpdateResponse';
@@ -84,7 +85,7 @@ import UtilsApi from './api/UtilsApi';
 * </pre>
 * </p>
 * @module index
-* @version 5.0.0
+* @version 6.0.0
 */
 export {
     /**
@@ -296,6 +297,12 @@ export {
      * @property {module:model/SourceRules}
      */
     SourceRules,
+
+    /**
+     * The SqlResponse model constructor.
+     * @property {module:model/SqlResponse}
+     */
+    SqlResponse,
 
     /**
      * The SuccessResponse model constructor.

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Manticoresearch.PercolateRequestQuery();
+    instance = new Manticoresearch.SqlResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,17 +47,11 @@
       object[property] = value;
   }
 
-  describe('PercolateRequestQuery', function() {
-    it('should create an instance of PercolateRequestQuery', function() {
-      // uncomment below and update the code to test PercolateRequestQuery
-      //var instance = new Manticoresearch.PercolateRequestQuery();
-      //expect(instance).to.be.a(Manticoresearch.PercolateRequestQuery);
-    });
-
-    it('should have the property percolate (base name: "percolate")', function() {
-      // uncomment below and update the code to test the property percolate
-      //var instance = new Manticoresearch.PercolateRequestQuery();
-      //expect(instance).to.be();
+  describe('SqlResponse', function() {
+    it('should create an instance of SqlResponse', function() {
+      // uncomment below and update the code to test SqlResponse
+      //var instance = new Manticoresearch.SqlResponse();
+      //expect(instance).to.be.a(Manticoresearch.SqlResponse);
     });
 
   });

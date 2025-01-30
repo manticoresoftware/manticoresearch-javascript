@@ -17,7 +17,7 @@ import SearchResponseHits from './SearchResponseHits';
 /**
  * The SearchResponse model module.
  * @module model/SearchResponse
- * @version 5.0.0
+ * @version 6.0.0
  */
 class SearchResponse {
     /**
@@ -64,6 +64,9 @@ class SearchResponse {
             if (data.hasOwnProperty('profile')) {
                 obj['profile'] = ApiClient.convertToType(data['profile'], Object);
             }
+            if (data.hasOwnProperty('scroll')) {
+                obj['scroll'] = ApiClient.convertToType(data['scroll'], 'String');
+            }
             if (data.hasOwnProperty('warning')) {
                 obj['warning'] = ApiClient.convertToType(data['warning'], Object);
             }
@@ -80,6 +83,10 @@ class SearchResponse {
         // validate the optional field `hits`
         if (data['hits']) { // data not null
           SearchResponseHits.validateJSON(data['hits']);
+        }
+        // ensure the json data is a string
+        if (data['scroll'] && !(typeof data['scroll'] === 'string' || data['scroll'] instanceof String)) {
+            throw new Error("Expected the field `scroll` to be a primitive type in the JSON string but got " + data['scroll']);
         }
 
         return true;
@@ -118,6 +125,12 @@ SearchResponse.prototype['hits'] = undefined;
  * @member {Object} profile
  */
 SearchResponse.prototype['profile'] = undefined;
+
+/**
+ * Scroll token to be used fo pagination
+ * @member {String} scroll
+ */
+SearchResponse.prototype['scroll'] = undefined;
 
 /**
  * Warnings encountered during the search operation

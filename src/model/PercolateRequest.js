@@ -17,7 +17,7 @@ import PercolateRequestQuery from './PercolateRequestQuery';
 /**
  * The PercolateRequest model module.
  * @module model/PercolateRequest
- * @version 5.0.0
+ * @version 6.0.0
  */
 class PercolateRequest {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BulkResponse model module.
  * @module model/BulkResponse
- * @version 5.0.0
+ * @version 6.0.0
  */
 class BulkResponse {
     /**
@@ -56,6 +56,12 @@ class BulkResponse {
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
+            }
+            if (data.hasOwnProperty('current_line')) {
+                obj['current_line'] = ApiClient.convertToType(data['current_line'], 'Number');
+            }
+            if (data.hasOwnProperty('skipped_lines')) {
+                obj['skipped_lines'] = ApiClient.convertToType(data['skipped_lines'], 'Number');
             }
         }
         return obj;
@@ -101,6 +107,18 @@ BulkResponse.prototype['errors'] = undefined;
  * @member {String} error
  */
 BulkResponse.prototype['error'] = undefined;
+
+/**
+ * Number of the row returned in the response
+ * @member {Number} current_line
+ */
+BulkResponse.prototype['current_line'] = undefined;
+
+/**
+ * Number of rows skipped in the response
+ * @member {Number} skipped_lines
+ */
+BulkResponse.prototype['skipped_lines'] = undefined;
 
 
 

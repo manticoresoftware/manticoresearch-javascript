@@ -2,8 +2,9 @@
 
 Сlient for Manticore Search.
 
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/6.0.0
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/4.0.0
+❗ WARNING: the current version has breaking changes compared to the previous release https://github.com/manticoresoftware/manticoresearch-javascript/tree/5.0.0
 
 ## Requirements
 
@@ -12,6 +13,7 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 | Manticore Search  | manticoresearch-javascript   |     Node      |
 | ----------------- | ---------------------------- | ------------- |
 | dev               | manticoresearch-dev          | >= 10.0       |
+| >= 7.0.0          | >= 6.0.0                     | >= 10.0       |
 | >= 6.2.0          | >= 3.3.1                     | >= 10.0       |
 | >= 4.2.1          | >= 3.0.x                     | >= 10.0       |
 | >= 4.0.2          | >= 2.0.3                     | >= 10.0       |
@@ -19,60 +21,8 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
 ## Installation
 
-### For [Node.js](https://nodejs.org/)
-
-To use the library locally without publishing to a remote npm registry, first install the dependencies by changing into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
-
 ```shell
-npm install
-```
-
-Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
-
-```shell
-npm link
-```
-
-To use the link you just defined in your project, switch to the directory you want to use your manticoresearch from, and run:
-
-```shell
-npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
-```
-
-Finally, you need to build the module:
-
-```shell
-npm run build
-```
-
-### For browser
-
-The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
-the above steps with Node.js and installing browserify with `npm install -g browserify`,
-perform the following (assuming *main.js* is your entry file):
-
-```shell
-browserify main.js > bundle.js
-```
-
-Then include *bundle.js* in the HTML pages.
-
-### Webpack Configuration
-
-Using Webpack you may encounter the following error: "Module not found: Error:
-Cannot resolve module", most certainly you should disable AMD loader. Add/merge
-the following section to your webpack config:
-
-```javascript
-module: {
-  rules: [
-    {
-      parser: {
-        amd: false
-      }
-    }
-  ]
-}
+npm install manticoresearch
 ```
 
 ## Getting Started
@@ -168,6 +118,7 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.SearchResponse](docs/SearchResponse.md)
  - [Manticoresearch.SearchResponseHits](docs/SearchResponseHits.md)
  - [Manticoresearch.SourceRules](docs/SourceRules.md)
+ - [Manticoresearch.SqlResponse](docs/SqlResponse.md)
  - [Manticoresearch.SuccessResponse](docs/SuccessResponse.md)
  - [Manticoresearch.UpdateDocumentRequest](docs/UpdateDocumentRequest.md)
  - [Manticoresearch.UpdateResponse](docs/UpdateResponse.md)

@@ -17,7 +17,7 @@ import ResponseErrorDetails from './ResponseErrorDetails';
 /**
  * The ResponseError model module.
  * @module model/ResponseError
- * @version 5.0.0
+ * @version 6.0.0
  */
 class ResponseError {
     /**

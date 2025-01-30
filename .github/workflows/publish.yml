@@ -31,6 +31,6 @@ jobs:
       run: |
         echo "$NPMRC" > ~/.npmrc
         npm install --save-dev babel-cli
-        npm unpublish manticoresearch@5.0.24102221-6adf49a
+        npm publish
 
 

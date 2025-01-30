@@ -14,11 +14,12 @@
 
 import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
+import SqlResponse from '../model/SqlResponse';
 
 /**
 * Utils service.
 * @module api/UtilsApi
-* @version 5.0.0
+* @version 6.0.0
 */
 export default class UtilsApi {
 
@@ -41,7 +42,7 @@ export default class UtilsApi {
      * @param {String} body A query parameter string. 
      * @param {Object} opts Optional parameters
      * @param {Boolean} [rawResponse = true)] Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` for any type of queries. Default value is 'True'. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SqlResponse} and HTTP response
      */
     sqlWithHttpInfo(body, opts) {
       opts = opts || {};
@@ -66,7 +67,7 @@ export default class UtilsApi {
       let authNames = [];
       let contentTypes = ['text/plain'];
       let accepts = ['application/json'];
-      let returnType = [Object];
+      let returnType = SqlResponse;
       return this.apiClient.callApi(
         '/sql', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -80,7 +81,7 @@ export default class UtilsApi {
      * @param {String} body A query parameter string. 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.rawResponse Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` for any type of queries. Default value is 'True'.  (default to true)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SqlResponse}
      */
     sql(body, opts) {
       return this.sqlWithHttpInfo(body, opts)
