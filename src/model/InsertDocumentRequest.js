@@ -16,19 +16,19 @@ import ApiClient from '../ApiClient';
 /**
  * The InsertDocumentRequest model module.
  * @module model/InsertDocumentRequest
- * @version 6.0.0
+ * @version 7.0.0
  */
 class InsertDocumentRequest {
     /**
      * Constructs a new <code>InsertDocumentRequest</code>.
-     * Object containing data for inserting a new document into the index 
+     * Object containing data for inserting a new document into the table 
      * @alias module:model/InsertDocumentRequest
-     * @param index {String} Name of the index to insert the document into
+     * @param table {String} Name of the table to insert the document into
      * @param doc {Object} Object containing document data 
      */
-    constructor(index, doc) { 
+    constructor(table, doc) { 
         
-        InsertDocumentRequest.initialize(this, index, doc);
+        InsertDocumentRequest.initialize(this, table, doc);
     }
 
     /**
@@ -36,8 +36,8 @@ class InsertDocumentRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, index, doc) { 
-        obj['index'] = index;
+    static initialize(obj, table, doc) { 
+        obj['table'] = table;
         obj['doc'] = doc;
     }
 
@@ -52,8 +52,8 @@ class InsertDocumentRequest {
         if (data) {
             obj = obj || new InsertDocumentRequest();
 
-            if (data.hasOwnProperty('index')) {
-                obj['index'] = ApiClient.convertToType(data['index'], 'String');
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
             if (data.hasOwnProperty('cluster')) {
                 obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
@@ -81,8 +81,8 @@ class InsertDocumentRequest {
             }
         }
         // ensure the json data is a string
-        if (data['index'] && !(typeof data['index'] === 'string' || data['index'] instanceof String)) {
-            throw new Error("Expected the field `index` to be a primitive type in the JSON string but got " + data['index']);
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
         // ensure the json data is a string
         if (data['cluster'] && !(typeof data['cluster'] === 'string' || data['cluster'] instanceof String)) {
@@ -95,13 +95,13 @@ class InsertDocumentRequest {
 
 }
 
-InsertDocumentRequest.RequiredProperties = ["index", "doc"];
+InsertDocumentRequest.RequiredProperties = ["table", "doc"];
 
 /**
- * Name of the index to insert the document into
- * @member {String} index
+ * Name of the table to insert the document into
+ * @member {String} table
  */
-InsertDocumentRequest.prototype['index'] = undefined;
+InsertDocumentRequest.prototype['table'] = undefined;
 
 /**
  * Name of the cluster to insert the document into

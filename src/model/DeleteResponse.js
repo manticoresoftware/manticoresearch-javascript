@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DeleteResponse model module.
  * @module model/DeleteResponse
- * @version 6.0.0
+ * @version 7.0.0
  */
 class DeleteResponse {
     /**
@@ -48,8 +48,8 @@ class DeleteResponse {
         if (data) {
             obj = obj || new DeleteResponse();
 
-            if (data.hasOwnProperty('_index')) {
-                obj['_index'] = ApiClient.convertToType(data['_index'], 'String');
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
             if (data.hasOwnProperty('deleted')) {
                 obj['deleted'] = ApiClient.convertToType(data['deleted'], 'Number');
@@ -74,8 +74,8 @@ class DeleteResponse {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['_index'] && !(typeof data['_index'] === 'string' || data['_index'] instanceof String)) {
-            throw new Error("Expected the field `_index` to be a primitive type in the JSON string but got " + data['_index']);
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
         // ensure the json data is a string
         if (data['result'] && !(typeof data['result'] === 'string' || data['result'] instanceof String)) {
@@ -91,10 +91,10 @@ class DeleteResponse {
 
 
 /**
- * The name of the index from which the document was deleted
- * @member {String} _index
+ * The name of the table from which the document was deleted
+ * @member {String} table
  */
-DeleteResponse.prototype['_index'] = undefined;
+DeleteResponse.prototype['table'] = undefined;
 
 /**
  * Number of documents deleted

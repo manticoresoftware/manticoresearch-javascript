@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResponseErrorDetails model module.
  * @module model/ResponseErrorDetails
- * @version 6.0.0
+ * @version 7.0.0
  */
 class ResponseErrorDetails {
     /**
@@ -56,8 +56,8 @@ class ResponseErrorDetails {
             if (data.hasOwnProperty('reason')) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
             }
-            if (data.hasOwnProperty('index')) {
-                obj['index'] = ApiClient.convertToType(data['index'], 'String');
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
         }
         return obj;
@@ -84,8 +84,8 @@ class ResponseErrorDetails {
             throw new Error("Expected the field `reason` to be a primitive type in the JSON string but got " + data['reason']);
         }
         // ensure the json data is a string
-        if (data['index'] && !(typeof data['index'] === 'string' || data['index'] instanceof String)) {
-            throw new Error("Expected the field `index` to be a primitive type in the JSON string but got " + data['index']);
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
 
         return true;
@@ -109,10 +109,10 @@ ResponseErrorDetails.prototype['type'] = undefined;
 ResponseErrorDetails.prototype['reason'] = undefined;
 
 /**
- * The index related to the error, if applicable
- * @member {String} index
+ * The table related to the error, if applicable
+ * @member {String} table
  */
-ResponseErrorDetails.prototype['index'] = undefined;
+ResponseErrorDetails.prototype['table'] = undefined;
 
 
 

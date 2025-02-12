@@ -16,7 +16,7 @@ Perform SQL requests
 
 Run a query in SQL format.
 Expects a query string passed through `body` parameter and `opts` Object parameter that defines a format of response:
-* `opts` Object parameter can contain `{raw_response: false}` for Select only queries, e.g., `SELECT * FROM myindex`.  
+* `opts` Object parameter can contain `{raw_response: false}` for Select only queries, e.g., `SELECT * FROM mytable`.  
 * `opts` Object parameter can contain `{raw_response: true}` for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`. 
 The query string must stay as it is, no URL encoding is needed.
 The response object depends on the query executed. In select mode the response has same format as `/search` operation.

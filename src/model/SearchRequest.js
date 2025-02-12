@@ -21,18 +21,18 @@ import SearchQuery from './SearchQuery';
 /**
  * The SearchRequest model module.
  * @module model/SearchRequest
- * @version 6.0.0
+ * @version 7.0.0
  */
 class SearchRequest {
     /**
      * Constructs a new <code>SearchRequest</code>.
      * Request object for search operation
      * @alias module:model/SearchRequest
-     * @param index {String} The index to perform the search on
+     * @param table {String} The table to perform the search on
      */
-    constructor(index) { 
+    constructor(table) { 
         
-        SearchRequest.initialize(this, index);
+        SearchRequest.initialize(this, table);
     }
 
     /**
@@ -40,8 +40,8 @@ class SearchRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, index) { 
-        obj['index'] = index;
+    static initialize(obj, table) { 
+        obj['table'] = table;
     }
 
     /**
@@ -55,8 +55,8 @@ class SearchRequest {
         if (data) {
             obj = obj || new SearchRequest();
 
-            if (data.hasOwnProperty('index')) {
-                obj['index'] = ApiClient.convertToType(data['index'], 'String');
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
             if (data.hasOwnProperty('query')) {
                 obj['query'] = SearchQuery.constructFromObject(data['query']);
@@ -117,8 +117,8 @@ class SearchRequest {
             }
         }
         // ensure the json data is a string
-        if (data['index'] && !(typeof data['index'] === 'string' || data['index'] instanceof String)) {
-            throw new Error("Expected the field `index` to be a primitive type in the JSON string but got " + data['index']);
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
         // validate the optional field `query`
         if (data['query']) { // data not null
@@ -149,13 +149,13 @@ class SearchRequest {
 
 }
 
-SearchRequest.RequiredProperties = ["index"];
+SearchRequest.RequiredProperties = ["table"];
 
 /**
- * The index to perform the search on
- * @member {String} index
+ * The table to perform the search on
+ * @member {String} table
  */
-SearchRequest.prototype['index'] = undefined;
+SearchRequest.prototype['table'] = undefined;
 
 /**
  * @member {module:model/SearchQuery} query

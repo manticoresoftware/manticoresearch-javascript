@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The JoinCond model module.
  * @module model/JoinCond
- * @version 6.0.0
+ * @version 7.0.0
  */
 class JoinCond {
     /**

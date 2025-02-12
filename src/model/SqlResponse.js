@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SqlResponse model module.
  * @module model/SqlResponse
- * @version 6.0.0
+ * @version 7.0.0
  */
 class SqlResponse {
     /**

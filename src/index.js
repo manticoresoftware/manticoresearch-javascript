@@ -18,6 +18,7 @@ import AggCompositeSource from './model/AggCompositeSource';
 import AggCompositeTerm from './model/AggCompositeTerm';
 import AggTerms from './model/AggTerms';
 import Aggregation from './model/Aggregation';
+import AutocompleteRequest from './model/AutocompleteRequest';
 import BoolFilter from './model/BoolFilter';
 import BulkResponse from './model/BulkResponse';
 import DeleteDocumentRequest from './model/DeleteDocumentRequest';
@@ -85,7 +86,7 @@ import UtilsApi from './api/UtilsApi';
 * </pre>
 * </p>
 * @module index
-* @version 6.0.0
+* @version 7.0.0
 */
 export {
     /**
@@ -123,6 +124,12 @@ export {
      * @property {module:model/Aggregation}
      */
     Aggregation,
+
+    /**
+     * The AutocompleteRequest model constructor.
+     * @property {module:model/AutocompleteRequest}
+     */
+    AutocompleteRequest,
 
     /**
      * The BoolFilter model constructor.

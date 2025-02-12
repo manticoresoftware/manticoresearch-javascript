@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateResponse model module.
  * @module model/UpdateResponse
- * @version 6.0.0
+ * @version 7.0.0
  */
 class UpdateResponse {
     /**
@@ -48,8 +48,8 @@ class UpdateResponse {
         if (data) {
             obj = obj || new UpdateResponse();
 
-            if (data.hasOwnProperty('_index')) {
-                obj['_index'] = ApiClient.convertToType(data['_index'], 'String');
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
             if (data.hasOwnProperty('updated')) {
                 obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
@@ -71,8 +71,8 @@ class UpdateResponse {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['_index'] && !(typeof data['_index'] === 'string' || data['_index'] instanceof String)) {
-            throw new Error("Expected the field `_index` to be a primitive type in the JSON string but got " + data['_index']);
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
         // ensure the json data is a string
         if (data['result'] && !(typeof data['result'] === 'string' || data['result'] instanceof String)) {
@@ -88,10 +88,10 @@ class UpdateResponse {
 
 
 /**
- * Name of the document index
- * @member {String} _index
+ * Name of the document table
+ * @member {String} table
  */
-UpdateResponse.prototype['_index'] = undefined;
+UpdateResponse.prototype['table'] = undefined;
 
 /**
  * Number of documents updated

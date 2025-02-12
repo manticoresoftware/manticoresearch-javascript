@@ -26,7 +26,7 @@ import UpdateResponse from '../model/UpdateResponse';
 /**
 * Index service.
 * @module api/IndexApi
-* @version 6.0.0
+* @version 7.0.0
 */
 export default class IndexApi {
 
@@ -44,8 +44,8 @@ export default class IndexApi {
 
 
     /**
-     * Bulk index operations
-     * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it's object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      ```   {\"insert\": {\"index\": \"movies\", \"doc\": {\"plot\": \"A secret team goes to North Pole\", \"rating\": 9.5, \"language\": [2, 3], \"title\": \"This is an older movie\", \"lon\": 51.99, \"meta\": {\"keywords\":[\"travel\",\"ice\"],\"genre\":[\"adventure\"]}, \"year\": 1950, \"lat\": 60.4, \"advise\": \"PG-13\"}}}   \\n   {\"delete\": {\"index\": \"movies\",\"id\":700}}   ```      Responds with an object telling whenever any errors occured and an array with status for each operation:      ```   {     'items':     [       {         'update':{'_index':'products','_id':1,'result':'updated'}       },       {         'update':{'_index':'products','_id':2,'result':'updated'}       }     ],     'errors':false   }   ``` 
+     * Bulk table operations
+     * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it's object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      ```   {\"insert\": {\"table\": \"movies\", \"doc\": {\"plot\": \"A secret team goes to North Pole\", \"rating\": 9.5, \"language\": [2, 3], \"title\": \"This is an older movie\", \"lon\": 51.99, \"meta\": {\"keywords\":[\"travel\",\"ice\"],\"genre\":[\"adventure\"]}, \"year\": 1950, \"lat\": 60.4, \"advise\": \"PG-13\"}}}   \\n   {\"delete\": {\"table\": \"movies\",\"id\":700}}   ```      Responds with an object telling whenever any errors occured and an array with status for each operation:      ```   {     'items':     [       {         'update':{'table':'products','_id':1,'result':'updated'}       },       {         'update':{'table':'products','_id':2,'result':'updated'}       }     ],     'errors':false   }   ``` 
      * @param {String} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BulkResponse} and HTTP response
      */
@@ -77,8 +77,8 @@ export default class IndexApi {
     }
 
     /**
-     * Bulk index operations
-     * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it's object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      ```   {\"insert\": {\"index\": \"movies\", \"doc\": {\"plot\": \"A secret team goes to North Pole\", \"rating\": 9.5, \"language\": [2, 3], \"title\": \"This is an older movie\", \"lon\": 51.99, \"meta\": {\"keywords\":[\"travel\",\"ice\"],\"genre\":[\"adventure\"]}, \"year\": 1950, \"lat\": 60.4, \"advise\": \"PG-13\"}}}   \\n   {\"delete\": {\"index\": \"movies\",\"id\":700}}   ```      Responds with an object telling whenever any errors occured and an array with status for each operation:      ```   {     'items':     [       {         'update':{'_index':'products','_id':1,'result':'updated'}       },       {         'update':{'_index':'products','_id':2,'result':'updated'}       }     ],     'errors':false   }   ``` 
+     * Bulk table operations
+     * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it's object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      ```   {\"insert\": {\"table\": \"movies\", \"doc\": {\"plot\": \"A secret team goes to North Pole\", \"rating\": 9.5, \"language\": [2, 3], \"title\": \"This is an older movie\", \"lon\": 51.99, \"meta\": {\"keywords\":[\"travel\",\"ice\"],\"genre\":[\"adventure\"]}, \"year\": 1950, \"lat\": 60.4, \"advise\": \"PG-13\"}}}   \\n   {\"delete\": {\"table\": \"movies\",\"id\":700}}   ```      Responds with an object telling whenever any errors occured and an array with status for each operation:      ```   {     'items':     [       {         'update':{'table':'products','_id':1,'result':'updated'}       },       {         'update':{'table':'products','_id':2,'result':'updated'}       }     ],     'errors':false   }   ``` 
      * @param {String} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BulkResponse}
      */
@@ -91,8 +91,8 @@ export default class IndexApi {
 
 
     /**
-     * Delete a document in an index
-     * Delete one or several documents. The method has 2 ways of deleting: either by id, in case only one document is deleted or by using a  match query, in which case multiple documents can be delete . Example of input to delete by id:    ```   {'index':'movies','id':100}   ```  Example of input to delete using a query:    ```   {     'index':'movies',     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```  The match query has same syntax as in for searching. Responds with an object telling how many documents got deleted:     ```   {'_index':'products','updated':1}   ``` 
+     * Delete a document in a table
+     * Delete one or several documents. The method has 2 ways of deleting: either by id, in case only one document is deleted or by using a  match query, in which case multiple documents can be delete . Example of input to delete by id:    ```   {'table':'movies','id':100}   ```  Example of input to delete using a query:    ```   {     'table':'movies',     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```  The match query has same syntax as in for searching. Responds with an object telling how many documents got deleted:     ```   {'table':'products','updated':1}   ``` 
      * @param {module:model/DeleteDocumentRequest} deleteDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteResponse} and HTTP response
      */
@@ -124,8 +124,8 @@ export default class IndexApi {
     }
 
     /**
-     * Delete a document in an index
-     * Delete one or several documents. The method has 2 ways of deleting: either by id, in case only one document is deleted or by using a  match query, in which case multiple documents can be delete . Example of input to delete by id:    ```   {'index':'movies','id':100}   ```  Example of input to delete using a query:    ```   {     'index':'movies',     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```  The match query has same syntax as in for searching. Responds with an object telling how many documents got deleted:     ```   {'_index':'products','updated':1}   ``` 
+     * Delete a document in a table
+     * Delete one or several documents. The method has 2 ways of deleting: either by id, in case only one document is deleted or by using a  match query, in which case multiple documents can be delete . Example of input to delete by id:    ```   {'table':'movies','id':100}   ```  Example of input to delete using a query:    ```   {     'table':'movies',     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```  The match query has same syntax as in for searching. Responds with an object telling how many documents got deleted:     ```   {'table':'products','updated':1}   ``` 
      * @param {module:model/DeleteDocumentRequest} deleteDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteResponse}
      */
@@ -138,8 +138,8 @@ export default class IndexApi {
 
 
     /**
-     * Create a new document in an index
-     * Insert a document.  Expects an object like:     ```   {     'index':'movies',     'id':701,     'doc':     {       'title':'This is an old movie',       'plot':'A secret team goes to North Pole',       'year':1950,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   The document id can also be missing, in which case an autogenerated one will be used:             ```   {     'index':'movies',     'doc':     {       'title':'This is a new movie',       'plot':'A secret team goes to North Pole',       'year':2020,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   It responds with an object in format:      ```   {'_index':'products','_id':701,'created':true,'result':'created','status':201}   ``` 
+     * Create a new document in a table
+     * Insert a document.  Expects an object like:     ```   {     'table':'movies',     'id':701,     'doc':     {       'title':'This is an old movie',       'plot':'A secret team goes to North Pole',       'year':1950,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   The document id can also be missing, in which case an autogenerated one will be used:             ```   {     'table':'movies',     'doc':     {       'title':'This is a new movie',       'plot':'A secret team goes to North Pole',       'year':2020,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   It responds with an object in format:      ```   {'table':'products','_id':701,'created':true,'result':'created','status':201}   ``` 
      * @param {module:model/InsertDocumentRequest} insertDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessResponse} and HTTP response
      */
@@ -171,8 +171,8 @@ export default class IndexApi {
     }
 
     /**
-     * Create a new document in an index
-     * Insert a document.  Expects an object like:     ```   {     'index':'movies',     'id':701,     'doc':     {       'title':'This is an old movie',       'plot':'A secret team goes to North Pole',       'year':1950,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   The document id can also be missing, in which case an autogenerated one will be used:             ```   {     'index':'movies',     'doc':     {       'title':'This is a new movie',       'plot':'A secret team goes to North Pole',       'year':2020,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   It responds with an object in format:      ```   {'_index':'products','_id':701,'created':true,'result':'created','status':201}   ``` 
+     * Create a new document in a table
+     * Insert a document.  Expects an object like:     ```   {     'table':'movies',     'id':701,     'doc':     {       'title':'This is an old movie',       'plot':'A secret team goes to North Pole',       'year':1950,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   The document id can also be missing, in which case an autogenerated one will be used:             ```   {     'table':'movies',     'doc':     {       'title':'This is a new movie',       'plot':'A secret team goes to North Pole',       'year':2020,       'rating':9.5,       'lat':60.4,       'lon':51.99,       'advise':'PG-13',       'meta':'{\"keywords\":{\"travel\",\"ice\"},\"genre\":{\"adventure\"}}',       'language':[2,3]     }   }   ```   It responds with an object in format:      ```   {'table':'products','_id':701,'created':true,'result':'created','status':201}   ``` 
      * @param {module:model/InsertDocumentRequest} insertDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessResponse}
      */
@@ -185,18 +185,18 @@ export default class IndexApi {
 
 
     /**
-     * Partially replaces a document in an index
-     * Partially replaces a document with given id in an index Responds with an object of the following format:     ```   {'_index':'products','updated':1}   ``` 
-     * @param {String} index Name of the percolate index
+     * Partially replaces a document in a table
+     * Partially replaces a document with given id in a table Responds with an object of the following format:     ```   {'table':'products','updated':1}   ``` 
+     * @param {String} table Name of the percolate table
      * @param {Number} id Id of the document to replace
      * @param {module:model/ReplaceDocumentRequest} replaceDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateResponse} and HTTP response
      */
-    partialReplaceWithHttpInfo(index, id, replaceDocumentRequest) {
+    partialReplaceWithHttpInfo(table, id, replaceDocumentRequest) {
       let postBody = replaceDocumentRequest;
-      // verify the required parameter 'index' is set
-      if (index === undefined || index === null) {
-        throw new Error("Missing the required parameter 'index' when calling partialReplace");
+      // verify the required parameter 'table' is set
+      if (table === undefined || table === null) {
+        throw new Error("Missing the required parameter 'table' when calling partialReplace");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -208,7 +208,7 @@ export default class IndexApi {
       }
 
       let pathParams = {
-        'index': index,
+        'table': table,
         'id': id
       };
       let queryParams = {
@@ -223,22 +223,22 @@ export default class IndexApi {
       let accepts = ['application/json'];
       let returnType = UpdateResponse;
       return this.apiClient.callApi(
-        '/{index}/_update/{id}', 'POST',
+        '/{table}/_update/{id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Partially replaces a document in an index
-     * Partially replaces a document with given id in an index Responds with an object of the following format:     ```   {'_index':'products','updated':1}   ``` 
-     * @param {String} index Name of the percolate index
+     * Partially replaces a document in a table
+     * Partially replaces a document with given id in a table Responds with an object of the following format:     ```   {'table':'products','updated':1}   ``` 
+     * @param {String} table Name of the percolate table
      * @param {Number} id Id of the document to replace
      * @param {module:model/ReplaceDocumentRequest} replaceDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateResponse}
      */
-    partialReplace(index, id, replaceDocumentRequest) {
-      return this.partialReplaceWithHttpInfo(index, id, replaceDocumentRequest)
+    partialReplace(table, id, replaceDocumentRequest) {
+      return this.partialReplaceWithHttpInfo(table, id, replaceDocumentRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -246,8 +246,8 @@ export default class IndexApi {
 
 
     /**
-     * Replace new document in an index
-     * Replace an existing document. Input has same format as `insert` operation. <br/> Responds with an object in format: <br/>    ```   {'_index':'products','_id':1,'created':false,'result':'updated','status':200}   ``` 
+     * Replace new document in a table
+     * Replace an existing document. Input has same format as `insert` operation. Responds with an object in format:    ```   {'table':'products','_id':1,'created':false,'result':'updated','status':200}   ``` 
      * @param {module:model/InsertDocumentRequest} insertDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessResponse} and HTTP response
      */
@@ -279,8 +279,8 @@ export default class IndexApi {
     }
 
     /**
-     * Replace new document in an index
-     * Replace an existing document. Input has same format as `insert` operation. <br/> Responds with an object in format: <br/>    ```   {'_index':'products','_id':1,'created':false,'result':'updated','status':200}   ``` 
+     * Replace new document in a table
+     * Replace an existing document. Input has same format as `insert` operation. Responds with an object in format:    ```   {'table':'products','_id':1,'created':false,'result':'updated','status':200}   ``` 
      * @param {module:model/InsertDocumentRequest} insertDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessResponse}
      */
@@ -293,8 +293,8 @@ export default class IndexApi {
 
 
     /**
-     * Update a document in an index
-     * Update one or several documents. The update can be made by passing the id or by using a match query in case multiple documents can be updated.  For example update a document using document id:    ```   {'index':'movies','doc':{'rating':9.49},'id':100}   ```  And update by using a match query:    ```   {     'index':'movies',     'doc':{'rating':9.49},     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```   The match query has same syntax as for searching. Responds with an object that tells how many documents where updated in format:     ```   {'_index':'products','updated':1}   ``` 
+     * Update a document in a table
+     * Update one or several documents. The update can be made by passing the id or by using a match query in case multiple documents can be updated.  For example update a document using document id:    ```   {'table':'movies','doc':{'rating':9.49},'id':100}   ```  And update by using a match query:    ```   {     'table':'movies',     'doc':{'rating':9.49},     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```   The match query has same syntax as for searching. Responds with an object that tells how many documents where updated in format:     ```   {'table':'products','updated':1}   ``` 
      * @param {module:model/UpdateDocumentRequest} updateDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateResponse} and HTTP response
      */
@@ -326,8 +326,8 @@ export default class IndexApi {
     }
 
     /**
-     * Update a document in an index
-     * Update one or several documents. The update can be made by passing the id or by using a match query in case multiple documents can be updated.  For example update a document using document id:    ```   {'index':'movies','doc':{'rating':9.49},'id':100}   ```  And update by using a match query:    ```   {     'index':'movies',     'doc':{'rating':9.49},     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```   The match query has same syntax as for searching. Responds with an object that tells how many documents where updated in format:     ```   {'_index':'products','updated':1}   ``` 
+     * Update a document in a table
+     * Update one or several documents. The update can be made by passing the id or by using a match query in case multiple documents can be updated.  For example update a document using document id:    ```   {'table':'movies','doc':{'rating':9.49},'id':100}   ```  And update by using a match query:    ```   {     'table':'movies',     'doc':{'rating':9.49},     'query':     {       'bool':       {         'must':         [           {'query_string':'new movie'}         ]       }     }   }   ```   The match query has same syntax as for searching. Responds with an object that tells how many documents where updated in format:     ```   {'table':'products','updated':1}   ``` 
      * @param {module:model/UpdateDocumentRequest} updateDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateResponse}
      */

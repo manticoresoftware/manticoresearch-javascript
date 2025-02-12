@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Match model module.
  * @module model/Match
- * @version 6.0.0
+ * @version 7.0.0
  */
 class Match {
     /**

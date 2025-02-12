@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(Manticoresearch.UpdateResponse);
     });
 
-    it('should have the property index (base name: "_index")', function() {
-      // uncomment below and update the code to test the property index
+    it('should have the property table (base name: "table")', function() {
+      // uncomment below and update the code to test the property table
       //var instance = new Manticoresearch.UpdateResponse();
       //expect(instance).to.be();
     });

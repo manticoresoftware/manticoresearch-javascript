@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Manticoresearch.PercolateRequestQuery();
+    instance = new Manticoresearch.AutocompleteRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,16 +47,28 @@
       object[property] = value;
   }
 
-  describe('PercolateRequestQuery', function() {
-    it('should create an instance of PercolateRequestQuery', function() {
-      // uncomment below and update the code to test PercolateRequestQuery
-      //var instance = new Manticoresearch.PercolateRequestQuery();
-      //expect(instance).to.be.a(Manticoresearch.PercolateRequestQuery);
+  describe('AutocompleteRequest', function() {
+    it('should create an instance of AutocompleteRequest', function() {
+      // uncomment below and update the code to test AutocompleteRequest
+      //var instance = new Manticoresearch.AutocompleteRequest();
+      //expect(instance).to.be.a(Manticoresearch.AutocompleteRequest);
     });
 
-    it('should have the property percolate (base name: "percolate")', function() {
-      // uncomment below and update the code to test the property percolate
-      //var instance = new Manticoresearch.PercolateRequestQuery();
+    it('should have the property table (base name: "table")', function() {
+      // uncomment below and update the code to test the property table
+      //var instance = new Manticoresearch.AutocompleteRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property query (base name: "query")', function() {
+      // uncomment below and update the code to test the property query
+      //var instance = new Manticoresearch.AutocompleteRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
+      //var instance = new Manticoresearch.AutocompleteRequest();
       //expect(instance).to.be();
     });
 

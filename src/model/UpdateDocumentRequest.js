@@ -17,19 +17,19 @@ import QueryFilter from './QueryFilter';
 /**
  * The UpdateDocumentRequest model module.
  * @module model/UpdateDocumentRequest
- * @version 6.0.0
+ * @version 7.0.0
  */
 class UpdateDocumentRequest {
     /**
      * Constructs a new <code>UpdateDocumentRequest</code>.
-     * Payload for updating a document or multiple documents in an index
+     * Payload for updating a document or multiple documents in a table
      * @alias module:model/UpdateDocumentRequest
-     * @param index {String} Name of the document index
+     * @param table {String} Name of the document table
      * @param doc {Object} Object containing the document fields to update
      */
-    constructor(index, doc) { 
+    constructor(table, doc) { 
         
-        UpdateDocumentRequest.initialize(this, index, doc);
+        UpdateDocumentRequest.initialize(this, table, doc);
     }
 
     /**
@@ -37,8 +37,8 @@ class UpdateDocumentRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, index, doc) { 
-        obj['index'] = index;
+    static initialize(obj, table, doc) { 
+        obj['table'] = table;
         obj['doc'] = doc;
     }
 
@@ -53,8 +53,8 @@ class UpdateDocumentRequest {
         if (data) {
             obj = obj || new UpdateDocumentRequest();
 
-            if (data.hasOwnProperty('index')) {
-                obj['index'] = ApiClient.convertToType(data['index'], 'String');
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
             if (data.hasOwnProperty('cluster')) {
                 obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
@@ -85,8 +85,8 @@ class UpdateDocumentRequest {
             }
         }
         // ensure the json data is a string
-        if (data['index'] && !(typeof data['index'] === 'string' || data['index'] instanceof String)) {
-            throw new Error("Expected the field `index` to be a primitive type in the JSON string but got " + data['index']);
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
         // ensure the json data is a string
         if (data['cluster'] && !(typeof data['cluster'] === 'string' || data['cluster'] instanceof String)) {
@@ -103,13 +103,13 @@ class UpdateDocumentRequest {
 
 }
 
-UpdateDocumentRequest.RequiredProperties = ["index", "doc"];
+UpdateDocumentRequest.RequiredProperties = ["table", "doc"];
 
 /**
- * Name of the document index
- * @member {String} index
+ * Name of the document table
+ * @member {String} table
  */
-UpdateDocumentRequest.prototype['index'] = undefined;
+UpdateDocumentRequest.prototype['table'] = undefined;
 
 /**
  * Name of the document cluster

@@ -16,12 +16,12 @@ import ApiClient from '../ApiClient';
 /**
  * The ReplaceDocumentRequest model module.
  * @module model/ReplaceDocumentRequest
- * @version 6.0.0
+ * @version 7.0.0
  */
 class ReplaceDocumentRequest {
     /**
      * Constructs a new <code>ReplaceDocumentRequest</code>.
-     * Object containing the document data for replacing an existing document in an index.
+     * Object containing the document data for replacing an existing document in a table.
      * @alias module:model/ReplaceDocumentRequest
      * @param doc {Object} Object containing the new document data to replace the existing one.
      */

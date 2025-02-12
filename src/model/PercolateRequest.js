@@ -17,12 +17,12 @@ import PercolateRequestQuery from './PercolateRequestQuery';
 /**
  * The PercolateRequest model module.
  * @module model/PercolateRequest
- * @version 6.0.0
+ * @version 7.0.0
  */
 class PercolateRequest {
     /**
      * Constructs a new <code>PercolateRequest</code>.
-     * Object containing the query for percolating documents against stored queries in a percolate index
+     * Object containing the query for percolating documents against stored queries in a percolate table
      * @alias module:model/PercolateRequest
      * @param query {module:model/PercolateRequestQuery} 
      */

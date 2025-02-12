@@ -8,6 +8,7 @@ docs/AggCompositeSource.md
 docs/AggCompositeTerm.md
 docs/AggTerms.md
 docs/Aggregation.md
+docs/AutocompleteRequest.md
 docs/BoolFilter.md
 docs/BulkResponse.md
 docs/DeleteDocumentRequest.md
@@ -57,6 +58,7 @@ src/model/AggCompositeSource.js
 src/model/AggCompositeTerm.js
 src/model/AggTerms.js
 src/model/Aggregation.js
+src/model/AutocompleteRequest.js
 src/model/BoolFilter.js
 src/model/BulkResponse.js
 src/model/DeleteDocumentRequest.js
@@ -98,6 +100,7 @@ test/model/AggCompositeSource.spec.js
 test/model/AggCompositeTerm.spec.js
 test/model/AggTerms.spec.js
 test/model/Aggregation.spec.js
+test/model/AutocompleteRequest.spec.js
 test/model/BoolFilter.spec.js
 test/model/BulkResponse.spec.js
 test/model/DeleteDocumentRequest.spec.js

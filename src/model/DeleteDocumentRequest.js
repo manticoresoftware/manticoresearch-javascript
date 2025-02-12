@@ -16,18 +16,18 @@ import ApiClient from '../ApiClient';
 /**
  * The DeleteDocumentRequest model module.
  * @module model/DeleteDocumentRequest
- * @version 6.0.0
+ * @version 7.0.0
  */
 class DeleteDocumentRequest {
     /**
      * Constructs a new <code>DeleteDocumentRequest</code>.
      * Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://manual.manticoresearch.com/Deleting_documents) 
      * @alias module:model/DeleteDocumentRequest
-     * @param index {String} Index name
+     * @param table {String} Table name
      */
-    constructor(index) { 
+    constructor(table) { 
         
-        DeleteDocumentRequest.initialize(this, index);
+        DeleteDocumentRequest.initialize(this, table);
     }
 
     /**
@@ -35,8 +35,8 @@ class DeleteDocumentRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, index) { 
-        obj['index'] = index;
+    static initialize(obj, table) { 
+        obj['table'] = table;
     }
 
     /**
@@ -50,8 +50,8 @@ class DeleteDocumentRequest {
         if (data) {
             obj = obj || new DeleteDocumentRequest();
 
-            if (data.hasOwnProperty('index')) {
-                obj['index'] = ApiClient.convertToType(data['index'], 'String');
+            if (data.hasOwnProperty('table')) {
+                obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
             if (data.hasOwnProperty('cluster')) {
                 obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
@@ -79,8 +79,8 @@ class DeleteDocumentRequest {
             }
         }
         // ensure the json data is a string
-        if (data['index'] && !(typeof data['index'] === 'string' || data['index'] instanceof String)) {
-            throw new Error("Expected the field `index` to be a primitive type in the JSON string but got " + data['index']);
+        if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
+            throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
         // ensure the json data is a string
         if (data['cluster'] && !(typeof data['cluster'] === 'string' || data['cluster'] instanceof String)) {
@@ -93,13 +93,13 @@ class DeleteDocumentRequest {
 
 }
 
-DeleteDocumentRequest.RequiredProperties = ["index"];
+DeleteDocumentRequest.RequiredProperties = ["table"];
 
 /**
- * Index name
- * @member {String} index
+ * Table name
+ * @member {String} table
  */
-DeleteDocumentRequest.prototype['index'] = undefined;
+DeleteDocumentRequest.prototype['table'] = undefined;
 
 /**
  * Cluster name

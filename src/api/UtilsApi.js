@@ -19,7 +19,7 @@ import SqlResponse from '../model/SqlResponse';
 /**
 * Utils service.
 * @module api/UtilsApi
-* @version 6.0.0
+* @version 7.0.0
 */
 export default class UtilsApi {
 
@@ -38,7 +38,7 @@ export default class UtilsApi {
 
     /**
      * Perform SQL requests
-     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex` The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
+     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM mytable` The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
      * @param {String} body A query parameter string. 
      * @param {Object} opts Optional parameters
      * @param {Boolean} [rawResponse = true)] Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` for any type of queries. Default value is 'True'. 
@@ -77,7 +77,7 @@ export default class UtilsApi {
 
     /**
      * Perform SQL requests
-     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex` The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
+     * Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM mytable` The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
      * @param {String} body A query parameter string. 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.rawResponse Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` for any type of queries. Default value is 'True'.  (default to true)

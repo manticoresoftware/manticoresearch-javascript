@@ -17,7 +17,7 @@ import ResponseErrorDetails from './ResponseErrorDetails';
 /**
  * The ResponseError model module.
  * @module model/ResponseError
- * @version 6.0.0
+ * @version 7.0.0
  */
 class ResponseError {
     /**
@@ -130,10 +130,10 @@ ResponseError.prototype['type'] = undefined;
 ResponseError.prototype['reason'] = undefined;
 
 /**
- * The index related to the error, if applicable
- * @member {Object} index
+ * The table related to the error, if applicable
+ * @member {Object} table
  */
-ResponseError.prototype['index'] = undefined;
+ResponseError.prototype['table'] = undefined;
 
 
 ResponseError.OneOf = ["ResponseErrorDetails", "String"];
