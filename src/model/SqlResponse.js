@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import SqlObjResponse from './SqlObjResponse';
 
 /**
  * The SqlResponse model module.
@@ -23,7 +24,7 @@ class SqlResponse {
      * Constructs a new <code>SqlResponse</code>.
      * List of responses from executed SQL queries
      * @alias module:model/SqlResponse
-     * @param {(module:model/Object|module:model/[Object])} instance The actual instance to initialize SqlResponse.
+     * @param {(module:model/SqlObjResponse|module:model/[Object])} instance The actual instance to initialize SqlResponse.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -45,18 +46,26 @@ class SqlResponse {
         }
 
         try {
-            this.actualInstance = instance;
+            if (typeof instance === "SqlObjResponse") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                SqlObjResponse.validateJSON(instance); // throw an exception if no match
+                // create SqlObjResponse from JS object
+                this.actualInstance = SqlObjResponse.constructFromObject(instance);
+            }
             match++;
         } catch(err) {
-            // json data failed to deserialize into Object
-            errorMessages.push("Failed to construct Object: " + err)
+            // json data failed to deserialize into SqlObjResponse
+            errorMessages.push("Failed to construct SqlObjResponse: " + err)
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `SqlResponse` with oneOf schemas Object, [Object]. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `SqlResponse` with oneOf schemas SqlObjResponse, [Object]. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `SqlResponse` with oneOf schemas Object, [Object]. Details: " +
+            throw new Error("No match found constructing `SqlResponse` with oneOf schemas SqlObjResponse, [Object]. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -75,16 +84,16 @@ class SqlResponse {
     }
 
     /**
-     * Gets the actual instance, which can be <code>Object</code>, <code>[Object]</code>.
-     * @return {(module:model/Object|module:model/[Object])} The actual instance.
+     * Gets the actual instance, which can be <code>SqlObjResponse</code>, <code>[Object]</code>.
+     * @return {(module:model/SqlObjResponse|module:model/[Object])} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>Object</code>, <code>[Object]</code>.
-     * @param {(module:model/Object|module:model/[Object])} obj The actual instance.
+     * Sets the actual instance, which can be <code>SqlObjResponse</code>, <code>[Object]</code>.
+     * @param {(module:model/SqlObjResponse|module:model/[Object])} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = SqlResponse.constructFromObject(obj).getActualInstance();
@@ -108,8 +117,13 @@ class SqlResponse {
     }
 }
 
+/**
+ * @member {Object} hits
+ */
+SqlResponse.prototype['hits'] = undefined;
 
-SqlResponse.OneOf = ["Object", "[Object]"];
+
+SqlResponse.OneOf = ["SqlObjResponse", "[Object]"];
 
 export default SqlResponse;
 

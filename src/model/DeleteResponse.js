@@ -54,8 +54,8 @@ class DeleteResponse {
             if (data.hasOwnProperty('deleted')) {
                 obj['deleted'] = ApiClient.convertToType(data['deleted'], 'Number');
             }
-            if (data.hasOwnProperty('_id')) {
-                obj['_id'] = ApiClient.convertToType(data['_id'], 'Number');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
             if (data.hasOwnProperty('found')) {
                 obj['found'] = ApiClient.convertToType(data['found'], 'Boolean');
@@ -104,9 +104,9 @@ DeleteResponse.prototype['deleted'] = undefined;
 
 /**
  * The ID of the deleted document. If multiple documents are deleted, the ID of the first deleted document is returned
- * @member {Number} _id
+ * @member {Number} id
  */
-DeleteResponse.prototype['_id'] = undefined;
+DeleteResponse.prototype['id'] = undefined;
 
 /**
  * Indicates whether any documents to be deleted were found

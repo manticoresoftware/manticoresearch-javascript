@@ -1,4 +1,4 @@
-# Manticoresearch.SqlResponse
+# Manticoresearch.SqlObjResponse
 
 ## Properties
 

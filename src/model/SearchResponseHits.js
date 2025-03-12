@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import HitsHits from './HitsHits';
 
 /**
  * The SearchResponseHits model module.
@@ -58,7 +59,7 @@ class SearchResponseHits {
                 obj['total_relation'] = ApiClient.convertToType(data['total_relation'], 'String');
             }
             if (data.hasOwnProperty('hits')) {
-                obj['hits'] = ApiClient.convertToType(data['hits'], [Object]);
+                obj['hits'] = ApiClient.convertToType(data['hits'], [HitsHits]);
             }
         }
         return obj;
@@ -74,9 +75,15 @@ class SearchResponseHits {
         if (data['total_relation'] && !(typeof data['total_relation'] === 'string' || data['total_relation'] instanceof String)) {
             throw new Error("Expected the field `total_relation` to be a primitive type in the JSON string but got " + data['total_relation']);
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['hits'])) {
-            throw new Error("Expected the field `hits` to be an array in the JSON data but got " + data['hits']);
+        if (data['hits']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['hits'])) {
+                throw new Error("Expected the field `hits` to be an array in the JSON data but got " + data['hits']);
+            }
+            // validate the optional field `hits` (array)
+            for (const item of data['hits']) {
+                HitsHits.validateJSON(item);
+            };
         }
 
         return true;
@@ -107,7 +114,7 @@ SearchResponseHits.prototype['total_relation'] = undefined;
 
 /**
  * Array of hit objects, each representing a matched document
- * @member {Array.<Object>} hits
+ * @member {Array.<module:model/HitsHits>} hits
  */
 SearchResponseHits.prototype['hits'] = undefined;
 

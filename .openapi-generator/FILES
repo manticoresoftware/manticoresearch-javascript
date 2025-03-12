@@ -19,6 +19,7 @@ docs/GeoDistance.md
 docs/GeoDistanceLocationAnchor.md
 docs/Highlight.md
 docs/HighlightFieldOption.md
+docs/HitsHits.md
 docs/IndexApi.md
 docs/InsertDocumentRequest.md
 docs/Join.md
@@ -40,6 +41,7 @@ docs/SearchRequest.md
 docs/SearchResponse.md
 docs/SearchResponseHits.md
 docs/SourceRules.md
+docs/SqlObjResponse.md
 docs/SqlResponse.md
 docs/SuccessResponse.md
 docs/UpdateDocumentRequest.md
@@ -69,6 +71,7 @@ src/model/GeoDistance.js
 src/model/GeoDistanceLocationAnchor.js
 src/model/Highlight.js
 src/model/HighlightFieldOption.js
+src/model/HitsHits.js
 src/model/InsertDocumentRequest.js
 src/model/Join.js
 src/model/JoinCond.js
@@ -88,6 +91,7 @@ src/model/SearchRequest.js
 src/model/SearchResponse.js
 src/model/SearchResponseHits.js
 src/model/SourceRules.js
+src/model/SqlObjResponse.js
 src/model/SqlResponse.js
 src/model/SuccessResponse.js
 src/model/UpdateDocumentRequest.js
@@ -111,6 +115,7 @@ test/model/GeoDistance.spec.js
 test/model/GeoDistanceLocationAnchor.spec.js
 test/model/Highlight.spec.js
 test/model/HighlightFieldOption.spec.js
+test/model/HitsHits.spec.js
 test/model/InsertDocumentRequest.spec.js
 test/model/Join.spec.js
 test/model/JoinCond.spec.js
@@ -130,6 +135,7 @@ test/model/SearchRequest.spec.js
 test/model/SearchResponse.spec.js
 test/model/SearchResponseHits.spec.js
 test/model/SourceRules.spec.js
+test/model/SqlObjResponse.spec.js
 test/model/SqlResponse.spec.js
 test/model/SuccessResponse.spec.js
 test/model/UpdateDocumentRequest.spec.js

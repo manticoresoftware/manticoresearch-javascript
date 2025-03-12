@@ -51,8 +51,8 @@ class SuccessResponse {
             if (data.hasOwnProperty('table')) {
                 obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
-            if (data.hasOwnProperty('_id')) {
-                obj['_id'] = ApiClient.convertToType(data['_id'], 'Number');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
             if (data.hasOwnProperty('created')) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Boolean');
@@ -101,9 +101,9 @@ SuccessResponse.prototype['table'] = undefined;
 
 /**
  * ID of the document affected by the request operation
- * @member {Number} _id
+ * @member {Number} id
  */
-SuccessResponse.prototype['_id'] = undefined;
+SuccessResponse.prototype['id'] = undefined;
 
 /**
  * Indicates whether the document was created as a result of the operation

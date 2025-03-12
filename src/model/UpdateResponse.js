@@ -54,8 +54,8 @@ class UpdateResponse {
             if (data.hasOwnProperty('updated')) {
                 obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
             }
-            if (data.hasOwnProperty('_id')) {
-                obj['_id'] = ApiClient.convertToType(data['_id'], 'Number');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
             if (data.hasOwnProperty('result')) {
                 obj['result'] = ApiClient.convertToType(data['result'], 'String');
@@ -101,9 +101,9 @@ UpdateResponse.prototype['updated'] = undefined;
 
 /**
  * Document ID
- * @member {Number} _id
+ * @member {Number} id
  */
-UpdateResponse.prototype['_id'] = undefined;
+UpdateResponse.prototype['id'] = undefined;
 
 /**
  * Result of the update operation, typically 'updated'

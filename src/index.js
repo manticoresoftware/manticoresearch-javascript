@@ -29,6 +29,7 @@ import GeoDistance from './model/GeoDistance';
 import GeoDistanceLocationAnchor from './model/GeoDistanceLocationAnchor';
 import Highlight from './model/Highlight';
 import HighlightFieldOption from './model/HighlightFieldOption';
+import HitsHits from './model/HitsHits';
 import InsertDocumentRequest from './model/InsertDocumentRequest';
 import Join from './model/Join';
 import JoinCond from './model/JoinCond';
@@ -48,6 +49,7 @@ import SearchRequest from './model/SearchRequest';
 import SearchResponse from './model/SearchResponse';
 import SearchResponseHits from './model/SearchResponseHits';
 import SourceRules from './model/SourceRules';
+import SqlObjResponse from './model/SqlObjResponse';
 import SqlResponse from './model/SqlResponse';
 import SuccessResponse from './model/SuccessResponse';
 import UpdateDocumentRequest from './model/UpdateDocumentRequest';
@@ -192,6 +194,12 @@ export {
     HighlightFieldOption,
 
     /**
+     * The HitsHits model constructor.
+     * @property {module:model/HitsHits}
+     */
+    HitsHits,
+
+    /**
      * The InsertDocumentRequest model constructor.
      * @property {module:model/InsertDocumentRequest}
      */
@@ -304,6 +312,12 @@ export {
      * @property {module:model/SourceRules}
      */
     SourceRules,
+
+    /**
+     * The SqlObjResponse model constructor.
+     * @property {module:model/SqlObjResponse}
+     */
+    SqlObjResponse,
 
     /**
      * The SqlResponse model constructor.

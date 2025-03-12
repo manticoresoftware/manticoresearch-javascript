@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(Manticoresearch.SqlResponse);
     });
 
+    it('should have the property hits (base name: "hits")', function() {
+      // uncomment below and update the code to test the property hits
+      //var instance = new Manticoresearch.SqlResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

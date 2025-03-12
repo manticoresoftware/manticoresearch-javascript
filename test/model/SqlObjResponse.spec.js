@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Manticoresearch.UpdateResponse();
+    instance = new Manticoresearch.SqlObjResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,16 @@
       object[property] = value;
   }
 
-  describe('UpdateResponse', function() {
-    it('should create an instance of UpdateResponse', function() {
-      // uncomment below and update the code to test UpdateResponse
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be.a(Manticoresearch.UpdateResponse);
+  describe('SqlObjResponse', function() {
+    it('should create an instance of SqlObjResponse', function() {
+      // uncomment below and update the code to test SqlObjResponse
+      //var instance = new Manticoresearch.SqlObjResponse();
+      //expect(instance).to.be.a(Manticoresearch.SqlObjResponse);
     });
 
-    it('should have the property table (base name: "table")', function() {
-      // uncomment below and update the code to test the property table
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property updated (base name: "updated")', function() {
-      // uncomment below and update the code to test the property updated
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Manticoresearch.UpdateResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property result (base name: "result")', function() {
-      // uncomment below and update the code to test the property result
-      //var instance = new Manticoresearch.UpdateResponse();
+    it('should have the property hits (base name: "hits")', function() {
+      // uncomment below and update the code to test the property hits
+      //var instance = new Manticoresearch.SqlObjResponse();
       //expect(instance).to.be();
     });
 
