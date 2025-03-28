@@ -12,8 +12,10 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 | **manticoresearch-javascript*  | **Manticore Search**                | **Node**            | **Compatibility**       |
 | ------------------------------ | ----------------------------------- | ------------------- | ------------------------|
 | `manticoresearch-dev`          | `dev` (latest development version)  | Node 18 or newer    | ✅ Fully Compatible     |
-| 6.0.0 or newer                 | 7.0.0 or newer                      | Node 18 or newer    | ✅ Fully Compatible     |
-| 6.0.0 or newer                 | 6.2.1 to 7.0.0                      | Node 18 or newer    | ⚠️ Partially Compatible |
+| 8.0.0 or newer                 | 9.2.14 or newer                     | Node 18 or newer    | ✅ Fully Compatible     |
+| 6.0.0 to 8.0.0                 | 9.2.14 or newer                     | Node 18 or newer    | ⚠️ Partially Compatible |
+| 6.0.0 to 8.0.0                 | 7.0.0 to 9.2.14                     | Node 18 or newer    | ✅ Fully Compatible     |
+| 6.0.0 to 8.0.0                 | 6.2.1 to 7.0.0                      | Node 18 or newer    | ⚠️ Partially Compatible |
 | 3.3.1 to 6.0.0                 | 7.0.0 or newer                      | Node 10 or newer    | ⚠️ Partially Compatible |
 | 3.3.1 to 6.0.0                 | 6.2.1 to 7.0.0                      | Node 10 or newer    | ✅ Fully Compatible     |
 | 3.0.0 to 3.3.1                 | 6.2.0 or newer                      | Node 10 or newer    | ⚠️ Partially Compatible |
