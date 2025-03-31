@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResponseErrorDetails model module.
  * @module model/ResponseErrorDetails
- * @version 7.0.0
+ * @version 8.0.0
  */
 class ResponseErrorDetails {
     /**

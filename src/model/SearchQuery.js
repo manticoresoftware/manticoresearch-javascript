@@ -20,7 +20,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The SearchQuery model module.
  * @module model/SearchQuery
- * @version 7.0.0
+ * @version 8.0.0
  */
 class SearchQuery {
     /**

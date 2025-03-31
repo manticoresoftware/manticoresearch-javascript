@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DeleteResponse model module.
  * @module model/DeleteResponse
- * @version 7.0.0
+ * @version 8.0.0
  */
 class DeleteResponse {
     /**

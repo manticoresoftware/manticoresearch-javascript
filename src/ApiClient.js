@@ -20,7 +20,7 @@ const JSONBig = _JBI({storeAsString: true});
 
 /**
 * @module ApiClient
-* @version 7.0.0
+* @version 8.0.0
 */
 
 /**
@@ -57,7 +57,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/7.0.0/Javascript'
+            'User-Agent': 'OpenAPI-Generator/8.0.0/Javascript'
         };
 
         /**

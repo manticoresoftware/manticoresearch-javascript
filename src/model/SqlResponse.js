@@ -17,7 +17,7 @@ import SqlObjResponse from './SqlObjResponse';
 /**
  * The SqlResponse model module.
  * @module model/SqlResponse
- * @version 7.0.0
+ * @version 8.0.0
  */
 class SqlResponse {
     /**
