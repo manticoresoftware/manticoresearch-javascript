@@ -20,7 +20,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The SearchQuery model module.
  * @module model/SearchQuery
- * @version 7.0.0
+ * @version 8.1.0
  */
 class SearchQuery {
     /**
@@ -55,7 +55,7 @@ class SearchQuery {
             QueryFilter.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('query_string')) {
-                obj['query_string'] = ApiClient.convertToType(data['query_string'], Object);
+                obj['query_string'] = ApiClient.convertToType(data['query_string'], 'String');
             }
             if (data.hasOwnProperty('match')) {
                 obj['match'] = ApiClient.convertToType(data['match'], Object);
@@ -94,13 +94,13 @@ class SearchQuery {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SearchQuery</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['query_string'] && !(typeof data['query_string'] === 'string' || data['query_string'] instanceof String)) {
+            throw new Error("Expected the field `query_string` to be a primitive type in the JSON string but got " + data['query_string']);
+        }
         // validate the optional field `bool`
         if (data['bool']) { // data not null
           BoolFilter.validateJSON(data['bool']);
-        }
-        // validate the optional field `geo_distance`
-        if (data['geo_distance']) { // data not null
-          GeoDistance.validateJSON(data['geo_distance']);
         }
         // validate the optional field `highlight`
         if (data['highlight']) { // data not null
@@ -117,7 +117,7 @@ class SearchQuery {
 
 /**
  * Filter object defining a query string
- * @member {Object} query_string
+ * @member {String} query_string
  */
 SearchQuery.prototype['query_string'] = undefined;
 
@@ -175,7 +175,7 @@ SearchQuery.prototype['highlight'] = undefined;
 // Implement QueryFilter interface:
 /**
  * Filter object defining a query string
- * @member {Object} query_string
+ * @member {String} query_string
  */
 QueryFilter.prototype['query_string'] = undefined;
 /**

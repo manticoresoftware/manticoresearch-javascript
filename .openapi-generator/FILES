@@ -6,6 +6,8 @@ README.md
 docs/AggComposite.md
 docs/AggCompositeSource.md
 docs/AggCompositeTerm.md
+docs/AggDateHistogram.md
+docs/AggHistogram.md
 docs/AggTerms.md
 docs/Aggregation.md
 docs/AutocompleteRequest.md
@@ -19,6 +21,7 @@ docs/GeoDistance.md
 docs/GeoDistanceLocationAnchor.md
 docs/Highlight.md
 docs/HighlightFieldOption.md
+docs/HighlightFields.md
 docs/HitsHits.md
 docs/IndexApi.md
 docs/InsertDocumentRequest.md
@@ -58,6 +61,8 @@ src/index.js
 src/model/AggComposite.js
 src/model/AggCompositeSource.js
 src/model/AggCompositeTerm.js
+src/model/AggDateHistogram.js
+src/model/AggHistogram.js
 src/model/AggTerms.js
 src/model/Aggregation.js
 src/model/AutocompleteRequest.js
@@ -71,6 +76,7 @@ src/model/GeoDistance.js
 src/model/GeoDistanceLocationAnchor.js
 src/model/Highlight.js
 src/model/HighlightFieldOption.js
+src/model/HighlightFields.js
 src/model/HitsHits.js
 src/model/InsertDocumentRequest.js
 src/model/Join.js
@@ -102,6 +108,8 @@ test/api/UtilsApi.spec.js
 test/model/AggComposite.spec.js
 test/model/AggCompositeSource.spec.js
 test/model/AggCompositeTerm.spec.js
+test/model/AggDateHistogram.spec.js
+test/model/AggHistogram.spec.js
 test/model/AggTerms.spec.js
 test/model/Aggregation.spec.js
 test/model/AutocompleteRequest.spec.js
@@ -115,6 +123,7 @@ test/model/GeoDistance.spec.js
 test/model/GeoDistanceLocationAnchor.spec.js
 test/model/Highlight.spec.js
 test/model/HighlightFieldOption.spec.js
+test/model/HighlightFields.spec.js
 test/model/HitsHits.spec.js
 test/model/InsertDocumentRequest.spec.js
 test/model/Join.spec.js

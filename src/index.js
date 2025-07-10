@@ -16,6 +16,8 @@ import ApiClient from './ApiClient';
 import AggComposite from './model/AggComposite';
 import AggCompositeSource from './model/AggCompositeSource';
 import AggCompositeTerm from './model/AggCompositeTerm';
+import AggDateHistogram from './model/AggDateHistogram';
+import AggHistogram from './model/AggHistogram';
 import AggTerms from './model/AggTerms';
 import Aggregation from './model/Aggregation';
 import AutocompleteRequest from './model/AutocompleteRequest';
@@ -29,6 +31,7 @@ import GeoDistance from './model/GeoDistance';
 import GeoDistanceLocationAnchor from './model/GeoDistanceLocationAnchor';
 import Highlight from './model/Highlight';
 import HighlightFieldOption from './model/HighlightFieldOption';
+import HighlightFields from './model/HighlightFields';
 import HitsHits from './model/HitsHits';
 import InsertDocumentRequest from './model/InsertDocumentRequest';
 import Join from './model/Join';
@@ -88,7 +91,7 @@ import UtilsApi from './api/UtilsApi';
 * </pre>
 * </p>
 * @module index
-* @version 7.0.0
+* @version 8.1.0
 */
 export {
     /**
@@ -114,6 +117,18 @@ export {
      * @property {module:model/AggCompositeTerm}
      */
     AggCompositeTerm,
+
+    /**
+     * The AggDateHistogram model constructor.
+     * @property {module:model/AggDateHistogram}
+     */
+    AggDateHistogram,
+
+    /**
+     * The AggHistogram model constructor.
+     * @property {module:model/AggHistogram}
+     */
+    AggHistogram,
 
     /**
      * The AggTerms model constructor.
@@ -192,6 +207,12 @@ export {
      * @property {module:model/HighlightFieldOption}
      */
     HighlightFieldOption,
+
+    /**
+     * The HighlightFields model constructor.
+     * @property {module:model/HighlightFields}
+     */
+    HighlightFields,
 
     /**
      * The HitsHits model constructor.

@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property histogram (base name: "histogram")', function() {
+      // uncomment below and update the code to test the property histogram
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Manticoresearch.SqlObjResponse();
+    instance = new Manticoresearch.HighlightFields();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,29 +47,11 @@
       object[property] = value;
   }
 
-  describe('SqlObjResponse', function() {
-    it('should create an instance of SqlObjResponse', function() {
-      // uncomment below and update the code to test SqlObjResponse
-      //var instance = new Manticoresearch.SqlObjResponse();
-      //expect(instance).to.be.a(Manticoresearch.SqlObjResponse);
-    });
-
-    it('should have the property hits (base name: "hits")', function() {
-      // uncomment below and update the code to test the property hits
-      //var instance = new Manticoresearch.SqlObjResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property took (base name: "took")', function() {
-      // uncomment below and update the code to test the property took
-      //var instance = new Manticoresearch.SqlObjResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property timedOut (base name: "timed_out")', function() {
-      // uncomment below and update the code to test the property timedOut
-      //var instance = new Manticoresearch.SqlObjResponse();
-      //expect(instance).to.be();
+  describe('HighlightFields', function() {
+    it('should create an instance of HighlightFields', function() {
+      // uncomment below and update the code to test HighlightFields
+      //var instance = new Manticoresearch.HighlightFields();
+      //expect(instance).to.be.a(Manticoresearch.HighlightFields);
     });
 
   });

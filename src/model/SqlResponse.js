@@ -17,7 +17,7 @@ import SqlObjResponse from './SqlObjResponse';
 /**
  * The SqlResponse model module.
  * @module model/SqlResponse
- * @version 7.0.0
+ * @version 8.1.0
  */
 class SqlResponse {
     /**
@@ -121,6 +121,16 @@ class SqlResponse {
  * @member {Object} hits
  */
 SqlResponse.prototype['hits'] = undefined;
+
+/**
+ * @member {Number} took
+ */
+SqlResponse.prototype['took'] = undefined;
+
+/**
+ * @member {Boolean} timed_out
+ */
+SqlResponse.prototype['timed_out'] = undefined;
 
 
 SqlResponse.OneOf = ["SqlObjResponse", "[Object]"];

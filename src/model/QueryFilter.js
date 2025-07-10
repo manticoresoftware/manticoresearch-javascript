@@ -19,7 +19,7 @@ import GeoDistance from './GeoDistance';
 /**
  * The QueryFilter model module.
  * @module model/QueryFilter
- * @version 7.0.0
+ * @version 8.1.0
  */
 class QueryFilter {
     /**
@@ -54,7 +54,7 @@ class QueryFilter {
             FulltextFilter.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('query_string')) {
-                obj['query_string'] = ApiClient.convertToType(data['query_string'], Object);
+                obj['query_string'] = ApiClient.convertToType(data['query_string'], 'String');
             }
             if (data.hasOwnProperty('match')) {
                 obj['match'] = ApiClient.convertToType(data['match'], Object);
@@ -90,13 +90,13 @@ class QueryFilter {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>QueryFilter</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['query_string'] && !(typeof data['query_string'] === 'string' || data['query_string'] instanceof String)) {
+            throw new Error("Expected the field `query_string` to be a primitive type in the JSON string but got " + data['query_string']);
+        }
         // validate the optional field `bool`
         if (data['bool']) { // data not null
           BoolFilter.validateJSON(data['bool']);
-        }
-        // validate the optional field `geo_distance`
-        if (data['geo_distance']) { // data not null
-          GeoDistance.validateJSON(data['geo_distance']);
         }
 
         return true;
@@ -109,7 +109,7 @@ class QueryFilter {
 
 /**
  * Filter object defining a query string
- * @member {Object} query_string
+ * @member {String} query_string
  */
 QueryFilter.prototype['query_string'] = undefined;
 

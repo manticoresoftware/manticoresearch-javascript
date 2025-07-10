@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**includes** | **Object** | List of fields to include in the response | [optional] 
-**excludes** | **Object** | List of fields to exclude from the response | [optional] 
+**includes** | **[String]** | List of fields to include in the response | [optional] 
+**excludes** | **[String]** | List of fields to exclude from the response | [optional] 
 
 

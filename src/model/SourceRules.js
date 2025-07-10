@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SourceRules model module.
  * @module model/SourceRules
- * @version 7.0.0
+ * @version 8.1.0
  */
 class SourceRules {
     /**
@@ -53,10 +53,10 @@ class SourceRules {
             
 
             if (data.hasOwnProperty('includes')) {
-                obj['includes'] = ApiClient.convertToType(data['includes'], Object);
+                obj['includes'] = ApiClient.convertToType(data['includes'], ['String']);
             }
             if (data.hasOwnProperty('excludes')) {
-                obj['excludes'] = ApiClient.convertToType(data['excludes'], Object);
+                obj['excludes'] = ApiClient.convertToType(data['excludes'], ['String']);
             }
         }
         return obj;
@@ -68,6 +68,14 @@ class SourceRules {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SourceRules</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['includes'])) {
+            throw new Error("Expected the field `includes` to be an array in the JSON data but got " + data['includes']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['excludes'])) {
+            throw new Error("Expected the field `excludes` to be an array in the JSON data but got " + data['excludes']);
+        }
 
         return true;
     }
@@ -79,13 +87,13 @@ class SourceRules {
 
 /**
  * List of fields to include in the response
- * @member {Object} includes
+ * @member {Array.<String>} includes
  */
 SourceRules.prototype['includes'] = undefined;
 
 /**
  * List of fields to exclude from the response
- * @member {Object} excludes
+ * @member {Array.<String>} excludes
  */
 SourceRules.prototype['excludes'] = undefined;
 

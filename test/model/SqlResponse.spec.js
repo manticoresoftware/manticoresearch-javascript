@@ -60,6 +60,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property took (base name: "took")', function() {
+      // uncomment below and update the code to test the property took
+      //var instance = new Manticoresearch.SqlResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property timedOut (base name: "timed_out")', function() {
+      // uncomment below and update the code to test the property timedOut
+      //var instance = new Manticoresearch.SqlResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

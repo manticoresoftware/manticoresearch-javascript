@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggTerms model module.
  * @module model/AggTerms
- * @version 7.0.0
+ * @version 8.1.0
  */
 class AggTerms {
     /**

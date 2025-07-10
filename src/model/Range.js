@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Range model module.
  * @module model/Range
- * @version 7.0.0
+ * @version 8.1.0
  */
 class Range {
     /**

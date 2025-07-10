@@ -13,12 +13,13 @@
 
 import ApiClient from '../ApiClient';
 import AggComposite from './AggComposite';
+import AggHistogram from './AggHistogram';
 import AggTerms from './AggTerms';
 
 /**
  * The Aggregation model module.
  * @module model/Aggregation
- * @version 7.0.0
+ * @version 8.1.0
  */
 class Aggregation {
     /**
@@ -58,6 +59,9 @@ class Aggregation {
             if (data.hasOwnProperty('composite')) {
                 obj['composite'] = AggComposite.constructFromObject(data['composite']);
             }
+            if (data.hasOwnProperty('histogram')) {
+                obj['histogram'] = AggHistogram.constructFromObject(data['histogram']);
+            }
         }
         return obj;
     }
@@ -79,6 +83,10 @@ class Aggregation {
         // validate the optional field `composite`
         if (data['composite']) { // data not null
           AggComposite.validateJSON(data['composite']);
+        }
+        // validate the optional field `histogram`
+        if (data['histogram']) { // data not null
+          AggHistogram.validateJSON(data['histogram']);
         }
 
         return true;
@@ -103,6 +111,11 @@ Aggregation.prototype['sort'] = undefined;
  * @member {module:model/AggComposite} composite
  */
 Aggregation.prototype['composite'] = undefined;
+
+/**
+ * @member {module:model/AggHistogram} histogram
+ */
+Aggregation.prototype['histogram'] = undefined;
 
 
 

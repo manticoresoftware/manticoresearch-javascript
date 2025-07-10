@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Manticoresearch.SqlObjResponse();
+    instance = new Manticoresearch.AggDateHistogram();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,34 @@
       object[property] = value;
   }
 
-  describe('SqlObjResponse', function() {
-    it('should create an instance of SqlObjResponse', function() {
-      // uncomment below and update the code to test SqlObjResponse
-      //var instance = new Manticoresearch.SqlObjResponse();
-      //expect(instance).to.be.a(Manticoresearch.SqlObjResponse);
+  describe('AggDateHistogram', function() {
+    it('should create an instance of AggDateHistogram', function() {
+      // uncomment below and update the code to test AggDateHistogram
+      //var instance = new Manticoresearch.AggDateHistogram();
+      //expect(instance).to.be.a(Manticoresearch.AggDateHistogram);
     });
 
-    it('should have the property hits (base name: "hits")', function() {
-      // uncomment below and update the code to test the property hits
-      //var instance = new Manticoresearch.SqlObjResponse();
+    it('should have the property field (base name: "field")', function() {
+      // uncomment below and update the code to test the property field
+      //var instance = new Manticoresearch.AggDateHistogram();
       //expect(instance).to.be();
     });
 
-    it('should have the property took (base name: "took")', function() {
-      // uncomment below and update the code to test the property took
-      //var instance = new Manticoresearch.SqlObjResponse();
+    it('should have the property interval (base name: "interval")', function() {
+      // uncomment below and update the code to test the property interval
+      //var instance = new Manticoresearch.AggDateHistogram();
       //expect(instance).to.be();
     });
 
-    it('should have the property timedOut (base name: "timed_out")', function() {
-      // uncomment below and update the code to test the property timedOut
-      //var instance = new Manticoresearch.SqlObjResponse();
+    it('should have the property offset (base name: "offset")', function() {
+      // uncomment below and update the code to test the property offset
+      //var instance = new Manticoresearch.AggDateHistogram();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property keyed (base name: "keyed")', function() {
+      // uncomment below and update the code to test the property keyed
+      //var instance = new Manticoresearch.AggDateHistogram();
       //expect(instance).to.be();
     });
 

@@ -13,12 +13,13 @@
 
 import ApiClient from '../ApiClient';
 import HighlightFieldOption from './HighlightFieldOption';
+import HighlightFields from './HighlightFields';
 import QueryFilter from './QueryFilter';
 
 /**
  * The Highlight model module.
  * @module model/Highlight
- * @version 7.0.0
+ * @version 8.1.0
  */
 class Highlight {
     /**
@@ -52,19 +53,19 @@ class Highlight {
             HighlightFieldOption.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('fragment_size')) {
-                obj['fragment_size'] = ApiClient.convertToType(data['fragment_size'], Object);
+                obj['fragment_size'] = ApiClient.convertToType(data['fragment_size'], 'Number');
             }
             if (data.hasOwnProperty('limit')) {
-                obj['limit'] = ApiClient.convertToType(data['limit'], Object);
+                obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
             if (data.hasOwnProperty('limit_snippets')) {
-                obj['limit_snippets'] = ApiClient.convertToType(data['limit_snippets'], Object);
+                obj['limit_snippets'] = ApiClient.convertToType(data['limit_snippets'], 'Number');
             }
             if (data.hasOwnProperty('limit_words')) {
-                obj['limit_words'] = ApiClient.convertToType(data['limit_words'], Object);
+                obj['limit_words'] = ApiClient.convertToType(data['limit_words'], 'Number');
             }
             if (data.hasOwnProperty('number_of_fragments')) {
-                obj['number_of_fragments'] = ApiClient.convertToType(data['number_of_fragments'], Object);
+                obj['number_of_fragments'] = ApiClient.convertToType(data['number_of_fragments'], 'Number');
             }
             if (data.hasOwnProperty('after_match')) {
                 obj['after_match'] = ApiClient.convertToType(data['after_match'], 'String');
@@ -85,7 +86,7 @@ class Highlight {
                 obj['encoder'] = ApiClient.convertToType(data['encoder'], 'String');
             }
             if (data.hasOwnProperty('fields')) {
-                obj['fields'] = ApiClient.convertToType(data['fields'], Object);
+                obj['fields'] = HighlightFields.constructFromObject(data['fields']);
             }
             if (data.hasOwnProperty('force_all_words')) {
                 obj['force_all_words'] = ApiClient.convertToType(data['force_all_words'], 'Boolean');
@@ -142,6 +143,10 @@ class Highlight {
         if (data['encoder'] && !(typeof data['encoder'] === 'string' || data['encoder'] instanceof String)) {
             throw new Error("Expected the field `encoder` to be a primitive type in the JSON string but got " + data['encoder']);
         }
+        // validate the optional field `fields`
+        if (data['fields']) { // data not null
+          HighlightFields.validateJSON(data['fields']);
+        }
         // validate the optional field `highlight_query`
         if (data['highlight_query']) { // data not null
           QueryFilter.validateJSON(data['highlight_query']);
@@ -173,31 +178,31 @@ class Highlight {
 
 /**
  * Maximum size of the text fragments in highlighted snippets per field
- * @member {Object} fragment_size
+ * @member {Number} fragment_size
  */
 Highlight.prototype['fragment_size'] = undefined;
 
 /**
  * Maximum size of snippets per field
- * @member {Object} limit
+ * @member {Number} limit
  */
 Highlight.prototype['limit'] = undefined;
 
 /**
  * Maximum number of snippets per field
- * @member {Object} limit_snippets
+ * @member {Number} limit_snippets
  */
 Highlight.prototype['limit_snippets'] = undefined;
 
 /**
  * Maximum number of words per field
- * @member {Object} limit_words
+ * @member {Number} limit_words
  */
 Highlight.prototype['limit_words'] = undefined;
 
 /**
  * Total number of highlighted fragments per field
- * @member {Object} number_of_fragments
+ * @member {Number} number_of_fragments
  */
 Highlight.prototype['number_of_fragments'] = undefined;
 
@@ -240,7 +245,7 @@ Highlight.prototype['emit_zones'] = undefined;
 Highlight.prototype['encoder'] = undefined;
 
 /**
- * @member {Object} fields
+ * @member {module:model/HighlightFields} fields
  */
 Highlight.prototype['fields'] = undefined;
 

@@ -17,7 +17,7 @@ import ResponseErrorDetails from './ResponseErrorDetails';
 /**
  * The ResponseError model module.
  * @module model/ResponseError
- * @version 7.0.0
+ * @version 8.1.0
  */
 class ResponseError {
     /**
@@ -119,19 +119,19 @@ class ResponseError {
 
 /**
  * Type or category of the error
- * @member {Object} type
+ * @member {String} type
  */
 ResponseError.prototype['type'] = undefined;
 
 /**
  * Detailed explanation of why the error occurred
- * @member {Object} reason
+ * @member {String} reason
  */
 ResponseError.prototype['reason'] = undefined;
 
 /**
  * The table related to the error, if applicable
- * @member {Object} table
+ * @member {String} table
  */
 ResponseError.prototype['table'] = undefined;
 

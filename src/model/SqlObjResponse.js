@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SqlObjResponse model module.
  * @module model/SqlObjResponse
- * @version 7.0.0
+ * @version 8.1.0
  */
 class SqlObjResponse {
     /**
@@ -52,6 +52,12 @@ class SqlObjResponse {
             if (data.hasOwnProperty('hits')) {
                 obj['hits'] = ApiClient.convertToType(data['hits'], Object);
             }
+            if (data.hasOwnProperty('took')) {
+                obj['took'] = ApiClient.convertToType(data['took'], 'Number');
+            }
+            if (data.hasOwnProperty('timed_out')) {
+                obj['timed_out'] = ApiClient.convertToType(data['timed_out'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -81,6 +87,16 @@ SqlObjResponse.RequiredProperties = ["hits"];
  * @member {Object} hits
  */
 SqlObjResponse.prototype['hits'] = undefined;
+
+/**
+ * @member {Number} took
+ */
+SqlObjResponse.prototype['took'] = undefined;
+
+/**
+ * @member {Boolean} timed_out
+ */
+SqlObjResponse.prototype['timed_out'] = undefined;
 
 
 

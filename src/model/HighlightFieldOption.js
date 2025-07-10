@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HighlightFieldOption model module.
  * @module model/HighlightFieldOption
- * @version 7.0.0
+ * @version 8.1.0
  */
 class HighlightFieldOption {
     /**

@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **locationAnchor** | [**GeoDistanceLocationAnchor**](GeoDistanceLocationAnchor.md) |  | [optional] 
-**locationSource** | **Object** | Field name in the document that contains location data | [optional] 
-**distanceType** | **Object** | Algorithm used to calculate the distance | [optional] 
-**distance** | **Object** | The distance from the anchor point to filter results by | [optional] 
+**locationSource** | **String** | Field name in the document that contains location data | [optional] 
+**distanceType** | **String** | Algorithm used to calculate the distance | [optional] 
+**distance** | **String** | The distance from the anchor point to filter results by | [optional] 
 
 
 

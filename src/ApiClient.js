@@ -14,13 +14,11 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
-import {default as _JBI} from 'json-bigint';
-const JSONBig = _JBI({storeAsString: true});
-
+import { JSONParse } from 'json-with-bigint';
 
 /**
 * @module ApiClient
-* @version 7.0.0
+* @version 8.1.0
 */
 
 /**
@@ -57,7 +55,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/7.0.0/Javascript'
+            'User-Agent': 'OpenAPI-Generator/8.1.0/Javascript'
         };
 
         /**
@@ -359,11 +357,11 @@ class ApiClient {
             return null;
         }
 
-		// Use json-bigint for parsing json responses otherwise rely on SuperAgent
+        // Use json-with-bigint for parsing json responses otherwise rely on SuperAgent
 		// See http://visionmedia.github.io/superagent/#parsing-response-bodies
 		var data;
 		if (returnType === Object || typeof returnType === 'object') {
-			data = JSONBig.parse(response.text);
+			data = JSONParse(response.text);
 		} else {
 			data = response.body;
 		}

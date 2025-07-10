@@ -17,7 +17,7 @@ import GeoDistanceLocationAnchor from './GeoDistanceLocationAnchor';
 /**
  * The GeoDistance model module.
  * @module model/GeoDistance
- * @version 7.0.0
+ * @version 8.1.0
  */
 class GeoDistance {
     /**
@@ -57,13 +57,13 @@ class GeoDistance {
                 obj['location_anchor'] = GeoDistanceLocationAnchor.constructFromObject(data['location_anchor']);
             }
             if (data.hasOwnProperty('location_source')) {
-                obj['location_source'] = ApiClient.convertToType(data['location_source'], Object);
+                obj['location_source'] = ApiClient.convertToType(data['location_source'], 'String');
             }
             if (data.hasOwnProperty('distance_type')) {
-                obj['distance_type'] = ApiClient.convertToType(data['distance_type'], Object);
+                obj['distance_type'] = ApiClient.convertToType(data['distance_type'], 'String');
             }
             if (data.hasOwnProperty('distance')) {
-                obj['distance'] = ApiClient.convertToType(data['distance'], Object);
+                obj['distance'] = ApiClient.convertToType(data['distance'], 'String');
             }
         }
         return obj;
@@ -78,6 +78,18 @@ class GeoDistance {
         // validate the optional field `location_anchor`
         if (data['location_anchor']) { // data not null
           GeoDistanceLocationAnchor.validateJSON(data['location_anchor']);
+        }
+        // ensure the json data is a string
+        if (data['location_source'] && !(typeof data['location_source'] === 'string' || data['location_source'] instanceof String)) {
+            throw new Error("Expected the field `location_source` to be a primitive type in the JSON string but got " + data['location_source']);
+        }
+        // ensure the json data is a string
+        if (data['distance_type'] && !(typeof data['distance_type'] === 'string' || data['distance_type'] instanceof String)) {
+            throw new Error("Expected the field `distance_type` to be a primitive type in the JSON string but got " + data['distance_type']);
+        }
+        // ensure the json data is a string
+        if (data['distance'] && !(typeof data['distance'] === 'string' || data['distance'] instanceof String)) {
+            throw new Error("Expected the field `distance` to be a primitive type in the JSON string but got " + data['distance']);
         }
 
         return true;
@@ -95,7 +107,7 @@ GeoDistance.prototype['location_anchor'] = undefined;
 
 /**
  * Field name in the document that contains location data
- * @member {Object} location_source
+ * @member {String} location_source
  */
 GeoDistance.prototype['location_source'] = undefined;
 
@@ -107,7 +119,7 @@ GeoDistance.prototype['distance_type'] = undefined;
 
 /**
  * The distance from the anchor point to filter results by
- * @member {Object} distance
+ * @member {String} distance
  */
 GeoDistance.prototype['distance'] = undefined;
 
@@ -117,7 +129,7 @@ GeoDistance.prototype['distance'] = undefined;
 
 /**
  * Allowed values for the <code>distance_type</code> property.
- * @enum {Object}
+ * @enum {String}
  * @readonly
  */
 GeoDistance['DistanceTypeEnum'] = {

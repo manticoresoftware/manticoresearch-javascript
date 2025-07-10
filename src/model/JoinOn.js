@@ -17,7 +17,7 @@ import JoinCond from './JoinCond';
 /**
  * The JoinOn model module.
  * @module model/JoinOn
- * @version 7.0.0
+ * @version 8.1.0
  */
 class JoinOn {
     /**

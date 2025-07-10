@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GeoDistanceLocationAnchor model module.
  * @module model/GeoDistanceLocationAnchor
- * @version 7.0.0
+ * @version 8.1.0
  */
 class GeoDistanceLocationAnchor {
     /**
@@ -49,10 +49,10 @@ class GeoDistanceLocationAnchor {
             obj = obj || new GeoDistanceLocationAnchor();
 
             if (data.hasOwnProperty('lat')) {
-                obj['lat'] = ApiClient.convertToType(data['lat'], Object);
+                obj['lat'] = ApiClient.convertToType(data['lat'], 'Number');
             }
             if (data.hasOwnProperty('lon')) {
-                obj['lon'] = ApiClient.convertToType(data['lon'], Object);
+                obj['lon'] = ApiClient.convertToType(data['lon'], 'Number');
             }
         }
         return obj;
@@ -75,13 +75,13 @@ class GeoDistanceLocationAnchor {
 
 /**
  * Latitude of the anchor point
- * @member {Object} lat
+ * @member {Number} lat
  */
 GeoDistanceLocationAnchor.prototype['lat'] = undefined;
 
 /**
  * Longitude of the anchor point
- * @member {Object} lon
+ * @member {Number} lon
  */
 GeoDistanceLocationAnchor.prototype['lon'] = undefined;
 
