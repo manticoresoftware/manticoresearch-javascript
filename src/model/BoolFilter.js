@@ -17,7 +17,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The BoolFilter model module.
  * @module model/BoolFilter
- * @version 8.1.0
+ * @version 8.2.0
  */
 class BoolFilter {
     /**

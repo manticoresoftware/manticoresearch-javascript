@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import FulltextFilter from './FulltextFilter';
 
 /**
  * The JoinCond model module.
  * @module model/JoinCond
- * @version 8.1.0
+ * @version 8.2.0
  */
 class JoinCond {
     /**
@@ -58,6 +59,9 @@ class JoinCond {
             if (data.hasOwnProperty('table')) {
                 obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
+            if (data.hasOwnProperty('query')) {
+                obj['query'] = FulltextFilter.constructFromObject(data['query']);
+            }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], Object);
             }
@@ -85,6 +89,10 @@ class JoinCond {
         if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
             throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
         }
+        // validate the optional field `query`
+        if (data['query']) { // data not null
+          FulltextFilter.validateJSON(data['query']);
+        }
 
         return true;
     }
@@ -105,6 +113,11 @@ JoinCond.prototype['field'] = undefined;
  * @member {String} table
  */
 JoinCond.prototype['table'] = undefined;
+
+/**
+ * @member {module:model/FulltextFilter} query
+ */
+JoinCond.prototype['query'] = undefined;
 
 /**
  * @member {Object} type

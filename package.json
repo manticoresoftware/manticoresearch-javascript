@@ -1,6 +1,6 @@
 {
   "name": "manticoresearch-dev",
-  "version": "8.1.0-dev",
+  "version": "8.2.0-dev",
   "description": "Сlient for Manticore Search. ",
   "license": "MIT",
   "main": "dist/index.js",

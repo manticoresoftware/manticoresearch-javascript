@@ -27,7 +27,7 @@ import { JSONParse, JSONStringify } from 'json-with-bigint';
 
   beforeEach(function() {
     var client= new Manticoresearch.ApiClient()
-    client.basePath="http://localhost:9418";
+    client.basePath="http://localhost:9408";
     indexApi = new Manticoresearch.IndexApi(client);
     searchApi = new Manticoresearch.SearchApi(client);
     utilsApi = new Manticoresearch.UtilsApi(client);

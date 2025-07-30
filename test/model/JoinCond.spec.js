@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property query (base name: "query")', function() {
+      // uncomment below and update the code to test the property query
+      //var instance = new Manticoresearch.JoinCond();
+      //expect(instance).to.be();
+    });
+
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
       //var instance = new Manticoresearch.JoinCond();
