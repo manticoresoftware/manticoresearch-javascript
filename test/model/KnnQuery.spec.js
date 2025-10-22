@@ -54,42 +54,6 @@
       //expect(instance).to.be.a(Manticoresearch.KnnQuery);
     });
 
-    it('should have the property field (base name: "field")', function() {
-      // uncomment below and update the code to test the property field
-      //var instance = new Manticoresearch.KnnQuery();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property k (base name: "k")', function() {
-      // uncomment below and update the code to test the property k
-      //var instance = new Manticoresearch.KnnQuery();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property queryVector (base name: "query_vector")', function() {
-      // uncomment below and update the code to test the property queryVector
-      //var instance = new Manticoresearch.KnnQuery();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property docId (base name: "doc_id")', function() {
-      // uncomment below and update the code to test the property docId
-      //var instance = new Manticoresearch.KnnQuery();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property ef (base name: "ef")', function() {
-      // uncomment below and update the code to test the property ef
-      //var instance = new Manticoresearch.KnnQuery();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property filter (base name: "filter")', function() {
-      // uncomment below and update the code to test the property filter
-      //var instance = new Manticoresearch.KnnQuery();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

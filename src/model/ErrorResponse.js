@@ -17,7 +17,7 @@ import ResponseError from './ResponseError';
 /**
  * The ErrorResponse model module.
  * @module model/ErrorResponse
- * @version 8.2.0
+ * @version 9.0.0
  */
 class ErrorResponse {
     /**
@@ -104,4 +104,3 @@ ErrorResponse.prototype['status'] = 500;
 
 
 export default ErrorResponse;
-

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Manticoresearch.JoinCond();
+    instance = new Manticoresearch.Knn();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,52 @@
       object[property] = value;
   }
 
-  describe('JoinCond', function() {
-    it('should create an instance of JoinCond', function() {
-      // uncomment below and update the code to test JoinCond
-      //var instance = new Manticoresearch.JoinCond();
-      //expect(instance).to.be.a(Manticoresearch.JoinCond);
+  describe('Knn', function() {
+    it('should create an instance of Knn', function() {
+      // uncomment below and update the code to test Knn
+      //var instance = new Manticoresearch.Knn();
+      //expect(instance).to.be.a(Manticoresearch.Knn);
     });
 
     it('should have the property field (base name: "field")', function() {
       // uncomment below and update the code to test the property field
-      //var instance = new Manticoresearch.JoinCond();
+      //var instance = new Manticoresearch.Knn();
       //expect(instance).to.be();
     });
 
-    it('should have the property table (base name: "table")', function() {
-      // uncomment below and update the code to test the property table
-      //var instance = new Manticoresearch.JoinCond();
+    it('should have the property k (base name: "k")', function() {
+      // uncomment below and update the code to test the property k
+      //var instance = new Manticoresearch.Knn();
       //expect(instance).to.be();
     });
 
     it('should have the property query (base name: "query")', function() {
       // uncomment below and update the code to test the property query
-      //var instance = new Manticoresearch.JoinCond();
+      //var instance = new Manticoresearch.Knn();
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instance = new Manticoresearch.JoinCond();
+    it('should have the property queryVector (base name: "query_vector")', function() {
+      // uncomment below and update the code to test the property queryVector
+      //var instance = new Manticoresearch.Knn();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property docId (base name: "doc_id")', function() {
+      // uncomment below and update the code to test the property docId
+      //var instance = new Manticoresearch.Knn();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ef (base name: "ef")', function() {
+      // uncomment below and update the code to test the property ef
+      //var instance = new Manticoresearch.Knn();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property filter (base name: "filter")', function() {
+      // uncomment below and update the code to test the property filter
+      //var instance = new Manticoresearch.Knn();
       //expect(instance).to.be();
     });
 

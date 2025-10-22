@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggTerms model module.
  * @module model/AggTerms
- * @version 8.2.0
+ * @version 9.0.0
  */
 class AggTerms {
     /**
@@ -103,4 +103,3 @@ AggTerms.prototype['size'] = undefined;
 
 
 export default AggTerms;
-

@@ -19,7 +19,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The Highlight model module.
  * @module model/Highlight
- * @version 8.2.0
+ * @version 9.0.0
  */
 class Highlight {
     /**
@@ -366,7 +366,6 @@ Highlight['EncoderEnum'] = {
     "html": "html"
 };
 
-
 /**
  * Allowed values for the <code>html_strip_mode</code> property.
  * @enum {String}
@@ -399,7 +398,6 @@ Highlight['HtmlStripModeEnum'] = {
     "retain": "retain"
 };
 
-
 /**
  * Allowed values for the <code>no_match_size</code> property.
  * @enum {Number}
@@ -419,7 +417,6 @@ Highlight['NoMatchSizeEnum'] = {
      */
     "1": 1
 };
-
 
 /**
  * Allowed values for the <code>order</code> property.
@@ -448,6 +445,4 @@ Highlight['OrderEnum'] = {
 };
 
 
-
 export default Highlight;
-

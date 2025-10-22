@@ -12,34 +12,64 @@
  */
 
 import ApiClient from '../ApiClient';
-import QueryFilter from './QueryFilter';
 
 /**
  * The KnnQuery model module.
  * @module model/KnnQuery
- * @version 8.2.0
+ * @version 9.0.0
  */
 class KnnQuery {
     /**
      * Constructs a new <code>KnnQuery</code>.
-     * Object representing a k-nearest neighbor search query
      * @alias module:model/KnnQuery
-     * @param field {String} Field to perform the k-nearest neighbor search on
-     * @param k {Number} The number of nearest neighbors to return
+     * @param {(module:model/String|module:model/[Number])} instance The actual instance to initialize KnnQuery.
      */
-    constructor(field, k) { 
-        
-        KnnQuery.initialize(this, field, k);
-    }
+    constructor(instance = null) {
+        if (instance === null) {
+            this.actualInstance = null;
+            return;
+        }
+        var match = 0;
+        var errorMessages = [];
+        try {
+            // validate string
+            if (!(typeof instance === 'string')) {
+                throw new Error("Invalid value. Must be string. Input: " + JSON.stringify(instance));
+            }
+            this.actualInstance = instance;
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into String
+            errorMessages.push("Failed to construct String: " + err)
+        }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj, field, k) { 
-        obj['field'] = field;
-        obj['k'] = k;
+        try {
+            // validate array data type
+            if (!Array.isArray(instance)) {
+                throw new Error("Invalid data type. Expecting array. Input: " + instance);
+            }
+            // validate array of number
+            for (const item of instance) {
+                if (!(typeof instance === 'number' && instance % 1 != 0)) {
+                    throw new Error("Invalid array items. Must be number. Input: " + JSON.stringify(instance));
+                }
+            }
+            this.actualInstance = instance;
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into [Number]
+            errorMessages.push("Failed to construct [Number]: " + err)
+        }
+
+        if (match > 1) {
+            throw new Error("Multiple matches found constructing `KnnQuery` with oneOf schemas String, [Number]. Input: " + JSON.stringify(instance));
+        } else if (match === 0) {
+            this.actualInstance = null; // clear the actual instance in case there are multiple matches
+            throw new Error("No match found constructing `KnnQuery` with oneOf schemas String, [Number]. Details: " +
+                            errorMessages.join(", "));
+        } else { // only 1 match
+            // the input is valid
+        }
     }
 
     /**
@@ -50,103 +80,44 @@ class KnnQuery {
      * @return {module:model/KnnQuery} The populated <code>KnnQuery</code> instance.
      */
     static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new KnnQuery();
-
-            if (data.hasOwnProperty('field')) {
-                obj['field'] = ApiClient.convertToType(data['field'], 'String');
-            }
-            if (data.hasOwnProperty('k')) {
-                obj['k'] = ApiClient.convertToType(data['k'], 'Number');
-            }
-            if (data.hasOwnProperty('query_vector')) {
-                obj['query_vector'] = ApiClient.convertToType(data['query_vector'], ['Number']);
-            }
-            if (data.hasOwnProperty('doc_id')) {
-                obj['doc_id'] = ApiClient.convertToType(data['doc_id'], 'Number');
-            }
-            if (data.hasOwnProperty('ef')) {
-                obj['ef'] = ApiClient.convertToType(data['ef'], 'Number');
-            }
-            if (data.hasOwnProperty('filter')) {
-                obj['filter'] = QueryFilter.constructFromObject(data['filter']);
-            }
-        }
-        return obj;
+        return new KnnQuery(data);
     }
 
     /**
-     * Validates the JSON data with respect to <code>KnnQuery</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>KnnQuery</code>.
+     * Gets the actual instance, which can be <code>String</code>, <code>[Number]</code>.
+     * @return {(module:model/String|module:model/[Number])} The actual instance.
      */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of KnnQuery.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['field'] && !(typeof data['field'] === 'string' || data['field'] instanceof String)) {
-            throw new Error("Expected the field `field` to be a primitive type in the JSON string but got " + data['field']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['query_vector'])) {
-            throw new Error("Expected the field `query_vector` to be an array in the JSON data but got " + data['query_vector']);
-        }
-        // validate the optional field `filter`
-        if (data['filter']) { // data not null
-          QueryFilter.validateJSON(data['filter']);
-        }
-
-        return true;
+    getActualInstance() {
+        return this.actualInstance;
     }
 
+    /**
+     * Sets the actual instance, which can be <code>String</code>, <code>[Number]</code>.
+     * @param {(module:model/String|module:model/[Number])} obj The actual instance.
+     */
+    setActualInstance(obj) {
+       this.actualInstance = KnnQuery.constructFromObject(obj).getActualInstance();
+    }
 
+    /**
+     * Returns the JSON representation of the actual instance.
+     * @return {string}
+     */
+    toJSON = function(){
+        return this.getActualInstance();
+    }
+
+    /**
+     * Create an instance of KnnQuery from a JSON string.
+     * @param {string} json_string JSON string.
+     * @return {module:model/KnnQuery} An instance of KnnQuery.
+     */
+    static fromJSON = function(json_string){
+        return KnnQuery.constructFromObject(JSON.parse(json_string));
+    }
 }
 
-KnnQuery.RequiredProperties = ["field", "k"];
 
-/**
- * Field to perform the k-nearest neighbor search on
- * @member {String} field
- */
-KnnQuery.prototype['field'] = undefined;
-
-/**
- * The number of nearest neighbors to return
- * @member {Number} k
- */
-KnnQuery.prototype['k'] = undefined;
-
-/**
- * The vector used as input for the KNN search
- * @member {Array.<Number>} query_vector
- */
-KnnQuery.prototype['query_vector'] = undefined;
-
-/**
- * The docuemnt ID used as input for the KNN search
- * @member {Number} doc_id
- */
-KnnQuery.prototype['doc_id'] = undefined;
-
-/**
- * Optional parameter controlling the accuracy of the search
- * @member {Number} ef
- */
-KnnQuery.prototype['ef'] = undefined;
-
-/**
- * @member {module:model/QueryFilter} filter
- */
-KnnQuery.prototype['filter'] = undefined;
-
-
-
-
-
+KnnQuery.OneOf = ["String", "[Number]"];
 
 export default KnnQuery;
-

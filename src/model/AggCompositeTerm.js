@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggCompositeTerm model module.
  * @module model/AggCompositeTerm
- * @version 8.2.0
+ * @version 9.0.0
  */
 class AggCompositeTerm {
     /**
@@ -94,4 +94,3 @@ AggCompositeTerm.prototype['field'] = undefined;
 
 
 export default AggCompositeTerm;
-

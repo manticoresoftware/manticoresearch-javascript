@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Range model module.
  * @module model/Range
- * @version 8.2.0
+ * @version 9.0.0
  */
 class Range {
     /**
@@ -105,4 +105,3 @@ Range.prototype['gte'] = undefined;
 
 
 export default Range;
-

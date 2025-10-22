@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResponseErrorDetails model module.
  * @module model/ResponseErrorDetails
- * @version 8.2.0
+ * @version 9.0.0
  */
 class ResponseErrorDetails {
     /**
@@ -120,4 +120,3 @@ ResponseErrorDetails.prototype['table'] = undefined;
 
 
 export default ResponseErrorDetails;
-

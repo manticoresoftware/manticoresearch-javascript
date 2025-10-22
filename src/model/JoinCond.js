@@ -17,7 +17,7 @@ import FulltextFilter from './FulltextFilter';
 /**
  * The JoinCond model module.
  * @module model/JoinCond
- * @version 8.2.0
+ * @version 9.0.0
  */
 class JoinCond {
     /**
@@ -130,4 +130,3 @@ JoinCond.prototype['type'] = undefined;
 
 
 export default JoinCond;
-

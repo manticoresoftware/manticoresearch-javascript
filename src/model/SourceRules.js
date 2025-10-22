@@ -16,14 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The SourceRules model module.
  * @module model/SourceRules
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SourceRules {
     /**
      * Constructs a new <code>SourceRules</code>.
      * Defines which fields to include or exclude in the response for a search query
      * @alias module:model/SourceRules
-     * @extends Object
      */
     constructor() { 
         
@@ -48,9 +47,6 @@ class SourceRules {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new SourceRules();
-
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
 
             if (data.hasOwnProperty('includes')) {
                 obj['includes'] = ApiClient.convertToType(data['includes'], ['String']);
@@ -103,4 +99,3 @@ SourceRules.prototype['excludes'] = undefined;
 
 
 export default SourceRules;
-

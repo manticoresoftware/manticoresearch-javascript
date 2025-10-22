@@ -37,6 +37,7 @@ import InsertDocumentRequest from './model/InsertDocumentRequest';
 import Join from './model/Join';
 import JoinCond from './model/JoinCond';
 import JoinOn from './model/JoinOn';
+import Knn from './model/Knn';
 import KnnQuery from './model/KnnQuery';
 import Match from './model/Match';
 import MatchAll from './model/MatchAll';
@@ -91,7 +92,7 @@ import UtilsApi from './api/UtilsApi';
 * </pre>
 * </p>
 * @module index
-* @version 8.2.0
+* @version 9.0.0
 */
 export {
     /**
@@ -243,6 +244,12 @@ export {
      * @property {module:model/JoinOn}
      */
     JoinOn,
+
+    /**
+     * The Knn model constructor.
+     * @property {module:model/Knn}
+     */
+    Knn,
 
     /**
      * The KnnQuery model constructor.

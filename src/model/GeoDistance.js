@@ -17,14 +17,13 @@ import GeoDistanceLocationAnchor from './GeoDistanceLocationAnchor';
 /**
  * The GeoDistance model module.
  * @module model/GeoDistance
- * @version 8.2.0
+ * @version 9.0.0
  */
 class GeoDistance {
     /**
      * Constructs a new <code>GeoDistance</code>.
      * Object to perform geo-distance based filtering on queries
      * @alias module:model/GeoDistance
-     * @extends Object
      */
     constructor() { 
         
@@ -49,9 +48,6 @@ class GeoDistance {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new GeoDistance();
-
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
 
             if (data.hasOwnProperty('location_anchor')) {
                 obj['location_anchor'] = GeoDistanceLocationAnchor.constructFromObject(data['location_anchor']);
@@ -148,6 +144,4 @@ GeoDistance['DistanceTypeEnum'] = {
 };
 
 
-
 export default GeoDistance;
-

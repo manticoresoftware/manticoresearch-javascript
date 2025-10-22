@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggDateHistogram model module.
  * @module model/AggDateHistogram
- * @version 8.2.0
+ * @version 9.0.0
  */
 class AggDateHistogram {
     /**
@@ -123,4 +123,3 @@ AggDateHistogram.prototype['keyed'] = undefined;
 
 
 export default AggDateHistogram;
-

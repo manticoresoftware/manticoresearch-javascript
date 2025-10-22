@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PercolateRequestQuery model module.
  * @module model/PercolateRequestQuery
- * @version 8.2.0
+ * @version 9.0.0
  */
 class PercolateRequestQuery {
     /**
@@ -89,4 +89,3 @@ PercolateRequestQuery.prototype['percolate'] = undefined;
 
 
 export default PercolateRequestQuery;
-

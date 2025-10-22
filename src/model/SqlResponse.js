@@ -17,7 +17,7 @@ import SqlObjResponse from './SqlObjResponse';
 /**
  * The SqlResponse model module.
  * @module model/SqlResponse
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SqlResponse {
     /**
@@ -136,4 +136,3 @@ SqlResponse.prototype['timed_out'] = undefined;
 SqlResponse.OneOf = ["SqlObjResponse", "[Object]"];
 
 export default SqlResponse;
-

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggHistogram model module.
  * @module model/AggHistogram
- * @version 8.2.0
+ * @version 9.0.0
  */
 class AggHistogram {
     /**
@@ -123,4 +123,3 @@ AggHistogram.prototype['keyed'] = undefined;
 
 
 export default AggHistogram;
-

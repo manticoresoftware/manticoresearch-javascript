@@ -17,7 +17,7 @@ import JoinCond from './JoinCond';
 /**
  * The JoinOn model module.
  * @module model/JoinOn
- * @version 8.2.0
+ * @version 9.0.0
  */
 class JoinOn {
     /**
@@ -122,6 +122,4 @@ JoinOn['OperatorEnum'] = {
 };
 
 
-
 export default JoinOn;
-

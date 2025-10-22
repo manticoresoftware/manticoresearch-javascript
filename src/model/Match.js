@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Match model module.
  * @module model/Match
- * @version 8.2.0
+ * @version 9.0.0
  */
 class Match {
     /**
@@ -132,6 +132,4 @@ Match['OperatorEnum'] = {
 };
 
 
-
 export default Match;
-

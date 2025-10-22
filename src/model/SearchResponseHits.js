@@ -17,7 +17,7 @@ import HitsHits from './HitsHits';
 /**
  * The SearchResponseHits model module.
  * @module model/SearchResponseHits
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SearchResponseHits {
     /**
@@ -124,4 +124,3 @@ SearchResponseHits.prototype['hits'] = undefined;
 
 
 export default SearchResponseHits;
-

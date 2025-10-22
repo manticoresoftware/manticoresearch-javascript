@@ -20,7 +20,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The SearchQuery model module.
  * @module model/SearchQuery
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SearchQuery {
     /**
@@ -101,6 +101,10 @@ class SearchQuery {
         // validate the optional field `bool`
         if (data['bool']) { // data not null
           BoolFilter.validateJSON(data['bool']);
+        }
+        // validate the optional field `geo_distance`
+        if (data['geo_distance']) { // data not null
+          GeoDistance.validateJSON(data['geo_distance']);
         }
         // validate the optional field `highlight`
         if (data['highlight']) { // data not null
@@ -220,4 +224,3 @@ QueryFilter.prototype['geo_distance'] = undefined;
 
 
 export default SearchQuery;
-

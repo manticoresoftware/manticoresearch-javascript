@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HighlightFields model module.
  * @module model/HighlightFields
- * @version 8.2.0
+ * @version 9.0.0
  */
 class HighlightFields {
     /**
@@ -118,4 +118,3 @@ class HighlightFields {
 HighlightFields.OneOf = ["Object", "[String]"];
 
 export default HighlightFields;
-

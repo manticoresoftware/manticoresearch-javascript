@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SuccessResponse model module.
  * @module model/SuccessResponse
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SuccessResponse {
     /**
@@ -135,4 +135,3 @@ SuccessResponse.prototype['status'] = undefined;
 
 
 export default SuccessResponse;
-

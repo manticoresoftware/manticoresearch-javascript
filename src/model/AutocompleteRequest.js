@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AutocompleteRequest model module.
  * @module model/AutocompleteRequest
- * @version 8.2.0
+ * @version 9.0.0
  */
 class AutocompleteRequest {
     /**
@@ -118,4 +118,3 @@ AutocompleteRequest.prototype['options'] = undefined;
 
 
 export default AutocompleteRequest;
-

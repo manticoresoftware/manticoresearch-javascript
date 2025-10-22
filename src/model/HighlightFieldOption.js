@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HighlightFieldOption model module.
  * @module model/HighlightFieldOption
- * @version 8.2.0
+ * @version 9.0.0
  */
 class HighlightFieldOption {
     /**
@@ -118,4 +118,3 @@ HighlightFieldOption.prototype['number_of_fragments'] = undefined;
 
 
 export default HighlightFieldOption;
-

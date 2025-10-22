@@ -19,7 +19,7 @@ import AggTerms from './AggTerms';
 /**
  * The Aggregation model module.
  * @module model/Aggregation
- * @version 8.2.0
+ * @version 9.0.0
  */
 class Aggregation {
     /**
@@ -123,4 +123,3 @@ Aggregation.prototype['histogram'] = undefined;
 
 
 export default Aggregation;
-

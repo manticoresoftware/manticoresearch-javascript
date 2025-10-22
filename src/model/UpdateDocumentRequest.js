@@ -17,7 +17,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The UpdateDocumentRequest model module.
  * @module model/UpdateDocumentRequest
- * @version 8.2.0
+ * @version 9.0.0
  */
 class UpdateDocumentRequest {
     /**
@@ -140,4 +140,3 @@ UpdateDocumentRequest.prototype['query'] = undefined;
 
 
 export default UpdateDocumentRequest;
-

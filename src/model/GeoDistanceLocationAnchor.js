@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GeoDistanceLocationAnchor model module.
  * @module model/GeoDistanceLocationAnchor
- * @version 8.2.0
+ * @version 9.0.0
  */
 class GeoDistanceLocationAnchor {
     /**
@@ -91,4 +91,3 @@ GeoDistanceLocationAnchor.prototype['lon'] = undefined;
 
 
 export default GeoDistanceLocationAnchor;
-

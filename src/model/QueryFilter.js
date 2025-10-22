@@ -19,7 +19,7 @@ import GeoDistance from './GeoDistance';
 /**
  * The QueryFilter model module.
  * @module model/QueryFilter
- * @version 8.2.0
+ * @version 9.0.0
  */
 class QueryFilter {
     /**
@@ -97,6 +97,10 @@ class QueryFilter {
         // validate the optional field `bool`
         if (data['bool']) { // data not null
           BoolFilter.validateJSON(data['bool']);
+        }
+        // validate the optional field `geo_distance`
+        if (data['geo_distance']) { // data not null
+          GeoDistance.validateJSON(data['geo_distance']);
         }
 
         return true;
@@ -185,4 +189,3 @@ FulltextFilter.prototype['match_all'] = undefined;
 
 
 export default QueryFilter;
-

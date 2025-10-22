@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **join** | [**[Join]**](Join.md) | Join clause to combine search data from multiple tables | [optional] 
 **highlight** | [**Highlight**](Highlight.md) |  | [optional] 
 **limit** | **Number** | Maximum number of results to return | [optional] 
-**knn** | [**KnnQuery**](KnnQuery.md) |  | [optional] 
+**knn** | [**Knn**](Knn.md) |  | [optional] 
 **aggs** | [**{String: Aggregation}**](Aggregation.md) | Defines aggregation settings for grouping results | [optional] 
 **expressions** | **{String: String}** | Expressions to calculate additional values for the result | [optional] 
 **maxMatches** | **Number** | Maximum number of matches allowed in the result | [optional] 

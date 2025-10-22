@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DeleteResponse model module.
  * @module model/DeleteResponse
- * @version 8.2.0
+ * @version 9.0.0
  */
 class DeleteResponse {
     /**
@@ -126,4 +126,3 @@ DeleteResponse.prototype['result'] = undefined;
 
 
 export default DeleteResponse;
-

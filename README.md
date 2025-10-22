@@ -3,7 +3,7 @@
 Сlient for Manticore Search.
 
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/8.1.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/9.0.0
 
 ## Compatibility Table
 
@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.Join](docs/Join.md)
  - [Manticoresearch.JoinCond](docs/JoinCond.md)
  - [Manticoresearch.JoinOn](docs/JoinOn.md)
+ - [Manticoresearch.Knn](docs/Knn.md)
  - [Manticoresearch.KnnQuery](docs/KnnQuery.md)
  - [Manticoresearch.Match](docs/Match.md)
  - [Manticoresearch.MatchAll](docs/MatchAll.md)

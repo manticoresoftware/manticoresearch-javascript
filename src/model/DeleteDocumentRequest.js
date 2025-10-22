@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DeleteDocumentRequest model module.
  * @module model/DeleteDocumentRequest
- * @version 8.2.0
+ * @version 9.0.0
  */
 class DeleteDocumentRequest {
     /**
@@ -125,4 +125,3 @@ DeleteDocumentRequest.prototype['query'] = undefined;
 
 
 export default DeleteDocumentRequest;
-

@@ -17,7 +17,7 @@ import SearchResponseHits from './SearchResponseHits';
 /**
  * The SearchResponse model module.
  * @module model/SearchResponse
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SearchResponse {
     /**
@@ -144,4 +144,3 @@ SearchResponse.prototype['warning'] = undefined;
 
 
 export default SearchResponse;
-

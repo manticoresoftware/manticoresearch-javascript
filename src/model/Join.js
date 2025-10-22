@@ -18,7 +18,7 @@ import JoinOn from './JoinOn';
 /**
  * The Join model module.
  * @module model/Join
- * @version 8.2.0
+ * @version 9.0.0
  */
 class Join {
     /**
@@ -162,6 +162,4 @@ Join['TypeEnum'] = {
 };
 
 
-
 export default Join;
-

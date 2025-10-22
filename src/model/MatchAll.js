@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MatchAll model module.
  * @module model/MatchAll
- * @version 8.2.0
+ * @version 9.0.0
  */
 class MatchAll {
     /**
@@ -106,6 +106,4 @@ MatchAll['AllEnum'] = {
 };
 
 
-
 export default MatchAll;
-

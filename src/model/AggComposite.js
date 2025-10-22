@@ -17,7 +17,7 @@ import AggCompositeSource from './AggCompositeSource';
 /**
  * The AggComposite model module.
  * @module model/AggComposite
- * @version 8.2.0
+ * @version 9.0.0
  */
 class AggComposite {
     /**
@@ -95,4 +95,3 @@ AggComposite.prototype['sources'] = undefined;
 
 
 export default AggComposite;
-

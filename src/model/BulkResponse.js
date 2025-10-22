@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BulkResponse model module.
  * @module model/BulkResponse
- * @version 8.2.0
+ * @version 9.0.0
  */
 class BulkResponse {
     /**
@@ -126,4 +126,3 @@ BulkResponse.prototype['skipped_lines'] = undefined;
 
 
 export default BulkResponse;
-

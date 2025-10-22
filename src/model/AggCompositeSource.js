@@ -17,7 +17,7 @@ import AggCompositeTerm from './AggCompositeTerm';
 /**
  * The AggCompositeSource model module.
  * @module model/AggCompositeSource
- * @version 8.2.0
+ * @version 9.0.0
  */
 class AggCompositeSource {
     /**
@@ -94,4 +94,3 @@ AggCompositeSource.prototype['terms'] = undefined;
 
 
 export default AggCompositeSource;
-

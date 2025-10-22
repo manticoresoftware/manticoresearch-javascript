@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FulltextFilter model module.
  * @module model/FulltextFilter
- * @version 8.2.0
+ * @version 9.0.0
  */
 class FulltextFilter {
     /**
@@ -113,4 +113,3 @@ FulltextFilter.prototype['match_all'] = undefined;
 
 
 export default FulltextFilter;
-

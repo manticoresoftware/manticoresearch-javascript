@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReplaceDocumentRequest model module.
  * @module model/ReplaceDocumentRequest
- * @version 8.2.0
+ * @version 9.0.0
  */
 class ReplaceDocumentRequest {
     /**
@@ -90,4 +90,3 @@ ReplaceDocumentRequest.prototype['doc'] = undefined;
 
 
 export default ReplaceDocumentRequest;
-

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SqlObjResponse model module.
  * @module model/SqlObjResponse
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SqlObjResponse {
     /**
@@ -104,4 +104,3 @@ SqlObjResponse.prototype['timed_out'] = undefined;
 
 
 export default SqlObjResponse;
-

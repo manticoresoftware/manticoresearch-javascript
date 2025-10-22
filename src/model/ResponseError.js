@@ -17,7 +17,7 @@ import ResponseErrorDetails from './ResponseErrorDetails';
 /**
  * The ResponseError model module.
  * @module model/ResponseError
- * @version 8.2.0
+ * @version 9.0.0
  */
 class ResponseError {
     /**
@@ -139,4 +139,3 @@ ResponseError.prototype['table'] = undefined;
 ResponseError.OneOf = ["ResponseErrorDetails", "String"];
 
 export default ResponseError;
-

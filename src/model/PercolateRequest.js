@@ -17,7 +17,7 @@ import PercolateRequestQuery from './PercolateRequestQuery';
 /**
  * The PercolateRequest model module.
  * @module model/PercolateRequest
- * @version 8.2.0
+ * @version 9.0.0
  */
 class PercolateRequest {
     /**
@@ -94,4 +94,3 @@ PercolateRequest.prototype['query'] = undefined;
 
 
 export default PercolateRequest;
-

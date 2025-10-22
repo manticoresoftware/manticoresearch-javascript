@@ -15,13 +15,13 @@ import ApiClient from '../ApiClient';
 import Aggregation from './Aggregation';
 import Highlight from './Highlight';
 import Join from './Join';
-import KnnQuery from './KnnQuery';
+import Knn from './Knn';
 import SearchQuery from './SearchQuery';
 
 /**
  * The SearchRequest model module.
  * @module model/SearchRequest
- * @version 8.2.0
+ * @version 9.0.0
  */
 class SearchRequest {
     /**
@@ -71,7 +71,7 @@ class SearchRequest {
                 obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
             if (data.hasOwnProperty('knn')) {
-                obj['knn'] = KnnQuery.constructFromObject(data['knn']);
+                obj['knn'] = Knn.constructFromObject(data['knn']);
             }
             if (data.hasOwnProperty('aggs')) {
                 obj['aggs'] = ApiClient.convertToType(data['aggs'], {'String': Aggregation});
@@ -140,7 +140,7 @@ class SearchRequest {
         }
         // validate the optional field `knn`
         if (data['knn']) { // data not null
-          KnnQuery.validateJSON(data['knn']);
+          Knn.validateJSON(data['knn']);
         }
 
         return true;
@@ -180,7 +180,7 @@ SearchRequest.prototype['highlight'] = undefined;
 SearchRequest.prototype['limit'] = undefined;
 
 /**
- * @member {module:model/KnnQuery} knn
+ * @member {module:model/Knn} knn
  */
 SearchRequest.prototype['knn'] = undefined;
 
@@ -242,4 +242,3 @@ SearchRequest.prototype['track_scores'] = undefined;
 
 
 export default SearchRequest;
-

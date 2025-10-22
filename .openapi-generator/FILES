@@ -28,6 +28,7 @@ docs/InsertDocumentRequest.md
 docs/Join.md
 docs/JoinCond.md
 docs/JoinOn.md
+docs/Knn.md
 docs/KnnQuery.md
 docs/Match.md
 docs/MatchAll.md
@@ -82,6 +83,7 @@ src/model/InsertDocumentRequest.js
 src/model/Join.js
 src/model/JoinCond.js
 src/model/JoinOn.js
+src/model/Knn.js
 src/model/KnnQuery.js
 src/model/Match.js
 src/model/MatchAll.js
@@ -129,6 +131,7 @@ test/model/InsertDocumentRequest.spec.js
 test/model/Join.spec.js
 test/model/JoinCond.spec.js
 test/model/JoinOn.spec.js
+test/model/Knn.spec.js
 test/model/KnnQuery.spec.js
 test/model/Match.spec.js
 test/model/MatchAll.spec.js

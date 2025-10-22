@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HitsHits model module.
  * @module model/HitsHits
- * @version 8.2.0
+ * @version 9.0.0
  */
 class HitsHits {
     /**
@@ -153,4 +153,3 @@ HitsHits.prototype['fields'] = undefined;
 
 
 export default HitsHits;
-
