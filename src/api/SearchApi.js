@@ -22,7 +22,7 @@ import SearchResponse from '../model/SearchResponse';
 /**
 * Search service.
 * @module api/SearchApi
-* @version 9.0.0
+* @version 8.1.1
 */
 export default class SearchApi {
 

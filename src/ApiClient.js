@@ -18,7 +18,7 @@ import { JSONParse } from 'json-with-bigint';
 
 /**
 * @module ApiClient
-* @version 9.0.0
+* @version 8.1.1
 */
 
 /**
@@ -55,7 +55,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/9.0.0/Javascript'
+            'User-Agent': 'OpenAPI-Generator/8.1.1/Javascript'
         };
 
         /**
@@ -360,7 +360,7 @@ class ApiClient {
         // Use json-with-bigint for parsing json responses otherwise rely on SuperAgent
 		// See http://visionmedia.github.io/superagent/#parsing-response-bodies
 		var data;
-		if (returnType === Object || typeof returnType === 'object') {
+		if (returnType === Object || typeof returnType === 'object' || typeof returnType === 'function') {
 			data = JSONParse(response.text);
 		} else {
 			data = response.body;
@@ -543,7 +543,7 @@ class ApiClient {
             case 'Integer':
                 return parseInt(data, 10);
             case 'Number':
-                return parseFloat(data);
+                return Number(data) === data ? parseFloat(data) : data;
             case 'String':
                 return String(data);
             case 'Date':

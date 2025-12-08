@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GeoDistanceLocationAnchor model module.
  * @module model/GeoDistanceLocationAnchor
- * @version 9.0.0
+ * @version 8.1.1
  */
 class GeoDistanceLocationAnchor {
     /**

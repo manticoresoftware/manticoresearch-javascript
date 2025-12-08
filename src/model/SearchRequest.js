@@ -21,7 +21,7 @@ import SearchQuery from './SearchQuery';
 /**
  * The SearchRequest model module.
  * @module model/SearchRequest
- * @version 9.0.0
+ * @version 8.1.1
  */
 class SearchRequest {
     /**
