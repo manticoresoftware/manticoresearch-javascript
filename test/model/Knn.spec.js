@@ -90,6 +90,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property rescore (base name: "rescore")', function() {
+      // uncomment below and update the code to test the property rescore
+      //var instance = new Manticoresearch.Knn();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property oversampling (base name: "oversampling")', function() {
+      // uncomment below and update the code to test the property oversampling
+      //var instance = new Manticoresearch.Knn();
+      //expect(instance).to.be();
+    });
+
     it('should have the property filter (base name: "filter")', function() {
       // uncomment below and update the code to test the property filter
       //var instance = new Manticoresearch.Knn();

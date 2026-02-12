@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AutocompleteRequest model module.
  * @module model/AutocompleteRequest
- * @version 8.1.1
+ * @version 9.0.0
  */
 class AutocompleteRequest {
     /**

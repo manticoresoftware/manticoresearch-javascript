@@ -18,7 +18,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The Knn model module.
  * @module model/Knn
- * @version 8.1.1
+ * @version 9.0.0
  */
 class Knn {
     /**
@@ -71,6 +71,12 @@ class Knn {
             }
             if (data.hasOwnProperty('ef')) {
                 obj['ef'] = ApiClient.convertToType(data['ef'], 'Number');
+            }
+            if (data.hasOwnProperty('rescore')) {
+                obj['rescore'] = ApiClient.convertToType(data['rescore'], 'Boolean');
+            }
+            if (data.hasOwnProperty('oversampling')) {
+                obj['oversampling'] = ApiClient.convertToType(data['oversampling'], 'Number');
             }
             if (data.hasOwnProperty('filter')) {
                 obj['filter'] = QueryFilter.constructFromObject(data['filter']);
@@ -150,6 +156,18 @@ Knn.prototype['doc_id'] = undefined;
  * @member {Number} ef
  */
 Knn.prototype['ef'] = undefined;
+
+/**
+ * Optional parameter enabling KNN rescoring (disabled by default)
+ * @member {Boolean} rescore
+ */
+Knn.prototype['rescore'] = undefined;
+
+/**
+ * Optional parameter setting a factor by which k is multiplied when executing the KNN search
+ * @member {Number} oversampling
+ */
+Knn.prototype['oversampling'] = undefined;
 
 /**
  * @member {module:model/QueryFilter} filter

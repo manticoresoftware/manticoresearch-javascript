@@ -18,7 +18,7 @@ import JoinOn from './JoinOn';
 /**
  * The Join model module.
  * @module model/Join
- * @version 8.1.1
+ * @version 9.0.0
  */
 class Join {
     /**

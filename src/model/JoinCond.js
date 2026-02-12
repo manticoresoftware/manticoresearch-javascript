@@ -17,7 +17,7 @@ import FulltextFilter from './FulltextFilter';
 /**
  * The JoinCond model module.
  * @module model/JoinCond
- * @version 8.1.1
+ * @version 9.0.0
  */
 class JoinCond {
     /**

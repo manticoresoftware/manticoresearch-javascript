@@ -17,7 +17,7 @@ import GeoDistanceLocationAnchor from './GeoDistanceLocationAnchor';
 /**
  * The GeoDistance model module.
  * @module model/GeoDistance
- * @version 8.1.1
+ * @version 9.0.0
  */
 class GeoDistance {
     /**

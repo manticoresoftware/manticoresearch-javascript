@@ -92,7 +92,7 @@ import UtilsApi from './api/UtilsApi';
 * </pre>
 * </p>
 * @module index
-* @version 8.1.1
+* @version 9.0.0
 */
 export {
     /**

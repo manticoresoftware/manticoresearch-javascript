@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsertDocumentRequest model module.
  * @module model/InsertDocumentRequest
- * @version 8.1.1
+ * @version 9.0.0
  */
 class InsertDocumentRequest {
     /**
