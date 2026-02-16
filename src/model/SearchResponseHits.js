@@ -17,7 +17,7 @@ import HitsHits from './HitsHits';
 /**
  * The SearchResponseHits model module.
  * @module model/SearchResponseHits
- * @version 9.0.0
+ * @version 10.0.0
  */
 class SearchResponseHits {
     /**

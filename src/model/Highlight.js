@@ -19,7 +19,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The Highlight model module.
  * @module model/Highlight
- * @version 9.0.0
+ * @version 10.0.0
  */
 class Highlight {
     /**

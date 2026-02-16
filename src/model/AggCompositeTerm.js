@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggCompositeTerm model module.
  * @module model/AggCompositeTerm
- * @version 9.0.0
+ * @version 10.0.0
  */
 class AggCompositeTerm {
     /**

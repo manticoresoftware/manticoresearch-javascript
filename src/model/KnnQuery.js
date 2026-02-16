@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The KnnQuery model module.
  * @module model/KnnQuery
- * @version 9.0.0
+ * @version 10.0.0
  */
 class KnnQuery {
     /**
