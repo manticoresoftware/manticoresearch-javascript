@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property interval (base name: "interval")', function() {
-      // uncomment below and update the code to test the property interval
+    it('should have the property calendarInterval (base name: "calendar_interval")', function() {
+      // uncomment below and update the code to test the property calendarInterval
       //var instance = new Manticoresearch.AggDateHistogram();
       //expect(instance).to.be();
     });

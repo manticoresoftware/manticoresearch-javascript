@@ -13,13 +13,19 @@
 
 import ApiClient from '../ApiClient';
 import AggComposite from './AggComposite';
+import AggDateHistogram from './AggDateHistogram';
 import AggHistogram from './AggHistogram';
+import AggMedianAbsoluteDeviation from './AggMedianAbsoluteDeviation';
+import AggMetric from './AggMetric';
+import AggPercentileRanks from './AggPercentileRanks';
+import AggPercentiles from './AggPercentiles';
+import AggRange from './AggRange';
 import AggTerms from './AggTerms';
 
 /**
  * The Aggregation model module.
  * @module model/Aggregation
- * @version 9.0.0
+ * @version 10.1.0
  */
 class Aggregation {
     /**
@@ -62,6 +68,36 @@ class Aggregation {
             if (data.hasOwnProperty('histogram')) {
                 obj['histogram'] = AggHistogram.constructFromObject(data['histogram']);
             }
+            if (data.hasOwnProperty('date_histogram')) {
+                obj['date_histogram'] = AggDateHistogram.constructFromObject(data['date_histogram']);
+            }
+            if (data.hasOwnProperty('range')) {
+                obj['range'] = AggRange.constructFromObject(data['range']);
+            }
+            if (data.hasOwnProperty('date_range')) {
+                obj['date_range'] = AggRange.constructFromObject(data['date_range']);
+            }
+            if (data.hasOwnProperty('percentiles')) {
+                obj['percentiles'] = AggPercentiles.constructFromObject(data['percentiles']);
+            }
+            if (data.hasOwnProperty('percentile_ranks')) {
+                obj['percentile_ranks'] = AggPercentileRanks.constructFromObject(data['percentile_ranks']);
+            }
+            if (data.hasOwnProperty('median_absolute_deviation')) {
+                obj['median_absolute_deviation'] = AggMedianAbsoluteDeviation.constructFromObject(data['median_absolute_deviation']);
+            }
+            if (data.hasOwnProperty('min')) {
+                obj['min'] = AggMetric.constructFromObject(data['min']);
+            }
+            if (data.hasOwnProperty('max')) {
+                obj['max'] = AggMetric.constructFromObject(data['max']);
+            }
+            if (data.hasOwnProperty('sum')) {
+                obj['sum'] = AggMetric.constructFromObject(data['sum']);
+            }
+            if (data.hasOwnProperty('avg')) {
+                obj['avg'] = AggMetric.constructFromObject(data['avg']);
+            }
         }
         return obj;
     }
@@ -87,6 +123,46 @@ class Aggregation {
         // validate the optional field `histogram`
         if (data['histogram']) { // data not null
           AggHistogram.validateJSON(data['histogram']);
+        }
+        // validate the optional field `date_histogram`
+        if (data['date_histogram']) { // data not null
+          AggDateHistogram.validateJSON(data['date_histogram']);
+        }
+        // validate the optional field `range`
+        if (data['range']) { // data not null
+          AggRange.validateJSON(data['range']);
+        }
+        // validate the optional field `date_range`
+        if (data['date_range']) { // data not null
+          AggRange.validateJSON(data['date_range']);
+        }
+        // validate the optional field `percentiles`
+        if (data['percentiles']) { // data not null
+          AggPercentiles.validateJSON(data['percentiles']);
+        }
+        // validate the optional field `percentile_ranks`
+        if (data['percentile_ranks']) { // data not null
+          AggPercentileRanks.validateJSON(data['percentile_ranks']);
+        }
+        // validate the optional field `median_absolute_deviation`
+        if (data['median_absolute_deviation']) { // data not null
+          AggMedianAbsoluteDeviation.validateJSON(data['median_absolute_deviation']);
+        }
+        // validate the optional field `min`
+        if (data['min']) { // data not null
+          AggMetric.validateJSON(data['min']);
+        }
+        // validate the optional field `max`
+        if (data['max']) { // data not null
+          AggMetric.validateJSON(data['max']);
+        }
+        // validate the optional field `sum`
+        if (data['sum']) { // data not null
+          AggMetric.validateJSON(data['sum']);
+        }
+        // validate the optional field `avg`
+        if (data['avg']) { // data not null
+          AggMetric.validateJSON(data['avg']);
         }
 
         return true;
@@ -116,6 +192,56 @@ Aggregation.prototype['composite'] = undefined;
  * @member {module:model/AggHistogram} histogram
  */
 Aggregation.prototype['histogram'] = undefined;
+
+/**
+ * @member {module:model/AggDateHistogram} date_histogram
+ */
+Aggregation.prototype['date_histogram'] = undefined;
+
+/**
+ * @member {module:model/AggRange} range
+ */
+Aggregation.prototype['range'] = undefined;
+
+/**
+ * @member {module:model/AggRange} date_range
+ */
+Aggregation.prototype['date_range'] = undefined;
+
+/**
+ * @member {module:model/AggPercentiles} percentiles
+ */
+Aggregation.prototype['percentiles'] = undefined;
+
+/**
+ * @member {module:model/AggPercentileRanks} percentile_ranks
+ */
+Aggregation.prototype['percentile_ranks'] = undefined;
+
+/**
+ * @member {module:model/AggMedianAbsoluteDeviation} median_absolute_deviation
+ */
+Aggregation.prototype['median_absolute_deviation'] = undefined;
+
+/**
+ * @member {module:model/AggMetric} min
+ */
+Aggregation.prototype['min'] = undefined;
+
+/**
+ * @member {module:model/AggMetric} max
+ */
+Aggregation.prototype['max'] = undefined;
+
+/**
+ * @member {module:model/AggMetric} sum
+ */
+Aggregation.prototype['sum'] = undefined;
+
+/**
+ * @member {module:model/AggMetric} avg
+ */
+Aggregation.prototype['avg'] = undefined;
 
 
 

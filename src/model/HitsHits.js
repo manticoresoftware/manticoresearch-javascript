@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HitsHits model module.
  * @module model/HitsHits
- * @version 9.0.0
+ * @version 10.1.0
  */
 class HitsHits {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SourceRules model module.
  * @module model/SourceRules
- * @version 9.0.0
+ * @version 10.1.0
  */
 class SourceRules {
     /**

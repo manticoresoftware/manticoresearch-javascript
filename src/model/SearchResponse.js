@@ -12,17 +12,18 @@
  */
 
 import ApiClient from '../ApiClient';
+import AggBucketsResult from './AggBucketsResult';
 import SearchResponseHits from './SearchResponseHits';
 
 /**
  * The SearchResponse model module.
  * @module model/SearchResponse
- * @version 9.0.0
+ * @version 10.1.0
  */
 class SearchResponse {
     /**
      * Constructs a new <code>SearchResponse</code>.
-     * Response object containing the results of a search request
+     * Response object containing search results. For conversational search requests that include a &#x60;chat&#x60; object, the optional chat fields below are also populated. For conversational search response fields see [Conversational search](https://manual.manticoresearch.com/Searching/Conversational_search#Response) 
      * @alias module:model/SearchResponse
      */
     constructor() { 
@@ -56,7 +57,7 @@ class SearchResponse {
                 obj['timed_out'] = ApiClient.convertToType(data['timed_out'], 'Boolean');
             }
             if (data.hasOwnProperty('aggregations')) {
-                obj['aggregations'] = ApiClient.convertToType(data['aggregations'], Object);
+                obj['aggregations'] = ApiClient.convertToType(data['aggregations'], {'String': AggBucketsResult});
             }
             if (data.hasOwnProperty('hits')) {
                 obj['hits'] = SearchResponseHits.constructFromObject(data['hits']);
@@ -69,6 +70,21 @@ class SearchResponse {
             }
             if (data.hasOwnProperty('warning')) {
                 obj['warning'] = ApiClient.convertToType(data['warning'], Object);
+            }
+            if (data.hasOwnProperty('conversation_uuid')) {
+                obj['conversation_uuid'] = ApiClient.convertToType(data['conversation_uuid'], 'String');
+            }
+            if (data.hasOwnProperty('user_query')) {
+                obj['user_query'] = ApiClient.convertToType(data['user_query'], 'String');
+            }
+            if (data.hasOwnProperty('search_query')) {
+                obj['search_query'] = ApiClient.convertToType(data['search_query'], 'String');
+            }
+            if (data.hasOwnProperty('response')) {
+                obj['response'] = ApiClient.convertToType(data['response'], 'String');
+            }
+            if (data.hasOwnProperty('sources')) {
+                obj['sources'] = ApiClient.convertToType(data['sources'], 'String');
             }
         }
         return obj;
@@ -87,6 +103,26 @@ class SearchResponse {
         // ensure the json data is a string
         if (data['scroll'] && !(typeof data['scroll'] === 'string' || data['scroll'] instanceof String)) {
             throw new Error("Expected the field `scroll` to be a primitive type in the JSON string but got " + data['scroll']);
+        }
+        // ensure the json data is a string
+        if (data['conversation_uuid'] && !(typeof data['conversation_uuid'] === 'string' || data['conversation_uuid'] instanceof String)) {
+            throw new Error("Expected the field `conversation_uuid` to be a primitive type in the JSON string but got " + data['conversation_uuid']);
+        }
+        // ensure the json data is a string
+        if (data['user_query'] && !(typeof data['user_query'] === 'string' || data['user_query'] instanceof String)) {
+            throw new Error("Expected the field `user_query` to be a primitive type in the JSON string but got " + data['user_query']);
+        }
+        // ensure the json data is a string
+        if (data['search_query'] && !(typeof data['search_query'] === 'string' || data['search_query'] instanceof String)) {
+            throw new Error("Expected the field `search_query` to be a primitive type in the JSON string but got " + data['search_query']);
+        }
+        // ensure the json data is a string
+        if (data['response'] && !(typeof data['response'] === 'string' || data['response'] instanceof String)) {
+            throw new Error("Expected the field `response` to be a primitive type in the JSON string but got " + data['response']);
+        }
+        // ensure the json data is a string
+        if (data['sources'] && !(typeof data['sources'] === 'string' || data['sources'] instanceof String)) {
+            throw new Error("Expected the field `sources` to be a primitive type in the JSON string but got " + data['sources']);
         }
 
         return true;
@@ -110,8 +146,8 @@ SearchResponse.prototype['took'] = undefined;
 SearchResponse.prototype['timed_out'] = undefined;
 
 /**
- * Aggregated search results grouped by the specified criteria
- * @member {Object} aggregations
+ * Aggregated search results grouped by the specified criteria. Each named aggregation typically contains a `buckets` array (or keyed map) of bucket objects with `key`, `doc_count`, and optional `status`. 
+ * @member {Object.<String, module:model/AggBucketsResult>} aggregations
  */
 SearchResponse.prototype['aggregations'] = undefined;
 
@@ -137,6 +173,36 @@ SearchResponse.prototype['scroll'] = undefined;
  * @member {Object} warning
  */
 SearchResponse.prototype['warning'] = undefined;
+
+/**
+ * Existing or generated conversation id (conversational search)
+ * @member {String} conversation_uuid
+ */
+SearchResponse.prototype['conversation_uuid'] = undefined;
+
+/**
+ * Original user query (conversational search)
+ * @member {String} user_query
+ */
+SearchResponse.prototype['user_query'] = undefined;
+
+/**
+ * Standalone search query used for KNN retrieval (conversational search)
+ * @member {String} search_query
+ */
+SearchResponse.prototype['search_query'] = undefined;
+
+/**
+ * LLM answer as generated (conversational search)
+ * @member {String} response
+ */
+SearchResponse.prototype['response'] = undefined;
+
+/**
+ * JSON string containing retrieved source rows used as LLM context (conversational search). 
+ * @member {String} sources
+ */
+SearchResponse.prototype['sources'] = undefined;
 
 
 

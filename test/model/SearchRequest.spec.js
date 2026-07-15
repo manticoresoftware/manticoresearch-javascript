@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property chat (base name: "chat")', function() {
+      // uncomment below and update the code to test the property chat
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property query (base name: "query")', function() {
       // uncomment below and update the code to test the property query
       //var instance = new Manticoresearch.SearchRequest();
@@ -90,6 +96,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property hybrid (base name: "hybrid")', function() {
+      // uncomment below and update the code to test the property hybrid
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property facetFilterMode (base name: "facet_filter_mode")', function() {
+      // uncomment below and update the code to test the property facetFilterMode
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property aggs (base name: "aggs")', function() {
       // uncomment below and update the code to test the property aggs
       //var instance = new Manticoresearch.SearchRequest();
@@ -98,6 +116,12 @@
 
     it('should have the property expressions (base name: "expressions")', function() {
       // uncomment below and update the code to test the property expressions
+      //var instance = new Manticoresearch.SearchRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property scriptFields (base name: "script_fields")', function() {
+      // uncomment below and update the code to test the property scriptFields
       //var instance = new Manticoresearch.SearchRequest();
       //expect(instance).to.be();
     });

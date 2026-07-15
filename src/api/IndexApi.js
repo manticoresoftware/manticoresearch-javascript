@@ -26,7 +26,7 @@ import UpdateResponse from '../model/UpdateResponse';
 /**
 * Index service.
 * @module api/IndexApi
-* @version 9.0.0
+* @version 10.1.0
 */
 export default class IndexApi {
 
@@ -65,7 +65,7 @@ export default class IndexApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = ['application/x-ndjson'];
       let accepts = ['application/json'];
       let returnType = BulkResponse;
@@ -112,7 +112,7 @@ export default class IndexApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = DeleteResponse;
@@ -159,7 +159,7 @@ export default class IndexApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = SuccessResponse;
@@ -218,7 +218,7 @@ export default class IndexApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = UpdateResponse;
@@ -267,7 +267,7 @@ export default class IndexApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = SuccessResponse;
@@ -314,7 +314,7 @@ export default class IndexApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = UpdateResponse;

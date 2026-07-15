@@ -13,19 +13,30 @@
 
 
 import ApiClient from './ApiClient';
+import AggBucket from './model/AggBucket';
+import AggBucketsResult from './model/AggBucketsResult';
 import AggComposite from './model/AggComposite';
 import AggCompositeSource from './model/AggCompositeSource';
 import AggCompositeTerm from './model/AggCompositeTerm';
 import AggDateHistogram from './model/AggDateHistogram';
 import AggHistogram from './model/AggHistogram';
+import AggMedianAbsoluteDeviation from './model/AggMedianAbsoluteDeviation';
+import AggMetric from './model/AggMetric';
+import AggPercentileRanks from './model/AggPercentileRanks';
+import AggPercentiles from './model/AggPercentiles';
+import AggRange from './model/AggRange';
+import AggTDigest from './model/AggTDigest';
 import AggTerms from './model/AggTerms';
 import Aggregation from './model/Aggregation';
 import AutocompleteRequest from './model/AutocompleteRequest';
 import BoolFilter from './model/BoolFilter';
 import BulkResponse from './model/BulkResponse';
+import Chat from './model/Chat';
 import DeleteDocumentRequest from './model/DeleteDocumentRequest';
 import DeleteResponse from './model/DeleteResponse';
 import ErrorResponse from './model/ErrorResponse';
+import FacetBucketStatus from './model/FacetBucketStatus';
+import FacetFilterMode from './model/FacetFilterMode';
 import FulltextFilter from './model/FulltextFilter';
 import GeoDistance from './model/GeoDistance';
 import GeoDistanceLocationAnchor from './model/GeoDistanceLocationAnchor';
@@ -33,6 +44,7 @@ import Highlight from './model/Highlight';
 import HighlightFieldOption from './model/HighlightFieldOption';
 import HighlightFields from './model/HighlightFields';
 import HitsHits from './model/HitsHits';
+import Hybrid from './model/Hybrid';
 import InsertDocumentRequest from './model/InsertDocumentRequest';
 import Join from './model/Join';
 import JoinCond from './model/JoinCond';
@@ -45,9 +57,12 @@ import PercolateRequest from './model/PercolateRequest';
 import PercolateRequestQuery from './model/PercolateRequestQuery';
 import QueryFilter from './model/QueryFilter';
 import Range from './model/Range';
+import RangeFilter from './model/RangeFilter';
 import ReplaceDocumentRequest from './model/ReplaceDocumentRequest';
 import ResponseError from './model/ResponseError';
 import ResponseErrorDetails from './model/ResponseErrorDetails';
+import ScriptField from './model/ScriptField';
+import ScriptFieldScript from './model/ScriptFieldScript';
 import SearchQuery from './model/SearchQuery';
 import SearchRequest from './model/SearchRequest';
 import SearchResponse from './model/SearchResponse';
@@ -92,7 +107,7 @@ import UtilsApi from './api/UtilsApi';
 * </pre>
 * </p>
 * @module index
-* @version 9.0.0
+* @version 10.1.0
 */
 export {
     /**
@@ -100,6 +115,18 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The AggBucket model constructor.
+     * @property {module:model/AggBucket}
+     */
+    AggBucket,
+
+    /**
+     * The AggBucketsResult model constructor.
+     * @property {module:model/AggBucketsResult}
+     */
+    AggBucketsResult,
 
     /**
      * The AggComposite model constructor.
@@ -132,6 +159,42 @@ export {
     AggHistogram,
 
     /**
+     * The AggMedianAbsoluteDeviation model constructor.
+     * @property {module:model/AggMedianAbsoluteDeviation}
+     */
+    AggMedianAbsoluteDeviation,
+
+    /**
+     * The AggMetric model constructor.
+     * @property {module:model/AggMetric}
+     */
+    AggMetric,
+
+    /**
+     * The AggPercentileRanks model constructor.
+     * @property {module:model/AggPercentileRanks}
+     */
+    AggPercentileRanks,
+
+    /**
+     * The AggPercentiles model constructor.
+     * @property {module:model/AggPercentiles}
+     */
+    AggPercentiles,
+
+    /**
+     * The AggRange model constructor.
+     * @property {module:model/AggRange}
+     */
+    AggRange,
+
+    /**
+     * The AggTDigest model constructor.
+     * @property {module:model/AggTDigest}
+     */
+    AggTDigest,
+
+    /**
      * The AggTerms model constructor.
      * @property {module:model/AggTerms}
      */
@@ -162,6 +225,12 @@ export {
     BulkResponse,
 
     /**
+     * The Chat model constructor.
+     * @property {module:model/Chat}
+     */
+    Chat,
+
+    /**
      * The DeleteDocumentRequest model constructor.
      * @property {module:model/DeleteDocumentRequest}
      */
@@ -178,6 +247,18 @@ export {
      * @property {module:model/ErrorResponse}
      */
     ErrorResponse,
+
+    /**
+     * The FacetBucketStatus model constructor.
+     * @property {module:model/FacetBucketStatus}
+     */
+    FacetBucketStatus,
+
+    /**
+     * The FacetFilterMode model constructor.
+     * @property {module:model/FacetFilterMode}
+     */
+    FacetFilterMode,
 
     /**
      * The FulltextFilter model constructor.
@@ -220,6 +301,12 @@ export {
      * @property {module:model/HitsHits}
      */
     HitsHits,
+
+    /**
+     * The Hybrid model constructor.
+     * @property {module:model/Hybrid}
+     */
+    Hybrid,
 
     /**
      * The InsertDocumentRequest model constructor.
@@ -294,6 +381,12 @@ export {
     Range,
 
     /**
+     * The RangeFilter model constructor.
+     * @property {module:model/RangeFilter}
+     */
+    RangeFilter,
+
+    /**
      * The ReplaceDocumentRequest model constructor.
      * @property {module:model/ReplaceDocumentRequest}
      */
@@ -310,6 +403,18 @@ export {
      * @property {module:model/ResponseErrorDetails}
      */
     ResponseErrorDetails,
+
+    /**
+     * The ScriptField model constructor.
+     * @property {module:model/ScriptField}
+     */
+    ScriptField,
+
+    /**
+     * The ScriptFieldScript model constructor.
+     * @property {module:model/ScriptFieldScript}
+     */
+    ScriptFieldScript,
 
     /**
      * The SearchQuery model constructor.

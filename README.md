@@ -3,7 +3,7 @@
 Сlient for Manticore Search.
 
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/9.0.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/10.1.0
 
 ## Compatibility Table
 
@@ -12,9 +12,11 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 | **manticoresearch-javascript*  | **Manticore Search**                | **Node**            | **Compatibility**       |
 | ------------------------------ | ----------------------------------- | ------------------- | ------------------------|
 | `manticoresearch-dev`          | `dev` (latest development version)  | Node 18 or newer    | ✅ Fully Compatible     |
-| 9.0.0 or newer                 | 17.5.1 or newer                     | Node 18 or newer    | ✅ Fully Compatible     |
-| 9.0.0 or newer                 | 9.2.14 to 17.5.1                    | Node 18 or newer    | ⚠️ Partially Compatible |
-| 8.0.0 to 9.0.0                 | 9.2.14 to 17.5.1                    | Node 18 or newer    | ✅ Fully Compatible     |
+| 10.1.0 or newer                | 28.4.4 or newer                     | Node 18 or newer    | ✅ Fully Compatible     |
+| 10.0.0 to 10.1.0               | 28.4.4 or newer                     | Node 18 or newer    | ⚠️ Partially Compatible |
+| 10.0.0 to 10.1.0               | 17.5.1 to 28.4.4                    | Node 18 or newer    | ✅ Fully Compatible     |
+| 10.0.0 to 10.1.0               | 9.2.14 to 17.5.1                    | Node 18 or newer    | ⚠️ Partially Compatible |
+| 8.0.0 to 10.0.0                | 9.2.14 to 17.5.1                    | Node 18 or newer    | ✅ Fully Compatible     |
 | 7.0.0 to 8.0.0                 | 7.4.6 to 9.2.14                     | Node 18 or newer    | ✅ Fully Compatible     |
 | 6.0.0 to 7.0.0                 | 7.0.0 to 7.4.6                      | Node 18 or newer    | ✅ Fully Compatible     |
 | 6.0.0 to 7.0.0                 | 6.2.1 to 7.0.0                      | Node 18 or newer    | ⚠️ Partially Compatible |
@@ -39,6 +41,14 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var Manticoresearch = require('manticoresearch');
 
+var defaultClient = Manticoresearch.ApiClient.instance;
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME'
+basicAuth.password = 'YOUR PASSWORD'
+// Configure Bearer access token for authorization: bearerAuth
+var bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 # Create instances of API classes
 var client= new Manticoresearch.ApiClient();
@@ -88,23 +98,35 @@ Class | Method | HTTP request | Description
 *Manticoresearch.SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /pq/{table}/search | Perform reverse search on a percolate table
 *Manticoresearch.SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /search | Performs a search on a table
 *Manticoresearch.UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
+*Manticoresearch.UtilsApi* | [**token**](docs/UtilsApi.md#token) | **POST** /token | Create or rotate a bearer token
 
 
 ## Documentation for Models
 
+ - [Manticoresearch.AggBucket](docs/AggBucket.md)
+ - [Manticoresearch.AggBucketsResult](docs/AggBucketsResult.md)
  - [Manticoresearch.AggComposite](docs/AggComposite.md)
  - [Manticoresearch.AggCompositeSource](docs/AggCompositeSource.md)
  - [Manticoresearch.AggCompositeTerm](docs/AggCompositeTerm.md)
  - [Manticoresearch.AggDateHistogram](docs/AggDateHistogram.md)
  - [Manticoresearch.AggHistogram](docs/AggHistogram.md)
+ - [Manticoresearch.AggMedianAbsoluteDeviation](docs/AggMedianAbsoluteDeviation.md)
+ - [Manticoresearch.AggMetric](docs/AggMetric.md)
+ - [Manticoresearch.AggPercentileRanks](docs/AggPercentileRanks.md)
+ - [Manticoresearch.AggPercentiles](docs/AggPercentiles.md)
+ - [Manticoresearch.AggRange](docs/AggRange.md)
+ - [Manticoresearch.AggTDigest](docs/AggTDigest.md)
  - [Manticoresearch.AggTerms](docs/AggTerms.md)
  - [Manticoresearch.Aggregation](docs/Aggregation.md)
  - [Manticoresearch.AutocompleteRequest](docs/AutocompleteRequest.md)
  - [Manticoresearch.BoolFilter](docs/BoolFilter.md)
  - [Manticoresearch.BulkResponse](docs/BulkResponse.md)
+ - [Manticoresearch.Chat](docs/Chat.md)
  - [Manticoresearch.DeleteDocumentRequest](docs/DeleteDocumentRequest.md)
  - [Manticoresearch.DeleteResponse](docs/DeleteResponse.md)
  - [Manticoresearch.ErrorResponse](docs/ErrorResponse.md)
+ - [Manticoresearch.FacetBucketStatus](docs/FacetBucketStatus.md)
+ - [Manticoresearch.FacetFilterMode](docs/FacetFilterMode.md)
  - [Manticoresearch.FulltextFilter](docs/FulltextFilter.md)
  - [Manticoresearch.GeoDistance](docs/GeoDistance.md)
  - [Manticoresearch.GeoDistanceLocationAnchor](docs/GeoDistanceLocationAnchor.md)
@@ -112,6 +134,7 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.HighlightFieldOption](docs/HighlightFieldOption.md)
  - [Manticoresearch.HighlightFields](docs/HighlightFields.md)
  - [Manticoresearch.HitsHits](docs/HitsHits.md)
+ - [Manticoresearch.Hybrid](docs/Hybrid.md)
  - [Manticoresearch.InsertDocumentRequest](docs/InsertDocumentRequest.md)
  - [Manticoresearch.Join](docs/Join.md)
  - [Manticoresearch.JoinCond](docs/JoinCond.md)
@@ -124,9 +147,12 @@ Class | Method | HTTP request | Description
  - [Manticoresearch.PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [Manticoresearch.QueryFilter](docs/QueryFilter.md)
  - [Manticoresearch.Range](docs/Range.md)
+ - [Manticoresearch.RangeFilter](docs/RangeFilter.md)
  - [Manticoresearch.ReplaceDocumentRequest](docs/ReplaceDocumentRequest.md)
  - [Manticoresearch.ResponseError](docs/ResponseError.md)
  - [Manticoresearch.ResponseErrorDetails](docs/ResponseErrorDetails.md)
+ - [Manticoresearch.ScriptField](docs/ScriptField.md)
+ - [Manticoresearch.ScriptFieldScript](docs/ScriptFieldScript.md)
  - [Manticoresearch.SearchQuery](docs/SearchQuery.md)
  - [Manticoresearch.SearchRequest](docs/SearchRequest.md)
  - [Manticoresearch.SearchResponse](docs/SearchResponse.md)
@@ -141,5 +167,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-Endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+### basicAuth
+
+- **Type**: HTTP basic authentication
+
+### bearerAuth
+
+- **Type**: Bearer authentication
 

@@ -96,6 +96,36 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property conversationUuid (base name: "conversation_uuid")', function() {
+      // uncomment below and update the code to test the property conversationUuid
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userQuery (base name: "user_query")', function() {
+      // uncomment below and update the code to test the property userQuery
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property searchQuery (base name: "search_query")', function() {
+      // uncomment below and update the code to test the property searchQuery
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property response (base name: "response")', function() {
+      // uncomment below and update the code to test the property response
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sources (base name: "sources")', function() {
+      // uncomment below and update the code to test the property sources
+      //var instance = new Manticoresearch.SearchResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

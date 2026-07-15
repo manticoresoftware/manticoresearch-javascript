@@ -13,26 +13,29 @@
 
 import ApiClient from '../ApiClient';
 import Aggregation from './Aggregation';
+import Chat from './Chat';
+import FacetFilterMode from './FacetFilterMode';
 import Highlight from './Highlight';
+import Hybrid from './Hybrid';
 import Join from './Join';
 import Knn from './Knn';
+import ScriptField from './ScriptField';
 import SearchQuery from './SearchQuery';
 
 /**
  * The SearchRequest model module.
  * @module model/SearchRequest
- * @version 9.0.0
+ * @version 10.1.0
  */
 class SearchRequest {
     /**
      * Constructs a new <code>SearchRequest</code>.
-     * Request object for search operation
+     * Request object for search operation. Either &#x60;table&#x60; (regular search) or &#x60;chat&#x60; (conversational search) must be provided. 
      * @alias module:model/SearchRequest
-     * @param table {String} The table to perform the search on
      */
-    constructor(table) { 
+    constructor() { 
         
-        SearchRequest.initialize(this, table);
+        SearchRequest.initialize(this);
     }
 
     /**
@@ -40,8 +43,7 @@ class SearchRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, table) { 
-        obj['table'] = table;
+    static initialize(obj) { 
     }
 
     /**
@@ -58,6 +60,9 @@ class SearchRequest {
             if (data.hasOwnProperty('table')) {
                 obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
+            if (data.hasOwnProperty('chat')) {
+                obj['chat'] = Chat.constructFromObject(data['chat']);
+            }
             if (data.hasOwnProperty('query')) {
                 obj['query'] = SearchQuery.constructFromObject(data['query']);
             }
@@ -73,11 +78,20 @@ class SearchRequest {
             if (data.hasOwnProperty('knn')) {
                 obj['knn'] = Knn.constructFromObject(data['knn']);
             }
+            if (data.hasOwnProperty('hybrid')) {
+                obj['hybrid'] = Hybrid.constructFromObject(data['hybrid']);
+            }
+            if (data.hasOwnProperty('facet_filter_mode')) {
+                obj['facet_filter_mode'] = FacetFilterMode.constructFromObject(data['facet_filter_mode']);
+            }
             if (data.hasOwnProperty('aggs')) {
                 obj['aggs'] = ApiClient.convertToType(data['aggs'], {'String': Aggregation});
             }
             if (data.hasOwnProperty('expressions')) {
                 obj['expressions'] = ApiClient.convertToType(data['expressions'], {'String': 'String'});
+            }
+            if (data.hasOwnProperty('script_fields')) {
+                obj['script_fields'] = ApiClient.convertToType(data['script_fields'], {'String': ScriptField});
             }
             if (data.hasOwnProperty('max_matches')) {
                 obj['max_matches'] = ApiClient.convertToType(data['max_matches'], 'Number');
@@ -110,15 +124,13 @@ class SearchRequest {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SearchRequest</code>.
      */
     static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of SearchRequest.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
         // ensure the json data is a string
         if (data['table'] && !(typeof data['table'] === 'string' || data['table'] instanceof String)) {
             throw new Error("Expected the field `table` to be a primitive type in the JSON string but got " + data['table']);
+        }
+        // validate the optional field `chat`
+        if (data['chat']) { // data not null
+          Chat.validateJSON(data['chat']);
         }
         // validate the optional field `query`
         if (data['query']) { // data not null
@@ -142,6 +154,10 @@ class SearchRequest {
         if (data['knn']) { // data not null
           Knn.validateJSON(data['knn']);
         }
+        // validate the optional field `hybrid`
+        if (data['hybrid']) { // data not null
+          Hybrid.validateJSON(data['hybrid']);
+        }
 
         return true;
     }
@@ -149,13 +165,18 @@ class SearchRequest {
 
 }
 
-SearchRequest.RequiredProperties = ["table"];
+
 
 /**
  * The table to perform the search on
  * @member {String} table
  */
 SearchRequest.prototype['table'] = undefined;
+
+/**
+ * @member {module:model/Chat} chat
+ */
+SearchRequest.prototype['chat'] = undefined;
 
 /**
  * @member {module:model/SearchQuery} query
@@ -180,9 +201,20 @@ SearchRequest.prototype['highlight'] = undefined;
 SearchRequest.prototype['limit'] = undefined;
 
 /**
+ * K-nearest neighbor search settings. Pass a single `knn` object or an array of objects for multi-vector search. 
  * @member {module:model/Knn} knn
  */
 SearchRequest.prototype['knn'] = undefined;
+
+/**
+ * @member {module:model/Hybrid} hybrid
+ */
+SearchRequest.prototype['hybrid'] = undefined;
+
+/**
+ * @member {module:model/FacetFilterMode} facet_filter_mode
+ */
+SearchRequest.prototype['facet_filter_mode'] = undefined;
 
 /**
  * Defines aggregation settings for grouping results
@@ -191,10 +223,16 @@ SearchRequest.prototype['knn'] = undefined;
 SearchRequest.prototype['aggs'] = undefined;
 
 /**
- * Expressions to calculate additional values for the result
+ * Expressions to calculate additional values for the result. Simpler alternative to `script_fields`; expression names must be lowercase. 
  * @member {Object.<String, String>} expressions
  */
 SearchRequest.prototype['expressions'] = undefined;
+
+/**
+ * Named expressions computed at search time. Each value defines an inline script whose result is stored under the field name. For more information see [Expressions](https://manual.manticoresearch.com/Searching/Expressions#script_fields) 
+ * @member {Object.<String, module:model/ScriptField>} script_fields
+ */
+SearchRequest.prototype['script_fields'] = undefined;
 
 /**
  * Maximum number of matches allowed in the result

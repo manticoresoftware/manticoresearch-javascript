@@ -54,26 +54,14 @@
       //expect(instance).to.be.a(Manticoresearch.Range);
     });
 
-    it('should have the property lt (base name: "lt")', function() {
-      // uncomment below and update the code to test the property lt
+    it('should have the property from (base name: "from")', function() {
+      // uncomment below and update the code to test the property from
       //var instance = new Manticoresearch.Range();
       //expect(instance).to.be();
     });
 
-    it('should have the property lte (base name: "lte")', function() {
-      // uncomment below and update the code to test the property lte
-      //var instance = new Manticoresearch.Range();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property gt (base name: "gt")', function() {
-      // uncomment below and update the code to test the property gt
-      //var instance = new Manticoresearch.Range();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property gte (base name: "gte")', function() {
-      // uncomment below and update the code to test the property gte
+    it('should have the property to (base name: "to")', function() {
+      // uncomment below and update the code to test the property to
       //var instance = new Manticoresearch.Range();
       //expect(instance).to.be();
     });

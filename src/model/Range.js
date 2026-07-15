@@ -16,12 +16,12 @@ import ApiClient from '../ApiClient';
 /**
  * The Range model module.
  * @module model/Range
- * @version 9.0.0
+ * @version 10.1.0
  */
 class Range {
     /**
      * Constructs a new <code>Range</code>.
-     * Filter helper object defining the &#39;range&#39; condition
+     * An aggregation range. 
      * @alias module:model/Range
      */
     constructor() { 
@@ -48,17 +48,11 @@ class Range {
         if (data) {
             obj = obj || new Range();
 
-            if (data.hasOwnProperty('lt')) {
-                obj['lt'] = ApiClient.convertToType(data['lt'], Object);
+            if (data.hasOwnProperty('from')) {
+                obj['from'] = ApiClient.convertToType(data['from'], Object);
             }
-            if (data.hasOwnProperty('lte')) {
-                obj['lte'] = ApiClient.convertToType(data['lte'], Object);
-            }
-            if (data.hasOwnProperty('gt')) {
-                obj['gt'] = ApiClient.convertToType(data['gt'], Object);
-            }
-            if (data.hasOwnProperty('gte')) {
-                obj['gte'] = ApiClient.convertToType(data['gte'], Object);
+            if (data.hasOwnProperty('to')) {
+                obj['to'] = ApiClient.convertToType(data['to'], Object);
             }
         }
         return obj;
@@ -80,24 +74,14 @@ class Range {
 
 
 /**
- * @member {Object} lt
+ * @member {Object} from
  */
-Range.prototype['lt'] = undefined;
+Range.prototype['from'] = undefined;
 
 /**
- * @member {Object} lte
+ * @member {Object} to
  */
-Range.prototype['lte'] = undefined;
-
-/**
- * @member {Object} gt
- */
-Range.prototype['gt'] = undefined;
-
-/**
- * @member {Object} gte
- */
-Range.prototype['gte'] = undefined;
+Range.prototype['to'] = undefined;
 
 
 

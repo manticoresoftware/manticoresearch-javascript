@@ -19,7 +19,7 @@ import SqlResponse from '../model/SqlResponse';
 /**
 * Utils service.
 * @module api/UtilsApi
-* @version 9.0.0
+* @version 10.1.0
 */
 export default class UtilsApi {
 
@@ -64,7 +64,7 @@ export default class UtilsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = ['text/plain'];
       let accepts = ['application/json'];
       let returnType = SqlResponse;
@@ -85,6 +85,53 @@ export default class UtilsApi {
      */
     sql(body, opts) {
       return this.sqlWithHttpInfo(body, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Create or rotate a bearer token
+     * Create or rotate a bearer token for the authenticated HTTP user. Requires HTTP Basic authentication with a Manticore user name and password. The endpoint returns the raw token. Example:    ```   curl -u admin:password -X POST http://127.0.0.1:9308/token -d \"{}\"   ``` 
+     * @param {Object.<String, Object>} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
+     */
+    tokenWithHttpInfo(body) {
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling token");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['basicAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json', 'text/plain'];
+      let returnType = 'String';
+      return this.apiClient.callApi(
+        '/token', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create or rotate a bearer token
+     * Create or rotate a bearer token for the authenticated HTTP user. Requires HTTP Basic authentication with a Manticore user name and password. The endpoint returns the raw token. Example:    ```   curl -u admin:password -X POST http://127.0.0.1:9308/token -d \"{}\"   ``` 
+     * @param {Object.<String, Object>} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
+     */
+    token(body) {
+      return this.tokenWithHttpInfo(body)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

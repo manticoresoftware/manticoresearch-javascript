@@ -78,6 +78,66 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property dateHistogram (base name: "date_histogram")', function() {
+      // uncomment below and update the code to test the property dateHistogram
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property range (base name: "range")', function() {
+      // uncomment below and update the code to test the property range
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dateRange (base name: "date_range")', function() {
+      // uncomment below and update the code to test the property dateRange
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property percentiles (base name: "percentiles")', function() {
+      // uncomment below and update the code to test the property percentiles
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property percentileRanks (base name: "percentile_ranks")', function() {
+      // uncomment below and update the code to test the property percentileRanks
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property medianAbsoluteDeviation (base name: "median_absolute_deviation")', function() {
+      // uncomment below and update the code to test the property medianAbsoluteDeviation
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property min (base name: "min")', function() {
+      // uncomment below and update the code to test the property min
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property max (base name: "max")', function() {
+      // uncomment below and update the code to test the property max
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sum (base name: "sum")', function() {
+      // uncomment below and update the code to test the property sum
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property avg (base name: "avg")', function() {
+      // uncomment below and update the code to test the property avg
+      //var instance = new Manticoresearch.Aggregation();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

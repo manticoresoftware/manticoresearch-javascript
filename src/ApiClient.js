@@ -18,7 +18,7 @@ import { JSONParse } from 'json-with-bigint';
 
 /**
 * @module ApiClient
-* @version 9.0.0
+* @version 10.1.0
 */
 
 /**
@@ -47,6 +47,8 @@ class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
+            'basicAuth': {type: 'basic'},
+            'bearerAuth': {type: 'bearer'}
         }
 
         /**
@@ -55,7 +57,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/9.0.0/Javascript'
+            'User-Agent': 'OpenAPI-Generator/10.1.0/Javascript'
         };
 
         /**
