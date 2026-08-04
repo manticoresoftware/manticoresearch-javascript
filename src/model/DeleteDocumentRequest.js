@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DeleteDocumentRequest model module.
  * @module model/DeleteDocumentRequest
- * @version 10.1.0
+ * @version 10.2.0
  */
 class DeleteDocumentRequest {
     /**
@@ -57,7 +57,13 @@ class DeleteDocumentRequest {
                 obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
             }
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                if (typeof data['id'] === 'string' || data['id'] instanceof String) {
+                    obj['id'] = null;
+                    obj['uuid'] = data['id'];
+                } else {
+                    obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                    obj['uuid'] = null;
+                }
             }
             if (data.hasOwnProperty('query')) {
                 obj['query'] = ApiClient.convertToType(data['query'], Object);
@@ -91,6 +97,22 @@ class DeleteDocumentRequest {
     }
 
 
+
+    /**
+     * Serializes numeric document IDs or UUID companions to one wire field.
+     * @return {Object} JSON-compatible document data.
+     */
+    toJSON() {
+        const data = {...this};
+        delete data['uuid'];
+        if (this['uuid'] !== undefined && this['uuid'] !== null) {
+            data['id'] = this['uuid'];
+        } else if (this['id'] === undefined || this['id'] === null) {
+            delete data['id'];
+        }
+        return data;
+    }
+
 }
 
 DeleteDocumentRequest.RequiredProperties = ["table"];
@@ -112,6 +134,12 @@ DeleteDocumentRequest.prototype['cluster'] = undefined;
  * @member {Number} id
  */
 DeleteDocumentRequest.prototype['id'] = undefined;
+
+/**
+ * UUID document ID when the wire ID field is a string.
+ * @member {String} uuid
+ */
+DeleteDocumentRequest.prototype['uuid'] = undefined;
 
 /**
  * Defines the criteria to match documents for deletion

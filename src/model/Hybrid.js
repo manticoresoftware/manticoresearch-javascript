@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Hybrid model module.
  * @module model/Hybrid
- * @version 10.1.0
+ * @version 10.2.0
  */
 class Hybrid {
     /**

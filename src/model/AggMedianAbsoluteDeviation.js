@@ -17,7 +17,7 @@ import AggTDigest from './AggTDigest';
 /**
  * The AggMedianAbsoluteDeviation model module.
  * @module model/AggMedianAbsoluteDeviation
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggMedianAbsoluteDeviation {
     /**

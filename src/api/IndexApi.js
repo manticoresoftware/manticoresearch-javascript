@@ -26,7 +26,7 @@ import UpdateResponse from '../model/UpdateResponse';
 /**
 * Index service.
 * @module api/IndexApi
-* @version 10.1.0
+* @version 10.2.0
 */
 export default class IndexApi {
 
@@ -237,6 +237,19 @@ export default class IndexApi {
      * @param {module:model/ReplaceDocumentRequest} replaceDocumentRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateResponse}
      */
+    /** Partially replaces a document by UUID string id. */
+    partialReplaceUuidWithHttpInfo(table, uuid, replaceDocumentRequest) {
+      return this.partialReplaceWithHttpInfo(table, uuid, replaceDocumentRequest);
+    }
+
+    /** Partially replaces a document by UUID string id. */
+    partialReplaceUuid(table, uuid, replaceDocumentRequest) {
+      return this.partialReplaceUuidWithHttpInfo(table, uuid, replaceDocumentRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
     partialReplace(table, id, replaceDocumentRequest) {
       return this.partialReplaceWithHttpInfo(table, id, replaceDocumentRequest)
         .then(function(response_and_data) {

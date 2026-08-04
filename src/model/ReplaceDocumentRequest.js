@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReplaceDocumentRequest model module.
  * @module model/ReplaceDocumentRequest
- * @version 10.1.0
+ * @version 10.2.0
  */
 class ReplaceDocumentRequest {
     /**

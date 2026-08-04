@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SuccessResponse model module.
  * @module model/SuccessResponse
- * @version 10.1.0
+ * @version 10.2.0
  */
 class SuccessResponse {
     /**
@@ -52,7 +52,13 @@ class SuccessResponse {
                 obj['table'] = ApiClient.convertToType(data['table'], 'String');
             }
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                if (typeof data['id'] === 'string' || data['id'] instanceof String) {
+                    obj['id'] = null;
+                    obj['uuid'] = data['id'];
+                } else {
+                    obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                    obj['uuid'] = null;
+                }
             }
             if (data.hasOwnProperty('created')) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Boolean');
@@ -88,6 +94,20 @@ class SuccessResponse {
         return true;
     }
 
+    /**
+     * Serializes numeric document IDs or UUID companions to one wire field.
+     * @return {Object} JSON-compatible document data.
+     */
+    toJSON() {
+        const data = {...this};
+        delete data['uuid'];
+        if (this['uuid'] !== undefined && this['uuid'] !== null) {
+            data['id'] = this['uuid'];
+        } else if (this['id'] === undefined || this['id'] === null) {
+            delete data['id'];
+        }
+        return data;
+    }
 
 }
 
@@ -104,6 +124,12 @@ SuccessResponse.prototype['table'] = undefined;
  * @member {Number} id
  */
 SuccessResponse.prototype['id'] = undefined;
+
+/**
+ * UUID document ID when the wire ID field is a string.
+ * @member {String} uuid
+ */
+SuccessResponse.prototype['uuid'] = undefined;
 
 /**
  * Indicates whether the document was created as a result of the operation

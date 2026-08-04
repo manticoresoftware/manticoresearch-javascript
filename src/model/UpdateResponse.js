@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateResponse model module.
  * @module model/UpdateResponse
- * @version 10.1.0
+ * @version 10.2.0
  */
 class UpdateResponse {
     /**
@@ -55,7 +55,13 @@ class UpdateResponse {
                 obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
             }
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                if (typeof data['id'] === 'string' || data['id'] instanceof String) {
+                    obj['id'] = null;
+                    obj['uuid'] = data['id'];
+                } else {
+                    obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                    obj['uuid'] = null;
+                }
             }
             if (data.hasOwnProperty('result')) {
                 obj['result'] = ApiClient.convertToType(data['result'], 'String');
@@ -82,6 +88,20 @@ class UpdateResponse {
         return true;
     }
 
+    /**
+     * Serializes numeric document IDs or UUID companions to one wire field.
+     * @return {Object} JSON-compatible document data.
+     */
+    toJSON() {
+        const data = {...this};
+        delete data['uuid'];
+        if (this['uuid'] !== undefined && this['uuid'] !== null) {
+            data['id'] = this['uuid'];
+        } else if (this['id'] === undefined || this['id'] === null) {
+            delete data['id'];
+        }
+        return data;
+    }
 
 }
 
@@ -104,6 +124,12 @@ UpdateResponse.prototype['updated'] = undefined;
  * @member {Number} id
  */
 UpdateResponse.prototype['id'] = undefined;
+
+/**
+ * UUID document ID when the wire ID field is a string.
+ * @member {String} uuid
+ */
+UpdateResponse.prototype['uuid'] = undefined;
 
 /**
  * Result of the update operation, typically 'updated'

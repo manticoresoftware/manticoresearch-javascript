@@ -18,7 +18,7 @@ import QueryFilter from './QueryFilter';
 /**
  * The Knn model module.
  * @module model/Knn
- * @version 10.1.0
+ * @version 10.2.0
  */
 class Knn {
     /**
@@ -26,11 +26,10 @@ class Knn {
      * Object representing a k-nearest neighbor search query
      * @alias module:model/Knn
      * @param field {String} Field to perform the k-nearest neighbor search on
-     * @param k {Number} The number of nearest neighbors to return
      */
-    constructor(field, k) { 
+    constructor(field) { 
         
-        Knn.initialize(this, field, k);
+        Knn.initialize(this, field);
     }
 
     /**
@@ -38,9 +37,8 @@ class Knn {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, field, k) { 
+    static initialize(obj, field) { 
         obj['field'] = field;
-        obj['k'] = k;
     }
 
     /**
@@ -67,7 +65,13 @@ class Knn {
                 obj['query_vector'] = ApiClient.convertToType(data['query_vector'], ['Number']);
             }
             if (data.hasOwnProperty('doc_id')) {
-                obj['doc_id'] = ApiClient.convertToType(data['doc_id'], 'Number');
+                if (typeof data['doc_id'] === 'string' || data['doc_id'] instanceof String) {
+                    obj['doc_id'] = null;
+                    obj['uuid'] = data['doc_id'];
+                } else {
+                    obj['doc_id'] = ApiClient.convertToType(data['doc_id'], 'Number');
+                    obj['uuid'] = null;
+                }
             }
             if (data.hasOwnProperty('ef')) {
                 obj['ef'] = ApiClient.convertToType(data['ef'], 'Number');
@@ -117,10 +121,24 @@ class Knn {
         return true;
     }
 
+    /**
+     * Serializes numeric document IDs or UUID companions to one wire field.
+     * @return {Object} JSON-compatible document data.
+     */
+    toJSON() {
+        const data = {...this};
+        delete data['uuid'];
+        if (this['uuid'] !== undefined && this['uuid'] !== null) {
+            data['doc_id'] = this['uuid'];
+        } else if (this['doc_id'] === undefined || this['doc_id'] === null) {
+            delete data['doc_id'];
+        }
+        return data;
+    }
 
 }
 
-Knn.RequiredProperties = ["field", "k"];
+Knn.RequiredProperties = ["field"];
 
 /**
  * Field to perform the k-nearest neighbor search on
@@ -129,7 +147,7 @@ Knn.RequiredProperties = ["field", "k"];
 Knn.prototype['field'] = undefined;
 
 /**
- * The number of nearest neighbors to return
+ * Deprecated. Use the top-level `limit` parameter instead.
  * @member {Number} k
  */
 Knn.prototype['k'] = undefined;
@@ -146,10 +164,16 @@ Knn.prototype['query'] = undefined;
 Knn.prototype['query_vector'] = undefined;
 
 /**
- * The docuemnt ID used as input for the KNN search
+ * The document ID used as input for the KNN search
  * @member {Number} doc_id
  */
 Knn.prototype['doc_id'] = undefined;
+
+/**
+ * UUID document ID when the wire ID field is a string.
+ * @member {String} uuid
+ */
+Knn.prototype['uuid'] = undefined;
 
 /**
  * Optional parameter controlling the accuracy of the search

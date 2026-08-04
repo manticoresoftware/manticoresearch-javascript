@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggMetric model module.
  * @module model/AggMetric
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggMetric {
     /**

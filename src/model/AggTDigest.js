@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggTDigest model module.
  * @module model/AggTDigest
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggTDigest {
     /**

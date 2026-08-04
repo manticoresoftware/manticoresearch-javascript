@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggHistogram model module.
  * @module model/AggHistogram
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggHistogram {
     /**

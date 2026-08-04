@@ -17,7 +17,7 @@ import AggCompositeTerm from './AggCompositeTerm';
 /**
  * The AggCompositeSource model module.
  * @module model/AggCompositeSource
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggCompositeSource {
     /**

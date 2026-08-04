@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RangeFilter model module.
  * @module model/RangeFilter
- * @version 10.1.0
+ * @version 10.2.0
  */
 class RangeFilter {
     /**

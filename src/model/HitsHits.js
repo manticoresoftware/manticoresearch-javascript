@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HitsHits model module.
  * @module model/HitsHits
- * @version 10.1.0
+ * @version 10.2.0
  */
 class HitsHits {
     /**
@@ -49,7 +49,13 @@ class HitsHits {
             obj = obj || new HitsHits();
 
             if (data.hasOwnProperty('_id')) {
-                obj['_id'] = ApiClient.convertToType(data['_id'], 'Number');
+                if (typeof data['_id'] === 'string' || data['_id'] instanceof String) {
+                    obj['_id'] = null;
+                    obj['_uuid'] = data['_id'];
+                } else {
+                    obj['_id'] = ApiClient.convertToType(data['_id'], 'Number');
+                    obj['_uuid'] = null;
+                }
             }
             if (data.hasOwnProperty('_score')) {
                 obj['_score'] = ApiClient.convertToType(data['_score'], 'Number');
@@ -95,6 +101,22 @@ class HitsHits {
     }
 
 
+    /**
+     * Serializes numeric document IDs or UUID companions to one wire field.
+     * @return {Object} JSON-compatible document data.
+     */
+    toJSON() {
+        const data = {...this};
+        delete data['_uuid'];
+        if (this['_uuid'] !== undefined && this['_uuid'] !== null) {
+            data['_id'] = this['_uuid'];
+        } else if (this['_id'] === undefined || this['_id'] === null) {
+            delete data['_id'];
+        }
+        return data;
+    }
+
+
 }
 
 
@@ -104,6 +126,12 @@ class HitsHits {
  * @member {Number} _id
  */
 HitsHits.prototype['_id'] = undefined;
+
+/**
+ * UUID document ID when the wire ID field is a string.
+ * @member {String} _uuid
+ */
+HitsHits.prototype['_uuid'] = undefined;
 
 /**
  * The score of the matched document

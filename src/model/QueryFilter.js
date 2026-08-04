@@ -19,7 +19,7 @@ import GeoDistance from './GeoDistance';
 /**
  * The QueryFilter model module.
  * @module model/QueryFilter
- * @version 10.1.0
+ * @version 10.2.0
  */
 class QueryFilter {
     /**

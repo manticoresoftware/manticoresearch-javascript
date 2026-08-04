@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**bulk**](IndexApi.md#bulk) | **POST** /json/bulk | Bulk index operations
 [**callDelete**](IndexApi.md#callDelete) | **POST** /json/delete | Delete a document in an index
 [**insert**](IndexApi.md#insert) | **POST** /json/insert | Create a new document in an index
+[**partialReplace**](IndexApi.md#partialReplace) | **POST** /{table}/_update/{id} | Partially replaces a document in a table
+[**partialReplaceUuid**](IndexApi.md#partialReplaceUuid) | **POST** /{table}/_update/{id} | Partially replaces a document in a table by UUID
 [**replace**](IndexApi.md#replace) | **POST** /json/replace | Replace new document in an index
 [**update**](IndexApi.md#update) | **POST** /json/update | Update a document in an index
 
@@ -200,6 +202,89 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## partialReplace
+
+> UpdateResponse partialReplace(table, id, replaceDocumentRequest)
+
+Partially replaces a document with given numeric id in a table.
+
+### Example
+
+```javascript
+var Manticoresearch = require('manticoresearch');
+var indexApi = new Manticoresearch.IndexApi();
+async function run() {
+  const res = await indexApi.partialReplace('movies', 1, {doc: {title: 'updated'}});
+  console.log(res);
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **table** | **String**| Name of the table |
+ **id** | **Number**| Numeric id of the document to replace |
+ **replaceDocumentRequest** | [**ReplaceDocumentRequest**](ReplaceDocumentRequest.md)|  |
+
+### Return type
+
+[**UpdateResponse**](UpdateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## partialReplaceUuid
+
+> UpdateResponse partialReplaceUuid(table, uuid, replaceDocumentRequest)
+
+Partially replaces a document in a table by UUID string id (tables created with `id uuid`). Prefer this over passing a UUID into `partialReplace`.
+
+### Example
+
+```javascript
+var Manticoresearch = require('manticoresearch');
+var indexApi = new Manticoresearch.IndexApi();
+async function run() {
+  const res = await indexApi.partialReplaceUuid(
+    'movies_uuid',
+    '550e8400-e29b-41d4-a716-446655440000',
+    {doc: {title: 'updated'}}
+  );
+  console.log(res);
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **table** | **String**| Name of the table |
+ **uuid** | **String**| UUID of the document to replace |
+ **replaceDocumentRequest** | [**ReplaceDocumentRequest**](ReplaceDocumentRequest.md)|  |
+
+### Return type
+
+[**UpdateResponse**](UpdateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 
 ## replace

@@ -17,7 +17,7 @@ import AggTDigest from './AggTDigest';
 /**
  * The AggPercentileRanks model module.
  * @module model/AggPercentileRanks
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggPercentileRanks {
     /**

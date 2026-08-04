@@ -3,20 +3,23 @@
 Сlient for Manticore Search.
 
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/10.1.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-javascript/tree/10.2.0
 
 ## Compatibility Table
 
 Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
-| **manticoresearch-javascript*  | **Manticore Search**                | **Node**            | **Compatibility**       |
-| ------------------------------ | ----------------------------------- | ------------------- | ------------------------|
-| `manticoresearch-dev`          | `dev` (latest development version)  | Node 18 or newer    | ✅ Fully Compatible     |
-| 10.1.0 or newer                | 28.4.4 or newer                     | Node 18 or newer    | ✅ Fully Compatible     |
-| 10.0.0 to 10.1.0               | 28.4.4 or newer                     | Node 18 or newer    | ⚠️ Partially Compatible |
-| 10.0.0 to 10.1.0               | 17.5.1 to 28.4.4                    | Node 18 or newer    | ✅ Fully Compatible     |
-| 10.0.0 to 10.1.0               | 9.2.14 to 17.5.1                    | Node 18 or newer    | ⚠️ Partially Compatible |
-| 8.0.0 to 10.0.0                | 9.2.14 to 17.5.1                    | Node 18 or newer    | ✅ Fully Compatible     |
+| **manticoresearch-javascript*  | **Manticore Search**                | **Node**            | **Compatibility**        |
+| ------------------------------ | ----------------------------------- | ------------------- | ------------------------ |
+| `manticoresearch-dev`          | `dev` (latest development version)  | Node 18 or newer    | ✅ Fully Compatible       |
+| 10.2.0 or newer                | 28.6.6 or newer                     | Node 18 or newer    | ✅ Fully Compatible       |
+| 10.2.0 or newer                | 28.6.6 to 28.6.6                    | Node 18 or newer    | ⚠️ Partially Compatible  |
+| 10.1.0 to 10.2.0               | 28.6.6 or newer                     | Node 18 or newer    | ⚠️ Partially Compatible  |
+| 10.1.0 to 10.2.0               | 28.6.6 to 28.6.6                    | Node 18 or newer    | ✅ Fully Compatible       |
+| 10.0.0 to 10.1.0               | 28.6.6 to 28.6.6                    | Node 18 or newer    | ⚠️ Partially Compatible  |
+| 10.0.0 to 10.1.0               | 17.5.1 to 28.6.6                    | Node 18 or newer    | ✅ Fully Compatible       |
+| 8.0.0 to 10.0.0                | 17.5.1 to 28.6.6                    | Node 18 or newer    | ⚠️ Partially Compatible  |
+| 8.0.0 to 10.0.0                | 9.2.14 to 17.5.1                    | Node 18 or newer    | ✅ Fully Compatible       |
 | 7.0.0 to 8.0.0                 | 7.4.6 to 9.2.14                     | Node 18 or newer    | ✅ Fully Compatible     |
 | 6.0.0 to 7.0.0                 | 7.0.0 to 7.4.6                      | Node 18 or newer    | ✅ Fully Compatible     |
 | 6.0.0 to 7.0.0                 | 6.2.1 to 7.0.0                      | Node 18 or newer    | ⚠️ Partially Compatible |

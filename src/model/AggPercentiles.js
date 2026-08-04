@@ -17,7 +17,7 @@ import AggTDigest from './AggTDigest';
 /**
  * The AggPercentiles model module.
  * @module model/AggPercentiles
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggPercentiles {
     /**

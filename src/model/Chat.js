@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Chat model module.
  * @module model/Chat
- * @version 10.1.0
+ * @version 10.2.0
  */
 class Chat {
     /**

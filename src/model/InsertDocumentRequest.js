@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsertDocumentRequest model module.
  * @module model/InsertDocumentRequest
- * @version 10.1.0
+ * @version 10.2.0
  */
 class InsertDocumentRequest {
     /**
@@ -59,7 +59,13 @@ class InsertDocumentRequest {
                 obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
             }
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                if (typeof data['id'] === 'string' || data['id'] instanceof String) {
+                    obj['id'] = null;
+                    obj['uuid'] = data['id'];
+                } else {
+                    obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                    obj['uuid'] = null;
+                }
             }
             if (data.hasOwnProperty('doc')) {
                 obj['doc'] = ApiClient.convertToType(data['doc'], Object);
@@ -93,6 +99,22 @@ class InsertDocumentRequest {
     }
 
 
+
+    /**
+     * Serializes numeric document IDs or UUID companions to one wire field.
+     * @return {Object} JSON-compatible document data.
+     */
+    toJSON() {
+        const data = {...this};
+        delete data['uuid'];
+        if (this['uuid'] !== undefined && this['uuid'] !== null) {
+            data['id'] = this['uuid'];
+        } else if (this['id'] === undefined || this['id'] === null) {
+            delete data['id'];
+        }
+        return data;
+    }
+
 }
 
 InsertDocumentRequest.RequiredProperties = ["table", "doc"];
@@ -114,6 +136,12 @@ InsertDocumentRequest.prototype['cluster'] = undefined;
  * @member {Number} id
  */
 InsertDocumentRequest.prototype['id'] = undefined;
+
+/**
+ * UUID document ID when the wire ID field is a string.
+ * @member {String} uuid
+ */
+InsertDocumentRequest.prototype['uuid'] = undefined;
 
 /**
  * Object containing document data 

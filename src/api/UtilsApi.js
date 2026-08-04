@@ -19,7 +19,7 @@ import SqlResponse from '../model/SqlResponse';
 /**
 * Utils service.
 * @module api/UtilsApi
-* @version 10.1.0
+* @version 10.2.0
 */
 export default class UtilsApi {
 

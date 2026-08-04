@@ -17,7 +17,7 @@ import ScriptFieldScript from './ScriptFieldScript';
 /**
  * The ScriptField model module.
  * @module model/ScriptField
- * @version 10.1.0
+ * @version 10.2.0
  */
 class ScriptField {
     /**

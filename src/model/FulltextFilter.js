@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FulltextFilter model module.
  * @module model/FulltextFilter
- * @version 10.1.0
+ * @version 10.2.0
  */
 class FulltextFilter {
     /**

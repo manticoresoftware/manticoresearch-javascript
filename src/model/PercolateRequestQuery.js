@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PercolateRequestQuery model module.
  * @module model/PercolateRequestQuery
- * @version 10.1.0
+ * @version 10.2.0
  */
 class PercolateRequestQuery {
     /**

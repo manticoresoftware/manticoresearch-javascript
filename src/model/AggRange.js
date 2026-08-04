@@ -17,7 +17,7 @@ import Range from './Range';
 /**
  * The AggRange model module.
  * @module model/AggRange
- * @version 10.1.0
+ * @version 10.2.0
  */
 class AggRange {
     /**

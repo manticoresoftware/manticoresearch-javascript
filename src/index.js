@@ -107,7 +107,7 @@ import UtilsApi from './api/UtilsApi';
 * </pre>
 * </p>
 * @module index
-* @version 10.1.0
+* @version 10.2.0
 */
 export {
     /**
